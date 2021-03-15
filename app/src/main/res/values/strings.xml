@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">IT interview trainer</string>
+    <string name="btn_take_test_text">Take a test</string>
+    <string name="btn_categories_text">Categories</string>
+    <string name="btn_stat_text">Statistics</string>
 </resources>
