@@ -3,4 +3,10 @@
     <string name="btn_take_test_text">Take a test</string>
     <string name="btn_categories_text">Categories</string>
     <string name="btn_stat_text">Statistics</string>
+    <string name="test_setup_title">Setup test</string>
+    <string name="test_setup_categories">Select categories</string>
+    <string name="test_questions_amount">Questions amount</string>
+    <string name="test_select_timer">Setup timer</string>
+    <string name="test_select_level">Select level</string>
+    <string name="start_test">Start test</string>
 </resources>
