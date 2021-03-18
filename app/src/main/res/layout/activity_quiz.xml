@@ -77,8 +77,8 @@
         <RadioButton
             android:id="@+id/answer_a"
             android:layoutDirection="rtl"
+            android:gravity="start"
             android:textAlignment="textStart"
-            android:layout_gravity="start"
             style="@style/QuizDefaultRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -2,7 +2,9 @@ package com.pjs.itinterviewtrainer
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -27,7 +29,7 @@ class QuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
-        with(intent){
+        with(intent) {
             quizLevel = getStringExtra("quizLevel") ?: "medium"
             quizCategories = getStringArrayListExtra("quizCategories")?.toList() ?: listOf()
             quizAmount = getStringExtra("quizAmount")?.toInt() ?: 10
@@ -38,22 +40,25 @@ class QuizActivity : AppCompatActivity() {
         setupNextQuestion()
 
         submit.setOnClickListener {
-            when(submitCnt){
-                0 -> {
-                    handleResult()
-                    submit.text = "Next"
+            when (handleResult()) {
+                true -> {
+                    when (submitCnt) {
+                        0 -> {
+                            submit.text = "Next"
+                        }
+                        1 -> {
+                            setupNextQuestion()
+                            submit.text = "Submit"
+                        }
+                    }
+                    submitCnt = (submitCnt + 1) % 2
                 }
-                1 -> {
-                    setupNextQuestion()
-                    submit.text = "Submit"
-                }
+                false -> { }
             }
-            submitCnt = (submitCnt + 1) % 2
         }
-
     }
 
-    private fun resetViewColors(){
+    private fun resetViewColors() {
         answer_a.setTextColor(resources.getColor(R.color.quiz_btn_default_color, theme))
         answer_a.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_default_color)
         answer_b.setTextColor(resources.getColor(R.color.quiz_btn_default_color, theme))
@@ -64,8 +69,8 @@ class QuizActivity : AppCompatActivity() {
         answer_d.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_default_color)
     }
 
-    private fun setupNextQuestion(){
-        if(currentQuestionNumber >= questions.size) {
+    private fun setupNextQuestion() {
+        if (currentQuestionNumber >= questions.size) {
             AlertDialog.Builder(this)
                     .setTitle("Quiz completed")
                     .setMessage("Result: ${quizResults.correct}/${questions.size} correct answers")
@@ -80,16 +85,25 @@ class QuizActivity : AppCompatActivity() {
         currentQuestionNumber += 1
         currentQuestion = questions[currentQuestionNumber - 1]
         questionNumber.text = "${currentQuestionNumber}/${quizAmount}"
-        questionText.text = currentQuestion.questionText
+        questionText.text = currentQuestion.question_text
         answers.clearCheck()
-        answer_a.text = currentQuestion.answerA
-        answer_b.text = currentQuestion.answerB
-        answer_c.text = currentQuestion.answerC
-        answer_d.text = currentQuestion.answerD
+        setAnswer(answer_a, "a")
+        setAnswer(answer_b, "b")
+        setAnswer(answer_c, "c")
+        setAnswer(answer_d, "d")
     }
 
-    private fun handleResult() {
-        when (val btnId = answers.checkedRadioButtonId) {
+    private fun setAnswer(b: RadioButton, answerId: String){
+        if (currentQuestion.answers[answerId] != null) {
+            b.visibility = View.VISIBLE
+            b.text = currentQuestion.answers[answerId]
+        } else {
+            b.visibility = View.GONE
+        }
+    }
+
+    private fun handleResult(): Boolean {
+        return when (val btnId = answers.checkedRadioButtonId) {
             -1 -> {
                 AlertDialog.Builder(this)
                         .setTitle("No answer")
@@ -97,31 +111,35 @@ class QuizActivity : AppCompatActivity() {
                         .setPositiveButton("Ok") { _, _ -> }
                         .create()
                         .show()
+                false
             }
             else -> {
                 quizResults.questions.add(currentQuestion)
                 val answer = btnAnswersMap[btnId]
                 val checkedBtn = findViewById<RadioButton>(btnId)
-                if (answer == currentQuestion.correctAnswer) {
+                if (answer == currentQuestion.correct_answer) {
                     quizResults.correct += 1
                     checkedBtn.setTextColor(resources.getColor(R.color.quiz_btn_correct_color, theme))
                     checkedBtn.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_correct_color)
                 } else {
                     quizResults.wrong += 1
+
                     checkedBtn.setTextColor(resources.getColor(R.color.quiz_btn_wrong_color, theme))
                     checkedBtn.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_wrong_color)
 
-                    val correctBtnId = btnAnswersMap.entries.associate{ (k, v)-> v to k}[currentQuestion.correctAnswer] ?: -1
+                    val correctBtnId = btnAnswersMap.entries.associate { (k, v) -> v to k }[currentQuestion.correct_answer]
+                            ?: -1
                     findViewById<RadioButton>(correctBtnId)?.also {
                         it.setTextColor(resources.getColor(R.color.quiz_btn_correct_color, theme))
                         it.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_correct_color)
                     }
                 }
+                true
             }
         }
     }
 
-    private fun sendResults(){
+    private fun sendResults() {
         val intent = Intent()
         intent.putExtra("test", "${quizResults.correct}/${questions.size}")
         setResult(RESULT_OK, intent)
