@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".StartTestActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:id="@+id/buttons"
@@ -16,6 +14,7 @@
         app:layout_constraintHeight_default="wrap"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginVertical="25dp"
         app:layout_constraintRight_toRightOf="parent">
 
         <com.google.android.material.textview.MaterialTextView
@@ -34,12 +33,16 @@
             android:layout_height="wrap_content"
             android:hint="@string/test_setup_categories"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:endIconMode="none"
             app:layout_constraintTop_toBottomOf="@id/testSetupTitle">
 
-            <MultiAutoCompleteTextView
+            <AutoCompleteTextView
+                android:id="@+id/selectCategories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"
+                android:clickable="true"
+                android:focusable="false"
                 android:labelFor="@+id/selectCategories" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,6 +57,7 @@
             app:layout_constraintBottom_toTopOf="@+id/selectTimer">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/selectQAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
@@ -75,13 +79,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/test_select_level"
+            app:endIconMode="none"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/selectTimer">
 
-            <MultiAutoCompleteTextView
+            <AutoCompleteTextView
+                android:id="@+id/selectLevel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"
+                android:clickable="true"
+                android:focusable="false"
                 android:labelFor="@+id/selectLevel" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,4 +105,5 @@
             />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
