@@ -1,0 +1,1171 @@
+[
+  {
+    "difficulty": "easy",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "True", "b": "False" },
+    "correct_answer": "a",
+    "question_text": "In Python, 'Hello', is the same as \"Hello\""
+  },
+  {
+    "difficulty": "easy",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "execute python test.py",
+      "b": "run python test.py",
+      "c": "python test.py",
+      "d": "go python test.py"
+    },
+    "correct_answer": "c",
+    "question_text": "To run python script file named test.py, use the command ________."
+  },
+  {
+    "difficulty": "easy",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": ".pyth", "b": ".pt", "c": ".pyt", "d": ".py" },
+    "correct_answer": "d",
+    "question_text": "What is the correct file extension for Python files?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "Repeats string1 string2 times (string2 must be in numeric format).",
+      "b": "Concatenates string1 and string2.",
+      "c": "It's a syntax error.",
+      "d": "Adds string1 to string2 (both must be in numeric format)."
+    },
+    "correct_answer": "b",
+    "question_text": "What does the expression string1 + string2 do?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "compiler/at compile time",
+      "b": "interpreter/at runtime",
+      "c": "compiler/at runtime",
+      "d": "interpreter/at compile time"
+    },
+    "correct_answer": "b",
+    "question_text": "In Python, a syntax error is detected by the ________ at _________. *"
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "Python is an interpreted language.",
+      "b": "Python is a high level programming language.",
+      "c": "Python is an object-oriented language.",
+      "d": "All of the above."
+    },
+    "correct_answer": "d",
+    "question_text": "Which of the following statements is true?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "from sys import getarg",
+      "b": "from system import argv",
+      "c": "from sys import args",
+      "d": "from sys import argv"
+    },
+    "correct_answer": "d",
+    "question_text": "Which of these should you include in order to pass variables to a script?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "// comments //",
+      "b": "/* comments */",
+      "c": "\" comments \"",
+      "d": "/# comments #/"
+    },
+    "correct_answer": "c",
+    "question_text": "A Python paragraph comment uses the style ________."
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "Python Interpreter ignores comment.",
+      "b": "Comments are for programmers for better understanding of the program.",
+      "c": "You can write multi-line comments in Python using triple quotes, either ''' or \"\"\".",
+      "d": "All of the above."
+    },
+    "correct_answer": "d",
+    "question_text": "Which of the following is correct?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "#This is a comment",
+      "b": "/*This is a comment*/",
+      "c": "//This is a comment",
+      "d": "//This is a comment#"
+    },
+    "correct_answer": "a",
+    "question_text": "How do you insert comments in Python code?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "True", "b": "False" },
+    "correct_answer": "a",
+    "question_text": "Python syntax is case-sensitive."
+  },
+  {
+    "difficulty": "hard",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "Yes; the C code can be in a form of a dynamically or a statically linked library.",
+      "b": "No, it is impossible.",
+      "c": "Yes, but the C code must be provided in a form of a dynamically linked library.",
+      "d": "Yes, but C code must be provided in a form of statically linked library."
+    },
+    "correct_answer": "a",
+    "question_text": "Is it possible to link a Python program to code written in C?"
+  },
+  {
+    "difficulty": "hard",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "syntax", "b": "runtime", "c": "logical" },
+    "correct_answer": "c",
+    "question_text": "A ___________ error does not cause the program to abort, but produces incorrect results."
+  },
+  {
+    "difficulty": "hard",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "Robustly Executed Python Language",
+      "b": "Read, Execute, Python, Loop",
+      "c": "Realtime Evaluated Python Language",
+      "d": "Read, Evaluate, Print, Loop"
+    },
+    "correct_answer": "d",
+    "question_text": "What does REPL mean in Python?"
+  },
+  {
+    "difficulty": "hard",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "C/C++", "b": "Java", "c": "C#", "d": "Javascript" },
+    "correct_answer": "a",
+    "question_text": "Standard Python implementation can import libraries written in which of the following languages? Select all that apply"
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "Yes, PyErrs.",
+      "b": "Yes, PyChecker and Pylint.",
+      "c": "No, you must find the bugs on your own.",
+      "d": "Yes, PyStats."
+    },
+    "correct_answer": "b",
+    "question_text": "Are there tools available to help find bugs, or perform static analysis?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "print(\"Hello World\")",
+      "b": "echo(\"Hello World\");",
+      "c": "echo \"Hello World\"",
+      "d": "p(\"Hello World\")"
+    },
+    "correct_answer": "a",
+    "question_text": "What is a correct syntax to output \"Hello World\" in Python?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "Java", "b": "C++", "c": "Python", "d": "All the above" },
+    "correct_answer": "d",
+    "question_text": "________ is an object-oriented programming language."
+  },
+  {
+    "difficulty": "easy",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "Comments are for programmers for better understanding of the program.",
+      "b": "Python Interpreter ignores comment.",
+      "c": "You can write multi-line comments in Python using triple quotes, either ''' or \"\"\".",
+      "d": "All the above"
+    },
+    "correct_answer": "d",
+    "question_text": "Which of the following is correct?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "execute python",
+      "b": "run python",
+      "c": "python",
+      "d": "go python"
+    },
+    "correct_answer": "c",
+    "question_text": "To start Python from the command prompt, use the command ________."
+  },
+  {
+    "difficulty": "easy",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "Python", "b": "C++", "c": "Ada", "d": "Pascal" },
+    "correct_answer": "a",
+    "question_text": "________ is interpreted."
+  },
+  {
+    "difficulty": "easy",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "//", "b": "/*", "c": "#", "d": "$$" },
+    "correct_answer": "c",
+    "question_text": "A Python line comment begins with ________."
+  },
+  {
+    "difficulty": "easy",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "James Gosling",
+      "b": "Steve Jobs",
+      "c": "Guido van Rossum",
+      "d": "Google"
+    },
+    "correct_answer": "c",
+    "question_text": "Python was created by ____________."
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "Yes, if the exception types are enclosed in parentheses.",
+      "b": "No, it is not possible.",
+      "c": "Yes, if the exception types are enclosed in square brackets.",
+      "d": "Yes, if the exception types are enclosed in curly braces."
+    },
+    "correct_answer": "a",
+    "question_text": "Is it possible to check for more than one error in one except line?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "Curly braces",
+      "b": "Parenthesis",
+      "c": "Indentation",
+      "d": "Quotation"
+    },
+    "correct_answer": "c",
+    "question_text": "What is used to define a block of code (body of loop, function etc.) in Python?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "skip", "b": "continue", "c": "next", "d": "pass" },
+    "correct_answer": "d",
+    "question_text": "Which keyword can be used in any place in Python code to tell interpreter to do nothing and move to next instruction"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "True", "b": "False" },
+    "correct_answer": "b",
+    "question_text": "Python is compiled language. True or False?"
+  },
+  {
+    "difficulty": "hard",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "Python 3 is a newer version, but it is backward compatible with Python 2.",
+      "b": "Python 3 is a newer version, but it is not backward compatible with Python 2.",
+      "c": "A Python 2 program can always run on a Python 3 interpreter.",
+      "d": "A Python 3 program can always run on a Python 2 interpreter."
+    },
+    "correct_answer": "b",
+    "question_text": "Which of the following statements is true?"
+  },
+  {
+    "difficulty": "hard",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "dog = cat",
+    "answers": {
+      "a": "SyntaxError",
+      "b": "NameError",
+      "c": "ValueError",
+      "d": "TypeError"
+    },
+    "correct_answer": "b",
+    "question_text": "What error occurs when you execute the following Python code snippet?"
+  },
+  {
+    "difficulty": "hard",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "def x(): pass \n print(type(x()))",
+    "answers": {
+      "a": "<class 'function'>",
+      "b": "<class 'NoneType'>",
+      "c": "<class 'str'>",
+      "d": "<class 'type'>"
+    },
+    "correct_answer": "b",
+    "question_text": "What gets printed?"
+  },
+  {
+    "difficulty": "hard",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "int", "b": "float", "c": "bool", "d": "dict" },
+    "correct_answer": "a",
+    "question_text": "What is the return type of function id?"
+  },
+  {
+    "difficulty": "hard",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "int", "b": "bool", "c": "void", "d": "None" },
+    "correct_answer": "d",
+    "question_text": "Given a function that does not return any value, What value is thrown by default when executed in shell."
+  },
+  {
+    "difficulty": "medium",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "Boolean", "b": "Integer", "c": "Float", "d": "Complex" },
+    "correct_answer": "c",
+    "question_text": "What is the type of inf?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "True", "b": "False" },
+    "correct_answer": "b",
+    "question_text": "List in Python can hold elements of same type only. True or False?"
+  },
+  {
+    "difficulty": "hard",
+    "category": "Python",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "-5", "b": "-7", "c": "-6", "d": "- 5" },
+    "correct_answer": "c",
+    "question_text": "What does ~5 evaluate to?"
+  },
+  {
+    "difficulty": "hard",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "#include <functional> \n #include <iostream> \n template <typename T> \n void call_with(std::function<void(T)> f, T val) \n { \n f(val); \n } \n \n int main() \n { \n auto print = [] (int x) { std::cout << x; }; \n call_with(print, 42); \n}",
+    "answers": {
+      "a": "The program is guaranteed to output 42",
+      "b": "The program has a compilation error",
+      "c": "The program is unspecified",
+      "d": "The program is undefined"
+    },
+    "correct_answer": "b",
+    "question_text": "According to the C++17 standard, what is the output of this program?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "#include <iostream> \n int main() { \n std::cout << 1[\"ABC\"]; \n }",
+    "answers": { "a": "A", "b": "B", "c": "1", "d": "Program has SyntaxError" },
+    "correct_answer": "b",
+    "question_text": "According to the C++17 standard, what is the output of this program?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "print(\"Hello World\");",
+      "b": "cout << \"Hello World\";",
+      "c": "System.out.println(\"Hello World\");",
+      "d": "Console.WriteLine(\"Hello Worldn\");"
+    },
+    "correct_answer": "b",
+    "question_text": "What is a correct syntax to output \"Hello World\" in C++"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "False", "b": "True" },
+    "correct_answer": "a",
+    "question_text": "C++ is an alias of C#"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "/* This is a comment",
+      "b": "# This is a comment",
+      "c": "// This is a comment"
+    },
+    "correct_answer": "c",
+    "question_text": "How do you insert COMMENTS in C++ code?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "string", "b": "String", "c": "myString", "d": "Txt" },
+    "correct_answer": "a",
+    "question_text": "Which data type is used to create a variable that should store text?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "int x = 5",
+      "b": "num x = 5",
+      "c": "double x = 5;",
+      "d": "x = 5;"
+    },
+    "correct_answer": "a",
+    "question_text": "How do you create a variable with the numeric value 5?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "double x = 2.8;",
+      "b": "x = 2.8;",
+      "c": "byte x = 2.8",
+      "d": "int x = 2.8;"
+    },
+    "correct_answer": "a",
+    "question_text": "How do you create a variable with the floating number 2.8?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "getLength()",
+      "b": "getLength()",
+      "c": "getSize()",
+      "d": "len()"
+    },
+    "correct_answer": "b",
+    "question_text": "Which method can be used to find the length of a string?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "The * sign",
+      "b": "The + sign",
+      "c": "The & sign",
+      "d": "The - sign"
+    },
+    "correct_answer": "b",
+    "question_text": "Which operator is used to add together two values?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "True", "b": "False" },
+    "correct_answer": "b",
+    "question_text": "The value of a string variable can be surrounded by single quotes."
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "#include <inputstr>",
+      "b": "#include <stream>",
+      "c": "#include <iosstring>",
+      "d": "#include <iostream>"
+    },
+    "correct_answer": "d",
+    "question_text": "Which header file lets us work with input and output objects?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "=", "b": "==", "c": "><", "d": "<>" },
+    "correct_answer": "b",
+    "question_text": "Which operator can be used to compare two values?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "{}", "b": "()", "c": "[]" },
+    "correct_answer": "c",
+    "question_text": "To declare an array in C++, define the variable type with:"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "functionName[]",
+      "b": "functionName.",
+      "c": "(functionName)",
+      "d": "functionName()"
+    },
+    "correct_answer": "d",
+    "question_text": "How do you call a function in C++?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "MyClass",
+      "b": "class",
+      "c": "className",
+      "d": "class()"
+    },
+    "correct_answer": "b",
+    "question_text": "Which keyword is used to create a class in C++?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "MyClass myObj;",
+      "b": "class MyClass = new myObj();",
+      "c": "new myObj = MyClass();",
+      "d": "class myObj = new MyClass();"
+    },
+    "correct_answer": "a",
+    "question_text": "What is the correct way to create an object called myObj of MyClass?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "True", "b": "False" },
+    "correct_answer": "a",
+    "question_text": "In C++, it is possible to inherit attributes and methods from one class to another."
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "largest(x,y)",
+      "b": "maximum(x,y)",
+      "c": "maxNum(x,y)",
+      "d": "max(x,y)"
+    },
+    "correct_answer": "d",
+    "question_text": "Which method can be used to find the highest value of x and y?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "%", "b": "*", "c": "x", "d": "#" },
+    "correct_answer": "b",
+    "question_text": "Which operator is used to multiply numbers?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "With the * operator",
+      "b": "With the REF word",
+      "c": "With the & operator",
+      "d": "With the ref word"
+    },
+    "correct_answer": "c",
+    "question_text": "How do you create a reference variable of an existing variable?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "if (x > y)",
+      "b": "if x > y then:",
+      "c": "if x > y:",
+      "d": "if: x > y"
+    },
+    "correct_answer": "a",
+    "question_text": "How do you start writing an if statement in C++?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "while (x > y)",
+      "b": "while x > y:",
+      "c": "x > y while {",
+      "d": "while x > y {"
+    },
+    "correct_answer": "a",
+    "question_text": "How do you start writing a while loop in C++?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "break", "b": "exit", "c": "stop", "d": "return" },
+    "correct_answer": "a",
+    "question_text": "Which keyword is used to return a value inside a method?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "#include <initializer_list> \n #include <iostream> \n\n class C { \n public: \n C() = default; \n C(const C&) { std::cout << 1; } \n }; \n \n void f(std::initializer_list<C> i) {} \n \n int main() { \n C c; \n std::initializer_list<C> i{c}; \n f(i); \n f(i); \n }",
+    "answers": { "a": "1", "b": "11", "c": "111", "d": "1111" },
+    "correct_answer": "a",
+    "question_text": "According to the C++17 standard, what is the output of this program?"
+  },
+  {
+    "difficulty": "hard",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "#include <iostream> \n\n struct A { \n virtual void foo (int a = 1) { \n std::cout << \"A\" << a; \n } \n }; \n\n struct B : A { \n virtual void foo (int a = 2) { \n std::cout << \"B\" << a; \n } \n }; \n\n int main () { \n A *b = new B; \n b->foo(); \n }",
+    "answers": { "a": "A1", "b": "B2", "c": "A2", "d": "B1" },
+    "correct_answer": "d",
+    "question_text": "According to the C++17 standard, what is the output of this program?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "#include <iostream> \n\n int main(int argc, char* argv[]) { \n std::cout << (argv[argc] == nullptr); \n }",
+    "answers": { "a": "1", "b": "0", "c": "true", "d": "false" },
+    "correct_answer": "a",
+    "question_text": "According to the C++17 standard, what is the output of this program?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "int main() { \n int a[] = <%1%>; \n std::cout << a<:0:>; \n}",
+    "answers": {
+      "a": "The program is guaranteed to output 1",
+      "b": "The program has a compilation error",
+      "c": "The program is unspecified",
+      "d": "The program is guaranteed to output 0"
+    },
+    "correct_answer": "a",
+    "question_text": "According to the C++17 standard, what is the output of this program?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "#include<iostream> \n \n int main() \n { \n unsigned short x=0xFFFF; \n unsigned short y=0xFFFF; \n auto z=x*y; \n std::cout << (z > 0); \n }",
+    "answers": {
+      "a": "The program is guaranteed to output 1",
+      "b": "The program has a compilation error",
+      "c": "The program is guaranteed to output 0",
+      "d": "The program is undefined"
+    },
+    "correct_answer": "d",
+    "question_text": "According to the C++17 standard, what is the output of this program?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C++",
+    "code_pic": "null",
+    "code_text": "#include <iostream> \n\n int main() { \n void * p = &p; \n std::cout << bool(p); \n}",
+    "answers": {
+      "a": "The program is guaranteed to output 1",
+      "b": "The program has a compilation error",
+      "c": "The program is guaranteed to output 0",
+      "d": "The program is undefined"
+    },
+    "correct_answer": "a",
+    "question_text": "According to the C++17 standard, what is the output of this program?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "<js>",
+      "b": "<script>",
+      "c": "<scripting>",
+      "d": "<javascript>"
+    },
+    "correct_answer": "b",
+    "question_text": "Inside which HTML element do we put the JavaScript?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "document.getElement(\"p\").innerHTML = \"Hello World!\"",
+      "b": "#demo.innerHTML = \"Hello World!\";",
+      "c": "document.getElementById(\"demo\").innerHTML = \"Hello World!\";",
+      "d": "document.getElementByName(\"p\").innerHTML = \"Hello World!\";"
+    },
+    "correct_answer": "c",
+    "question_text": "What is the correct JavaScript syntax to change the content of the HTML element below?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "The <head> section",
+      "b": "Both the <head> section and the <body> section are correct",
+      "c": "The <body> section"
+    },
+    "correct_answer": "b",
+    "question_text": "Where is the correct place to insert a JavaScript?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "<script src=\"xxx.js\">",
+      "b": "<script name=\"xxx.js\">",
+      "c": "<script href=\"xxx.js\">"
+    },
+    "correct_answer": "a",
+    "question_text": "What is the correct syntax for referring to an external script called \"xxx.js\"?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "False", "b": "True" },
+    "correct_answer": "a",
+    "question_text": "The external JavaScript file must contain the <script> tag."
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "msg(\"Hello World\");",
+      "b": "alert(\"Hello World\");",
+      "c": "alertBox(\"Hello World\");",
+      "d": "msgBox(\"Hello World\");"
+    },
+    "correct_answer": "b",
+    "question_text": "How do you write \"Hello World\" in an alert box?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "function:myFunction()",
+      "b": "function myFunction()",
+      "c": "function = myFunction()",
+      "d": "function(myFunction())"
+    },
+    "correct_answer": "b",
+    "question_text": "How do you create a function in JavaScript?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "call myFunction()",
+      "b": "call function myFunction()",
+      "c": "myFunction()",
+      "d": "myFunction.call()"
+    },
+    "correct_answer": "c",
+    "question_text": "How do you call a function named \"myFunction\"?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "if i == 5 then",
+      "b": "if i = 5",
+      "c": "if (i == 5)",
+      "d": "if i = 5 then"
+    },
+    "correct_answer": "c",
+    "question_text": "How to write an IF statement in JavaScript?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "if i =! 5 then",
+      "b": "if (i <> 5)",
+      "c": "if (i != 5)",
+      "d": "if i <> 5"
+    },
+    "correct_answer": "c",
+    "question_text": "How to write an IF statement for executing some code if \"i\" is NOT equal to 5?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "while (i <= 10; i++)",
+      "b": "while i = 1 to 10",
+      "c": "while (i <= 10)",
+      "d": "while (i = 1; i < 10; i++)"
+    },
+    "correct_answer": "c",
+    "question_text": "How does a WHILE loop start?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "for (i <= 5; i++)",
+      "b": "for (i = 0; i <= 5)",
+      "c": "for (i = 0; i <= 5; i++)",
+      "d": "for i = 1 to 5"
+    },
+    "correct_answer": "c",
+    "question_text": "How does a FOR loop start?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "'This is a comment",
+      "b": "//This is a comment ",
+      "c": "<!--This is a comment-->",
+      "d": "/*This is a comment"
+    },
+    "correct_answer": "b",
+    "question_text": "How can you add a comment in a JavaScript?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "var colors = [\"red\", \"green\", \"blue\"]",
+      "b": "var colors = (1:\"red\", 2:\"green\", 3:\"blue\")",
+      "c": "var colors = \"red\", \"green\", \"blue\"",
+      "d": "var colors = 1 = (\"red\"), 2 = (\"green\"), 3 = (\"blue\")"
+    },
+    "correct_answer": "a",
+    "question_text": "What is the correct way to write a JavaScript array?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "rnd(7.25)",
+      "b": "round(7.25)",
+      "c": "Math.rnd(7.25)",
+      "d": "Math.round(7.25)"
+    },
+    "correct_answer": "d",
+    "question_text": "How do you round the number 7.25, to the nearest integer?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "ceil(x, y)",
+      "b": "Math.max(x, y)",
+      "c": "top(x, y)",
+      "d": "Math.ceil(x, y)"
+    },
+    "correct_answer": "b",
+    "question_text": "How do you find the number with the highest value of x and y?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "w2 = window.new(\"http://www.w3schools.com\");",
+      "b": "w2 = window.open(\"http://www.w3schools.com\");"
+    },
+    "correct_answer": "b",
+    "question_text": "What is the correct JavaScript syntax for opening a new window called \"w2\" ?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "False", "b": "True" },
+    "correct_answer": "a",
+    "question_text": "JavaScript is the same as Java."
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "client.navName",
+      "b": "browser.name",
+      "c": "navigator.appName"
+    },
+    "correct_answer": "c",
+    "question_text": "How can you detect the client's browser name?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "onmouseclick",
+      "b": "onclick",
+      "c": "onmouseover",
+      "d": "onchange"
+    },
+    "correct_answer": "b",
+    "question_text": "Which event occurs when the user clicks on an HTML element?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "variable carName;",
+      "b": "variable carName;",
+      "c": "v carName;"
+    },
+    "correct_answer": "a",
+    "question_text": "How do you declare a JavaScript variable?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "return: Boolean(10 > 9)",
+    "answers": { "a": "true", "b": "NaN", "c": "false" },
+    "correct_answer": "a",
+    "question_text": "What will return the following code?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "return: Boolean(10 > 9)",
+    "answers": { "a": "Yes", "b": "No" },
+    "correct_answer": "a",
+    "question_text": "Is JavaScript case-sensitive?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "for(var i=0; i<10; i++) { \n setTimeout(function() { \n alert(i); \n }, 100); \n}",
+    "answers": {
+      "a": "Numbers from 0 to 9",
+      "b": "Numbers from 0 to 10",
+      "c": "10 times number 10",
+      "d": "10 times number 0"
+    },
+    "correct_answer": "c",
+    "question_text": "What will this code output?"
+  },
+  {
+    "difficulty": "easy",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": { "a": "\"truefalse\"", "b": "0", "c": "1", "d": "NaN" },
+    "correct_answer": "c",
+    "question_text": "What happens if you add true + false"
+  },
+  {
+    "difficulty": "medium",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "let f = function g() { return 23; }; \n\n alert( typeof g() );",
+    "answers": {
+      "a": "number",
+      "b": "undefined",
+      "c": "function",
+      "d": "nothing, error will occured"
+    },
+    "correct_answer": "d",
+    "question_text": "What does this code output?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "sayHi(); \n\n function sayHi() { \n alert(\"Hello\"); \n}",
+    "answers": {
+      "a": "Yes",
+      "b": "No, the call must be placed after the announcement."
+    },
+    "correct_answer": "a",
+    "question_text": "Will the function call work before the declaration in this code?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "A new programming language.",
+      "b": "Redesigned Javascript implementation.",
+      "c": "Javascript language specification."
+    },
+    "correct_answer": "c",
+    "question_text": "What is ECMAScript?"
+  },
+  {
+    "difficulty": "medium",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "\"use strict\"; \n\n a = null + undefined; \n alert(a);",
+    "answers": {
+      "a": "null",
+      "b": "undefined",
+      "c": "NaN",
+      "d": "There is error in code."
+    },
+    "correct_answer": "d",
+    "question_text": "What does this code output?"
+  },
+  {
+    "difficulty": "hard",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "null",
+    "answers": {
+      "a": "0",
+      "b": "true",
+      "c": "false",
+      "d": "undefined"
+    },
+    "correct_answer": "c",
+    "question_text": "What is equal to \"0 || \"\" || 2 || undefined || true || fals\u0435\" ?"
+  },
+  {
+    "difficulty": "hard",
+    "category": "JavaScript",
+    "code_pic": "null",
+    "code_text": "let arr = [1, 2, 3]; \n arr.something = 5; \n\n alert(arr.something); // ?",
+    "answers": { "a": "5", "b": "Code contains error", "c": "undefined" },
+    "correct_answer": "a",
+    "question_text": "What does \"alert\" output?"
+  }
+]
