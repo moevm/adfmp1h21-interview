@@ -6,20 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.pjs.itinterviewtrainer.models.QuizDataModel
 import kotlinx.android.synthetic.main.fragment_setup_quiz.*
 import kotlinx.android.synthetic.main.fragment_setup_quiz.view.*
 
-class SetupQuizFragment : Fragment() {
+class QuizSetupFragment : Fragment() {
     companion object{
-        const val TAG = "setupTestFragment"
+        const val TAG = "setupQuizFragment"
 
         @JvmStatic
-        fun newInstance(): SetupQuizFragment {
-            return SetupQuizFragment()
+        fun newInstance(): QuizSetupFragment {
+            return QuizSetupFragment()
         }
     }
 

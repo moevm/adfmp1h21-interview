@@ -1,14 +1,15 @@
-package com.pjs.itinterviewtrainer
+package com.pjs.itinterviewtrainer.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.pjs.itinterviewtrainer.R
 import com.pjs.itinterviewtrainer.models.QuizCategory
 
-class CategoryAdapter(var dataSet: List<QuizCategory>, private val onItemClickListener: OnItemClickListener) :
-        RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+class CategoryListAdapter(var dataSet: List<QuizCategory>, private val onItemClickListener: OnItemClickListener) :
+        RecyclerView.Adapter<CategoryListAdapter.ViewHolder>() {
 
     class ViewHolder(view: View, private val itemClickListener: OnItemClickListener) : RecyclerView.ViewHolder(view), View.OnClickListener {
         val textView: TextView = view.findViewById(R.id.textView)

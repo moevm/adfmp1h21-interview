@@ -32,9 +32,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="@string/test_setup_categories"
+            android:hint="@string/search_category"
             app:layout_constraintLeft_toLeftOf="parent"
-
             app:layout_constraintTop_toBottomOf="@id/testSetupTitle">
 
             <com.google.android.material.textfield.TextInputEditText
