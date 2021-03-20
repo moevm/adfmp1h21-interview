@@ -30,11 +30,14 @@ class MainFragment : Fragment() {
         rootView.startTestBtn.setOnClickListener {
             val intent = Intent(activity, QuizActivity::class.java)
             resultLauncher.launch(intent);
-//            with(requireActivity().supportFragmentManager.beginTransaction()){
-//                replace(R.id.container, SetupQuizFragment.newInstance(), SetupQuizFragment.TAG)
-//                addToBackStack(SetupQuizFragment.TAG)
-//                commit()
-//            }
+        }
+
+        rootView.categoriesBtn.setOnClickListener {
+            with(requireActivity().supportFragmentManager.beginTransaction()){
+                replace(R.id.container, CategoriesChoiceFragment.newInstance(), CategoriesChoiceFragment.TAG)
+                addToBackStack(CategoriesChoiceFragment.TAG)
+                commit()
+            }
         }
 
         return rootView
