@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -12,6 +11,10 @@ import com.pjs.itinterviewtrainer.models.Question
 import com.pjs.itinterviewtrainer.models.QuizResults
 import kotlinx.android.synthetic.main.activity_quiz.*
 
+enum class SubmitState{
+    SUBMIT,
+    NEXT
+}
 
 class QuizActivity : AppCompatActivity() {
     private var quizAmount = 10
@@ -22,7 +25,7 @@ class QuizActivity : AppCompatActivity() {
     private var currentQuestionNumber = 0
     private lateinit var currentQuestion: Question
     private val btnAnswersMap = mapOf(R.id.answer_a to "a", R.id.answer_b to "b", R.id.answer_c to "c", R.id.answer_d to "d")
-    private var submitCnt = 0
+    private var submitState: SubmitState = SubmitState.SUBMIT
     private var quizResults: QuizResults = QuizResults()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,20 +43,18 @@ class QuizActivity : AppCompatActivity() {
         setupNextQuestion()
 
         submit.setOnClickListener {
-            when (handleResult()) {
-                true -> {
-                    when (submitCnt) {
-                        0 -> {
-                            submit.text = "Next"
-                        }
-                        1 -> {
-                            setupNextQuestion()
-                            submit.text = "Submit"
-                        }
+            when(submitState){
+                SubmitState.SUBMIT -> {
+                    if(handleResult()){
+                        submit.text = "Next"
+                        submitState = SubmitState.NEXT
                     }
-                    submitCnt = (submitCnt + 1) % 2
                 }
-                false -> { }
+                SubmitState.NEXT -> {
+                    setupNextQuestion()
+                    submitState = SubmitState.SUBMIT
+                    submit.text = "Submit"
+                }
             }
         }
     }
