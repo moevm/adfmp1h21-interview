@@ -12,7 +12,7 @@ class QuizDataModel : ViewModel() {
         return users
     }
 
-    fun getLevels(): LiveData<List<String>>{
+    fun getLevels(): LiveData<List<String>> {
         return levels
     }
 }

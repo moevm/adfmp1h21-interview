@@ -4,22 +4,24 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.pjs.itinterviewtrainer.models.Question
-import com.pjs.itinterviewtrainer.models.QuizResults
+import com.pjs.itinterviewtrainer.data.Question
+import com.pjs.itinterviewtrainer.data.QuizRepository
+import com.pjs.itinterviewtrainer.data.QuizResults
 import kotlinx.android.synthetic.main.activity_quiz.*
 
-enum class SubmitState{
+enum class SubmitState {
     SUBMIT,
     NEXT
 }
 
 class QuizActivity : AppCompatActivity() {
     private var quizAmount = 10
-    private lateinit var quizCategories: List<String>
-    private var quizLevel = "medium"
+    private lateinit var quizCategoriesId: List<Int>
+    private var quizLevelId: Int = 1
     private var quizTimer = 60
     private lateinit var questions: List<Question>
     private var currentQuestionNumber = 0
@@ -33,19 +35,20 @@ class QuizActivity : AppCompatActivity() {
         setContentView(R.layout.activity_quiz)
 
         with(intent) {
-            quizLevel = getStringExtra("quizLevel") ?: "medium"
-            quizCategories = getStringArrayListExtra("quizCategories")?.toList() ?: listOf()
+            quizLevelId = getStringExtra("quizLevelId")?.toInt() ?: 1
+            quizCategoriesId = getStringArrayListExtra("quizCategoriesId")?.toList()?.map { it.toInt() }
+                    ?: listOf()
             quizAmount = getStringExtra("quizAmount")?.toInt() ?: 10
             quizTimer = getStringExtra("quizTimer")?.toInt() ?: 60
         }
 
-        questions = Question.loadQuestions(assets.open("questions_data.json")).shuffled().take(quizAmount)
+        questions = QuizRepository.questionsList.shuffled().take(quizAmount)
         setupNextQuestion()
 
         submit.setOnClickListener {
-            when(submitState){
+            when (submitState) {
                 SubmitState.SUBMIT -> {
-                    if(handleResult()){
+                    if (handleResult()) {
                         submit.text = "Next"
                         submitState = SubmitState.NEXT
                     }
@@ -85,16 +88,23 @@ class QuizActivity : AppCompatActivity() {
         resetViewColors()
         currentQuestionNumber += 1
         currentQuestion = questions[currentQuestionNumber - 1]
-        questionNumber.text = "${currentQuestionNumber}/${quizAmount}"
+        questionNumber.text = "Question ${currentQuestionNumber}/${quizAmount}"
         questionText.text = currentQuestion.question_text
         answers.clearCheck()
+        Toast.makeText(this, currentQuestion.code_pic, Toast.LENGTH_LONG).show()
+        if (currentQuestion.code_pic != "null") {
+            question_pic.visibility = View.VISIBLE
+        } else {
+            question_pic.visibility = View.GONE
+        }
+
         setAnswer(answer_a, "a")
         setAnswer(answer_b, "b")
         setAnswer(answer_c, "c")
         setAnswer(answer_d, "d")
     }
 
-    private fun setAnswer(b: RadioButton, answerId: String){
+    private fun setAnswer(b: RadioButton, answerId: String) {
         if (currentQuestion.answers[answerId] != null) {
             b.visibility = View.VISIBLE
             b.text = currentQuestion.answers[answerId]

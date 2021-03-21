@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pjs.itinterviewtrainer.R
-import com.pjs.itinterviewtrainer.models.QuizCategory
+import com.pjs.itinterviewtrainer.data.QuestionCategory
 
-class CategoryListAdapter(var dataSet: List<QuizCategory>, private val onItemClickListener: OnItemClickListener) :
+class CategoryListAdapter(var dataSet: List<QuestionCategory>, private val onItemClickListener: OnItemClickListener) :
         RecyclerView.Adapter<CategoryListAdapter.ViewHolder>() {
 
     class ViewHolder(view: View, private val itemClickListener: OnItemClickListener) : RecyclerView.ViewHolder(view), View.OnClickListener {
@@ -41,7 +41,7 @@ class CategoryListAdapter(var dataSet: List<QuizCategory>, private val onItemCli
     override fun getItemCount() = dataSet.size
 
 
-    interface OnItemClickListener{
+    interface OnItemClickListener {
         fun onItemClick(position: Int)
     }
 }

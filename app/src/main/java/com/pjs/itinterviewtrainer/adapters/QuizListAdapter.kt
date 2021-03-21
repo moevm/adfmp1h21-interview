@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pjs.itinterviewtrainer.R
+import com.pjs.itinterviewtrainer.data.Quiz
 
-class QuizListAdapter(var dataSet: List<String>, private val onItemClickListener: OnQuizClickListener) :
+class QuizListAdapter(var dataSet: List<Quiz>, private val onItemClickListener: OnQuizClickListener) :
         RecyclerView.Adapter<QuizListAdapter.ViewHolder>() {
 
     class ViewHolder(view: View, private val itemClickListener: OnQuizClickListener) : RecyclerView.ViewHolder(view), View.OnClickListener {
@@ -33,14 +34,14 @@ class QuizListAdapter(var dataSet: List<String>, private val onItemClickListener
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.textView.text = dataSet[position]
+        viewHolder.textView.text = dataSet[position].name
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
 
 
-    interface OnQuizClickListener{
+    interface OnQuizClickListener {
         fun onItemClick(position: Int)
     }
 }
