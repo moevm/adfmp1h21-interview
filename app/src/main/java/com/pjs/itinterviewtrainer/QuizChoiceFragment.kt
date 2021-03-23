@@ -1,5 +1,6 @@
 package com.pjs.itinterviewtrainer
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import com.pjs.itinterviewtrainer.adapters.QuizListAdapter
 import com.pjs.itinterviewtrainer.data.Quiz
 import com.pjs.itinterviewtrainer.data.QuizRepository
 import kotlinx.android.synthetic.main.fragment_quiz_choice.view.*
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 private const val ARG_CATEGORY_ID = "categoryId"
 
@@ -35,7 +38,7 @@ class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
         rootView.categoryName.text = QuizRepository.categoriesList.find { c -> c.id == categoryId }?.name
                 ?: ""
 
-        quizOfSelectedCategory = QuizRepository.quizList.filter { q -> q.category.id == categoryId }
+        quizOfSelectedCategory = QuizRepository.quizList.filter { q -> q.categories.size == 1 && q.categories[0].id == categoryId }
 
         // first selected tab - easy
         adapter = QuizListAdapter(quizOfSelectedCategory.filter { q -> q.level.id == 0 }, this)
@@ -61,7 +64,9 @@ class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
     }
 
     override fun onItemClick(position: Int) {
-
+        val intent = Intent(activity, QuizActivity::class.java)
+        intent.putExtra("quiz", Json.encodeToString(quizOfSelectedCategory[position]))
+        startActivity(intent)
     }
 
     companion object {

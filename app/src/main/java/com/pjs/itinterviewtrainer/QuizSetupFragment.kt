@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.pjs.itinterviewtrainer.data.QuestionLevel
+import com.pjs.itinterviewtrainer.data.Quiz
 import com.pjs.itinterviewtrainer.data.QuizRepository
 import kotlinx.android.synthetic.main.fragment_setup_quiz.*
 import kotlinx.android.synthetic.main.fragment_setup_quiz.view.*
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 class QuizSetupFragment : Fragment() {
     companion object {
@@ -100,16 +103,23 @@ class QuizSetupFragment : Fragment() {
     }
 
     private fun startTest() {
-        val quizActivity = Intent(activity, QuizActivity::class.java)
+        val intent = Intent(activity, QuizActivity::class.java)
         val chosenCategories = QuizRepository.categoriesList.zip(checkedCategories.toList()).filter { it.second }.map { it.first }
         val quizAmount = selectQAmount.text.toString().toIntOrNull() ?: 10
+        val level = levelsArray[checkedLevelPosition]
+
+        val randomQuiz = Quiz(
+            11497110100111109, // word "random" to int number
+            chosenCategories.joinToString(separator = ",") { it.name },
+            chosenCategories,
+            level,
+            QuizRepository.pickQuestions(level, chosenCategories, quizAmount)
+        )
+
         val timer = 60
 
-        quizActivity.putStringArrayListExtra("quizCategoriesId", ArrayList(chosenCategories.map { it.id.toString() }))
-        quizActivity.putExtra("quizAmount", quizAmount.toString())
-        quizActivity.putExtra("quizTimer", timer.toString())
-        quizActivity.putExtra("quizLevelId", levelsArray[checkedLevelPosition].id)
-
-        startActivity(quizActivity)
+        intent.putExtra("quiz", Json.encodeToString(randomQuiz))
+        intent.putExtra("quizTimer", timer.toString())
+        startActivity(intent)
     }
 }

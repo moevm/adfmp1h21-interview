@@ -19,18 +19,21 @@ object QuizRepository {
         return persons
     }
 
-
     fun createBasicsQuiz(categoryId: Int): Quiz {
-        val category = categoriesList.find { c -> c.id == categoryId } ?: categoriesList.first()
+        val categories = listOf(categoriesList.find { c -> c.id == categoryId } ?: categoriesList.first())
         return Quiz(
                 0,
                 "Basics",
-                category,
+            categories,
                 levelsList[0],
                 questionsList
-                        .filter { q -> q.category == category.name && q.difficulty == levelsList[0].difficulty }
+                        .filter { q -> categories.map{it.name}.contains(q.category) && q.difficulty == levelsList[0].difficulty }
                         .take(10)
         )
+    }
+
+    fun pickQuestions(level: QuestionLevel, categoriesList: Collection<QuestionCategory>, amount: Int): List<Question>{
+        return questionsList.filter { q -> categoriesList.map { it.name }.contains(q.category) }.shuffled().take(amount)
     }
 
 }

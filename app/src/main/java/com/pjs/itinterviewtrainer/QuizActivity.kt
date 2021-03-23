@@ -4,14 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.pjs.itinterviewtrainer.data.Question
-import com.pjs.itinterviewtrainer.data.QuizRepository
+import com.pjs.itinterviewtrainer.data.Quiz
 import com.pjs.itinterviewtrainer.data.QuizResults
 import kotlinx.android.synthetic.main.activity_quiz.*
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 
 enum class SubmitState {
     SUBMIT,
@@ -19,11 +20,8 @@ enum class SubmitState {
 }
 
 class QuizActivity : AppCompatActivity() {
-    private var quizAmount = 10
-    private lateinit var quizCategoriesId: List<Int>
-    private var quizLevelId: Int = 1
+    private lateinit var quiz: Quiz
     private var quizTimer = 60
-    private lateinit var questions: List<Question>
     private var currentQuestionNumber = 0
     private lateinit var currentQuestion: Question
     private val btnAnswersMap = mapOf(R.id.answer_a to "a", R.id.answer_b to "b", R.id.answer_c to "c", R.id.answer_d to "d")
@@ -35,14 +33,12 @@ class QuizActivity : AppCompatActivity() {
         setContentView(R.layout.activity_quiz)
 
         with(intent) {
-            quizLevelId = getStringExtra("quizLevelId")?.toInt() ?: 1
-            quizCategoriesId = getStringArrayListExtra("quizCategoriesId")?.toList()?.map { it.toInt() }
-                    ?: listOf()
-            quizAmount = getStringExtra("quizAmount")?.toInt() ?: 10
+            quiz = Json.decodeFromString(getStringExtra("quiz")!!)
             quizTimer = getStringExtra("quizTimer")?.toInt() ?: 60
         }
 
-        questions = QuizRepository.questionsList.shuffled().take(quizAmount)
+        quizTitle.text = quiz.name
+
         setupNextQuestion()
 
         submit.setOnClickListener {
@@ -74,12 +70,12 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun setupNextQuestion() {
-        if (currentQuestionNumber >= questions.size) {
+        if (currentQuestionNumber >= quiz.quiestions.size) {
             AlertDialog.Builder(this)
                     .setTitle("Quiz completed")
-                    .setMessage("Result: ${quizResults.correct}/${questions.size} correct answers")
+                    .setMessage("Result: ${quizResults.correct}/${quiz.quiestions.size} correct answers")
                     .setPositiveButton("Ok") { _, _ ->
-                        sendResults()
+                        saveResults()
                     }
                     .create()
                     .show()
@@ -87,11 +83,10 @@ class QuizActivity : AppCompatActivity() {
         }
         resetViewColors()
         currentQuestionNumber += 1
-        currentQuestion = questions[currentQuestionNumber - 1]
-        questionNumber.text = "Question ${currentQuestionNumber}/${quizAmount}"
+        currentQuestion = quiz.quiestions[currentQuestionNumber - 1]
+        questionNumber.text = "Question ${currentQuestionNumber}/${quiz.quiestions.size}"
         questionText.text = currentQuestion.question_text
         answers.clearCheck()
-        Toast.makeText(this, currentQuestion.code_pic, Toast.LENGTH_LONG).show()
         if (currentQuestion.code_pic != "null") {
             question_pic.visibility = View.VISIBLE
         } else {
@@ -150,10 +145,12 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
-    private fun sendResults() {
-        val intent = Intent()
-        intent.putExtra("test", "${quizResults.correct}/${questions.size}")
-        setResult(RESULT_OK, intent)
-        finish()
+    private fun saveResults() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    override fun onBackPressed() {
+        saveResults()
     }
 }

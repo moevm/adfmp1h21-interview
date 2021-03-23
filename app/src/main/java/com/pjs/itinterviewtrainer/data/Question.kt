@@ -1,5 +1,7 @@
 package com.pjs.itinterviewtrainer.data
 
+import kotlinx.serialization.Serializable
+
 
 data class QuizResults(
         val id: Int = 0,
@@ -9,6 +11,7 @@ data class QuizResults(
 )
 
 
+@Serializable
 data class Question(
         val difficulty: String,
         val category: String,

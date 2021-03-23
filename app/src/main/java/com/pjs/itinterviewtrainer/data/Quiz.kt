@@ -1,3 +1,6 @@
 package com.pjs.itinterviewtrainer.data
 
-data class Quiz(val id: Int, val name: String, val category: QuestionCategory, val level: QuestionLevel, var quiestions: List<Question>)
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class Quiz(val id: Long, val name: String, val categories: List<QuestionCategory>, val level: QuestionLevel, var quiestions: List<Question>)
