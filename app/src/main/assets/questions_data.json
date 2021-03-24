@@ -1,7 +1,7 @@
 [
   {
     "difficulty": "easy",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "True", "b": "False" },
@@ -10,7 +10,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -24,7 +24,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": ".pyth", "b": ".pt", "c": ".pyt", "d": ".py" },
@@ -33,7 +33,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -47,7 +47,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -61,7 +61,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -75,7 +75,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -89,7 +89,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -103,7 +103,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -117,7 +117,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -131,7 +131,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "True", "b": "False" },
@@ -140,7 +140,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -154,7 +154,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "syntax", "b": "runtime", "c": "logical" },
@@ -163,7 +163,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -177,7 +177,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "C/C++", "b": "Java", "c": "C#", "d": "Javascript" },
@@ -186,7 +186,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -200,7 +200,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -214,7 +214,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "Java", "b": "C++", "c": "Python", "d": "All the above" },
@@ -223,7 +223,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -237,7 +237,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -251,7 +251,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "Python", "b": "C++", "c": "Ada", "d": "Pascal" },
@@ -260,7 +260,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "//", "b": "/*", "c": "#", "d": "$$" },
@@ -269,7 +269,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -283,7 +283,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -297,7 +297,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -311,7 +311,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "skip", "b": "continue", "c": "next", "d": "pass" },
@@ -320,7 +320,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "True", "b": "False" },
@@ -329,7 +329,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -343,7 +343,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "dog = cat",
     "answers": {
@@ -357,7 +357,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "def x(): pass \n print(type(x()))",
     "answers": {
@@ -371,7 +371,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "int", "b": "float", "c": "bool", "d": "dict" },
@@ -380,7 +380,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "int", "b": "bool", "c": "void", "d": "None" },
@@ -389,7 +389,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "Boolean", "b": "Integer", "c": "Float", "d": "Complex" },
@@ -398,7 +398,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "True", "b": "False" },
@@ -407,7 +407,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "Python",
+    "category": 1,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "-5", "b": "-7", "c": "-6", "d": "- 5" },
@@ -416,7 +416,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "#include <functional> \n #include <iostream> \n template <typename T> \n void call_with(std::function<void(T)> f, T val) \n { \n f(val); \n } \n \n int main() \n { \n auto print = [] (int x) { std::cout << x; }; \n call_with(print, 42); \n}",
     "answers": {
@@ -430,7 +430,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "#include <iostream> \n int main() { \n std::cout << 1[\"ABC\"]; \n }",
     "answers": { "a": "A", "b": "B", "c": "1", "d": "Program has SyntaxError" },
@@ -439,7 +439,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -453,7 +453,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "False", "b": "True" },
@@ -462,7 +462,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -475,7 +475,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "string", "b": "String", "c": "myString", "d": "Txt" },
@@ -484,7 +484,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -498,7 +498,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -512,7 +512,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -526,7 +526,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -540,7 +540,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "True", "b": "False" },
@@ -549,7 +549,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -563,7 +563,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "=", "b": "==", "c": "><", "d": "<>" },
@@ -572,7 +572,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "{}", "b": "()", "c": "[]" },
@@ -581,7 +581,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -595,7 +595,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -609,7 +609,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -623,7 +623,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "True", "b": "False" },
@@ -632,7 +632,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -646,7 +646,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "%", "b": "*", "c": "x", "d": "#" },
@@ -655,7 +655,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -669,7 +669,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -683,7 +683,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -697,7 +697,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "break", "b": "exit", "c": "stop", "d": "return" },
@@ -706,7 +706,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "#include <initializer_list> \n #include <iostream> \n\n class C { \n public: \n C() = default; \n C(const C&) { std::cout << 1; } \n }; \n \n void f(std::initializer_list<C> i) {} \n \n int main() { \n C c; \n std::initializer_list<C> i{c}; \n f(i); \n f(i); \n }",
     "answers": { "a": "1", "b": "11", "c": "111", "d": "1111" },
@@ -715,7 +715,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "#include <iostream> \n\n struct A { \n virtual void foo (int a = 1) { \n std::cout << \"A\" << a; \n } \n }; \n\n struct B : A { \n virtual void foo (int a = 2) { \n std::cout << \"B\" << a; \n } \n }; \n\n int main () { \n A *b = new B; \n b->foo(); \n }",
     "answers": { "a": "A1", "b": "B2", "c": "A2", "d": "B1" },
@@ -724,7 +724,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "#include <iostream> \n\n int main(int argc, char* argv[]) { \n std::cout << (argv[argc] == nullptr); \n }",
     "answers": { "a": "1", "b": "0", "c": "true", "d": "false" },
@@ -733,7 +733,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "int main() { \n int a[] = <%1%>; \n std::cout << a<:0:>; \n}",
     "answers": {
@@ -747,7 +747,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "#include<iostream> \n \n int main() \n { \n unsigned short x=0xFFFF; \n unsigned short y=0xFFFF; \n auto z=x*y; \n std::cout << (z > 0); \n }",
     "answers": {
@@ -761,7 +761,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "C++",
+    "category": 2,
     "code_pic": "null",
     "code_text": "#include <iostream> \n\n int main() { \n void * p = &p; \n std::cout << bool(p); \n}",
     "answers": {
@@ -775,7 +775,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -789,7 +789,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -803,7 +803,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -816,7 +816,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -829,7 +829,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "False", "b": "True" },
@@ -838,7 +838,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -852,7 +852,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -866,7 +866,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -880,7 +880,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -894,7 +894,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -908,7 +908,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -922,7 +922,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -936,7 +936,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -950,7 +950,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -964,7 +964,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -978,7 +978,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -992,7 +992,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -1004,7 +1004,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "False", "b": "True" },
@@ -1013,7 +1013,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -1026,7 +1026,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -1040,7 +1040,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -1053,7 +1053,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "return: Boolean(10 > 9)",
     "answers": { "a": "true", "b": "NaN", "c": "false" },
@@ -1062,7 +1062,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "return: Boolean(10 > 9)",
     "answers": { "a": "Yes", "b": "No" },
@@ -1071,7 +1071,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "for(var i=0; i<10; i++) { \n setTimeout(function() { \n alert(i); \n }, 100); \n}",
     "answers": {
@@ -1085,7 +1085,7 @@
   },
   {
     "difficulty": "easy",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": { "a": "\"truefalse\"", "b": "0", "c": "1", "d": "NaN" },
@@ -1094,7 +1094,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "let f = function g() { return 23; }; \n\n alert( typeof g() );",
     "answers": {
@@ -1108,7 +1108,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "sayHi(); \n\n function sayHi() { \n alert(\"Hello\"); \n}",
     "answers": {
@@ -1120,7 +1120,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -1133,7 +1133,7 @@
   },
   {
     "difficulty": "medium",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "\"use strict\"; \n\n a = null + undefined; \n alert(a);",
     "answers": {
@@ -1147,7 +1147,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "null",
     "answers": {
@@ -1161,7 +1161,7 @@
   },
   {
     "difficulty": "hard",
-    "category": "JavaScript",
+    "category": 3,
     "code_pic": "null",
     "code_text": "let arr = [1, 2, 3]; \n arr.something = 5; \n\n alert(arr.something); // ?",
     "answers": { "a": "5", "b": "Code contains error", "c": "undefined" },
