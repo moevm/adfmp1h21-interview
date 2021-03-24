@@ -26,17 +26,11 @@ class StatisticsFragment : Fragment(), StatisticsListAdapter.OnItemClickListener
                               savedInstanceState: Bundle?): View? {
 
         val rootView = inflater.inflate(R.layout.fragment_statistics, container, false)
-        listAdapter = StatisticsListAdapter(QuizRepository.categoriesList, this)
-        rootView.categoriesListView.adapter = listAdapter
-        rootView.categoriesListView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        listAdapter = StatisticsListAdapter(QuizRepository.statisticsList, this)
+        rootView.quizResultsListView.adapter = listAdapter
+        rootView.quizResultsListView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         return rootView
     }
 
-    override fun onItemClick(position: Int) {
-        with(requireActivity().supportFragmentManager.beginTransaction()) {
-            replace(R.id.container, QuizChoiceFragment.newInstance(listAdapter.dataSet[position].id), QuizChoiceFragment.TAG)
-            addToBackStack(QuizChoiceFragment.TAG)
-            commit()
-        }
-    }
+    override fun onItemClick(position: Int) {}
 }
