@@ -344,7 +344,7 @@
   {
     "difficulty": 3,
     "category": 1,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/7JbpTgQ",
     "code_text": "dog = cat",
     "answers": {
       "a": "SyntaxError",
@@ -358,7 +358,7 @@
   {
     "difficulty": 3,
     "category": 1,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/XXtL8fy",
     "code_text": "def x(): pass \n  print(type(x()))",
     "answers": {
       "a": "<class 'function'>",
@@ -417,7 +417,7 @@
   {
     "difficulty": 3,
     "category": 2,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/XSLpvTZ",
     "code_text": "#include <functional> \n#include <iostream> \n\ntemplate <typename T> \nvoid call_with(std::function<void(T)> f, T val) \n{ \n    f(val); \n} \n \nint main() \n{ \n    auto print = [] (int x) { std::cout << x; }; \n    call_with(print, 42); \n}",
     "answers": {
       "a": "The program is guaranteed to output 42",
@@ -431,7 +431,7 @@
   {
     "difficulty": 2,
     "category": 2,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/7z96Yf8",
     "code_text": "#include <iostream> \nint main() { \n    std::cout << 1[\"ABC\"]; \n}",
     "answers": { "a": "A", "b": "B", "c": "1", "d": "Program has SyntaxError" },
     "correct_answer": "b",
@@ -707,7 +707,7 @@
   {
     "difficulty": 2,
     "category": 2,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/xYspwvd",
     "code_text": "#include <initializer_list> \n#include <iostream> \n\nclass C \n{\npublic: \n    C() = default;\n    C(const C&) { std::cout << 1; }\n}; \n \nvoid f(std::initializer_list<C> i) {} \n \n int main()\n{ \n    C c; \n    std::initializer_list<C> i{c}; \n    f(i); \n    f(i); \n}",
     "answers": { "a": "1", "b": "11", "c": "111", "d": "1111" },
     "correct_answer": "a",
@@ -716,7 +716,7 @@
   {
     "difficulty": 3,
     "category": 2,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/d67vtCs",
     "code_text": "#include <iostream> \n\nstruct A { \n    virtual void foo (int a = 1)\n    { \n         std::cout << \"A\" << a; \n    }\n}; \n\nstruct B : A\n{ \n    virtual void foo (int a = 2)\n    { \n        std::cout << \"B\" << a; \n     } \n}; \n\nint main ()\n{ \n    A *b = new B; \n    b->foo(); \n}",
     "answers": { "a": "A1", "b": "B2", "c": "A2", "d": "B1" },
     "correct_answer": "d",
@@ -725,7 +725,7 @@
   {
     "difficulty": 2,
     "category": 2,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/g3rNXRv",
     "code_text": "#include <iostream> \n\nint main(int argc, char* argv[]) { \n    std::cout << (argv[argc] == nullptr); \n}",
     "answers": { "a": "1", "b": "0", "c": "true", "d": "false" },
     "correct_answer": "a",
@@ -734,7 +734,7 @@
   {
     "difficulty": 2,
     "category": 2,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/XxxmTvD",
     "code_text": "int main() { \n    int a[] = <%1%>; \n    std::cout << a<:0:>; \n}",
     "answers": {
       "a": "The program is guaranteed to output 1",
@@ -748,7 +748,7 @@
   {
     "difficulty": 2,
     "category": 2,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/Ns3xJ6b",
     "code_text": "#include<iostream> \n \nint main() \n{ \n    unsigned short x=0xFFFF; \n    unsigned short y=0xFFFF; \n    auto z=x*y; \n    std::cout << (z > 0); \n}",
     "answers": {
       "a": "The program is guaranteed to output 1",
@@ -762,7 +762,7 @@
   {
     "difficulty": 2,
     "category": 2,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/r4rKqX7",
     "code_text": "#include <iostream> \n\nint main() { \n    void * p = &p; \n    std::cout << bool(p); \n}",
     "answers": {
       "a": "The program is guaranteed to output 1",
@@ -1054,7 +1054,7 @@
   {
     "difficulty": 1,
     "category": 3,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/xLdyf7t",
     "code_text": "return: Boolean(10 > 9)",
     "answers": { "a": "true", "b": "NaN", "c": "false" },
     "correct_answer": "a",
@@ -1064,7 +1064,7 @@
     "difficulty": 1,
     "category": 3,
     "code_pic": null,
-    "code_text": "return: Boolean(10 > 9)",
+    "code_text": null,
     "answers": { "a": "Yes", "b": "No" },
     "correct_answer": "a",
     "question_text": "Is JavaScript case-sensitive?"
@@ -1072,7 +1072,7 @@
   {
     "difficulty": 2,
     "category": 3,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/TmdhQ9d",
     "code_text": "for(var i = 0; i < 10; i++) { \n    setTimeout(function() { alert(i); }, 100); \n}",
     "answers": {
       "a": "Numbers from 0 to 9",
@@ -1095,7 +1095,7 @@
   {
     "difficulty": 2,
     "category": 3,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/qNBr2Pt",
     "code_text": "let f = function g() { return 23; }; \n\nalert( typeof g() );",
     "answers": {
       "a": "number",
@@ -1109,7 +1109,7 @@
   {
     "difficulty": 2,
     "category": 3,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/vZwmbqP",
     "code_text": "sayHi(); \n\nfunction sayHi() { \n   alert(\"Hello\"); \n}",
     "answers": {
       "a": "Yes",
@@ -1134,7 +1134,7 @@
   {
     "difficulty": 2,
     "category": 3,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/R7k1Ntx",
     "code_text": "\"use strict\"; \n\na = null + undefined; \nalert(a);",
     "answers": {
       "a": "null",
@@ -1162,7 +1162,7 @@
   {
     "difficulty": 3,
     "category": 3,
-    "code_pic": null,
+    "code_pic": "https://ibb.co/pPzx5Qw",
     "code_text": "let arr = [1, 2, 3]; \narr.something = 5; \n\nalert(arr.something); // ?",
     "answers": { "a": "5", "b": "Code contains error", "c": "undefined" },
     "correct_answer": "a",
