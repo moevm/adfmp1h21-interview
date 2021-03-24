@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.pjs.itinterviewtrainer.adapters.CategoryListAdapter
+import com.pjs.itinterviewtrainer.adapters.StatisticsListAdapter
 import com.pjs.itinterviewtrainer.data.QuizRepository
 import kotlinx.android.synthetic.main.fragment_statistics.view.*
 
-class StatisticsFragment : Fragment(), CategoryListAdapter.OnItemClickListener {
+class StatisticsFragment : Fragment(), StatisticsListAdapter.OnItemClickListener {
     companion object {
         const val TAG = "statisticsFragment"
 
@@ -21,20 +20,15 @@ class StatisticsFragment : Fragment(), CategoryListAdapter.OnItemClickListener {
         }
     }
 
-    private lateinit var listAdapter: CategoryListAdapter
+    private lateinit var listAdapter: StatisticsListAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        val rootView = inflater.inflate(R.layout.fragment_categories_choice, container, false)
-        listAdapter = CategoryListAdapter(QuizRepository.categoriesList, this)
+        val rootView = inflater.inflate(R.layout.fragment_statistics, container, false)
+        listAdapter = StatisticsListAdapter(QuizRepository.categoriesList, this)
         rootView.categoriesListView.adapter = listAdapter
         rootView.categoriesListView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-        rootView.searchCategory.addTextChangedListener {
-            listAdapter.dataSet = QuizRepository.categoriesList.filter { c -> c.name.contains(it.toString(), ignoreCase = true) }
-            listAdapter.notifyDataSetChanged()
-        }
         return rootView
     }
 
