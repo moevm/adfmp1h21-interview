@@ -92,19 +92,19 @@
             <RadioButton
                 android:id="@+id/answer_a"
                 android:layoutDirection="rtl"
-                android:gravity="start"
-                android:textAlignment="textStart"
+                android:gravity="center_vertical|left"
+                android:textAlignment="gravity"
                 style="@style/QuizDefaultRadioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="answer A"
-                />
+                tools:ignore="RtlHardcoded" />
 
             <RadioButton
                 android:id="@+id/answer_b"
                 android:layoutDirection="rtl"
-                android:textAlignment="textStart"
-                android:layout_gravity="start"
+                android:gravity="center_vertical|left"
+                android:textAlignment="gravity"
                 style="@style/QuizDefaultRadioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,8 +113,8 @@
             <RadioButton
                 android:id="@+id/answer_c"
                 android:layoutDirection="rtl"
-                android:textAlignment="textStart"
-                android:layout_gravity="start"
+                android:gravity="center_vertical|left"
+                android:textAlignment="gravity"
                 style="@style/QuizDefaultRadioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -124,8 +124,8 @@
             <RadioButton
                 android:id="@+id/answer_d"
                 android:layoutDirection="rtl"
-                android:textAlignment="textStart"
-                android:layout_gravity="start"
+                android:gravity="center_vertical|left"
+                android:textAlignment="gravity"
                 style="@style/QuizDefaultRadioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

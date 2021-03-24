@@ -24,7 +24,7 @@ object QuizRepository {
         return Quiz(
                 0,
                 "Basics",
-            categories,
+                 categories,
                 levelsList[0],
                 questionsList
                         .filter { q -> categories.map{it.name}.contains(q.category) && q.difficulty == levelsList[0].difficulty }
