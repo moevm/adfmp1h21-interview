@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.pjs.itinterviewtrainer.data.QuestionLevel
@@ -105,6 +106,17 @@ class QuizSetupFragment : Fragment() {
     private fun startTest() {
         val intent = Intent(activity, QuizActivity::class.java)
         val chosenCategories = QuizRepository.categoriesList.zip(checkedCategories.toList()).filter { it.second }.map { it.first }
+
+        if(chosenCategories.isEmpty()){
+            AlertDialog.Builder(requireContext())
+                .setTitle("No selected categories")
+                .setMessage("Select categories to start test")
+                .setPositiveButton("Ok") { _, _ -> }
+                .create()
+                .show()
+            return
+        }
+
         val quizAmount = selectQAmount.text.toString().toIntOrNull() ?: 10
         val level = levelsArray[checkedLevelPosition]
 
