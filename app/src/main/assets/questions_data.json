@@ -359,7 +359,7 @@
     "difficulty": 3,
     "category": 1,
     "code_pic": null,
-    "code_text": "def x(): pass \n print(type(x()))",
+    "code_text": "def x(): pass \n  print(type(x()))",
     "answers": {
       "a": "<class 'function'>",
       "b": "<class 'NoneType'>",
@@ -418,7 +418,7 @@
     "difficulty": 3,
     "category": 2,
     "code_pic": null,
-    "code_text": "#include <functional> \n #include <iostream> \n template <typename T> \n void call_with(std::function<void(T)> f, T val) \n { \n f(val); \n } \n \n int main() \n { \n auto print = [] (int x) { std::cout << x; }; \n call_with(print, 42); \n}",
+    "code_text": "#include <functional> \n#include <iostream> \n\ntemplate <typename T> \nvoid call_with(std::function<void(T)> f, T val) \n{ \n    f(val); \n} \n \nint main() \n{ \n    auto print = [] (int x) { std::cout << x; }; \n    call_with(print, 42); \n}",
     "answers": {
       "a": "The program is guaranteed to output 42",
       "b": "The program has a compilation error",
@@ -432,7 +432,7 @@
     "difficulty": 2,
     "category": 2,
     "code_pic": null,
-    "code_text": "#include <iostream> \n int main() { \n std::cout << 1[\"ABC\"]; \n }",
+    "code_text": "#include <iostream> \nint main() { \n    std::cout << 1[\"ABC\"]; \n}",
     "answers": { "a": "A", "b": "B", "c": "1", "d": "Program has SyntaxError" },
     "correct_answer": "b",
     "question_text": "According to the C++17 standard, what is the output of this program?"
@@ -708,7 +708,7 @@
     "difficulty": 2,
     "category": 2,
     "code_pic": null,
-    "code_text": "#include <initializer_list> \n #include <iostream> \n\n class C { \n public: \n C() = default; \n C(const C&) { std::cout << 1; } \n }; \n \n void f(std::initializer_list<C> i) {} \n \n int main() { \n C c; \n std::initializer_list<C> i{c}; \n f(i); \n f(i); \n }",
+    "code_text": "#include <initializer_list> \n#include <iostream> \n\nclass C \n{\npublic: \n    C() = default;\n    C(const C&) { std::cout << 1; }\n}; \n \nvoid f(std::initializer_list<C> i) {} \n \n int main()\n{ \n    C c; \n    std::initializer_list<C> i{c}; \n    f(i); \n    f(i); \n}",
     "answers": { "a": "1", "b": "11", "c": "111", "d": "1111" },
     "correct_answer": "a",
     "question_text": "According to the C++17 standard, what is the output of this program?"
@@ -717,7 +717,7 @@
     "difficulty": 3,
     "category": 2,
     "code_pic": null,
-    "code_text": "#include <iostream> \n\n struct A { \n virtual void foo (int a = 1) { \n std::cout << \"A\" << a; \n } \n }; \n\n struct B : A { \n virtual void foo (int a = 2) { \n std::cout << \"B\" << a; \n } \n }; \n\n int main () { \n A *b = new B; \n b->foo(); \n }",
+    "code_text": "#include <iostream> \n\nstruct A { \n    virtual void foo (int a = 1)\n    { \n         std::cout << \"A\" << a; \n    }\n}; \n\nstruct B : A\n{ \n    virtual void foo (int a = 2)\n    { \n        std::cout << \"B\" << a; \n     } \n}; \n\nint main ()\n{ \n    A *b = new B; \n    b->foo(); \n}",
     "answers": { "a": "A1", "b": "B2", "c": "A2", "d": "B1" },
     "correct_answer": "d",
     "question_text": "According to the C++17 standard, what is the output of this program?"
@@ -726,7 +726,7 @@
     "difficulty": 2,
     "category": 2,
     "code_pic": null,
-    "code_text": "#include <iostream> \n\n int main(int argc, char* argv[]) { \n std::cout << (argv[argc] == nullptr); \n }",
+    "code_text": "#include <iostream> \n\nint main(int argc, char* argv[]) { \n    std::cout << (argv[argc] == nullptr); \n}",
     "answers": { "a": "1", "b": "0", "c": "true", "d": "false" },
     "correct_answer": "a",
     "question_text": "According to the C++17 standard, what is the output of this program?"
@@ -735,7 +735,7 @@
     "difficulty": 2,
     "category": 2,
     "code_pic": null,
-    "code_text": "int main() { \n int a[] = <%1%>; \n std::cout << a<:0:>; \n}",
+    "code_text": "int main() { \n    int a[] = <%1%>; \n    std::cout << a<:0:>; \n}",
     "answers": {
       "a": "The program is guaranteed to output 1",
       "b": "The program has a compilation error",
@@ -749,7 +749,7 @@
     "difficulty": 2,
     "category": 2,
     "code_pic": null,
-    "code_text": "#include<iostream> \n \n int main() \n { \n unsigned short x=0xFFFF; \n unsigned short y=0xFFFF; \n auto z=x*y; \n std::cout << (z > 0); \n }",
+    "code_text": "#include<iostream> \n \nint main() \n{ \n    unsigned short x=0xFFFF; \n    unsigned short y=0xFFFF; \n    auto z=x*y; \n    std::cout << (z > 0); \n}",
     "answers": {
       "a": "The program is guaranteed to output 1",
       "b": "The program has a compilation error",
@@ -763,7 +763,7 @@
     "difficulty": 2,
     "category": 2,
     "code_pic": null,
-    "code_text": "#include <iostream> \n\n int main() { \n void * p = &p; \n std::cout << bool(p); \n}",
+    "code_text": "#include <iostream> \n\nint main() { \n    void * p = &p; \n    std::cout << bool(p); \n}",
     "answers": {
       "a": "The program is guaranteed to output 1",
       "b": "The program has a compilation error",
@@ -1073,7 +1073,7 @@
     "difficulty": 2,
     "category": 3,
     "code_pic": null,
-    "code_text": "for(var i=0; i<10; i++) { \n setTimeout(function() { \n alert(i); \n }, 100); \n}",
+    "code_text": "for(var i = 0; i < 10; i++) { \n    setTimeout(function() { alert(i); }, 100); \n}",
     "answers": {
       "a": "Numbers from 0 to 9",
       "b": "Numbers from 0 to 10",
@@ -1096,7 +1096,7 @@
     "difficulty": 2,
     "category": 3,
     "code_pic": null,
-    "code_text": "let f = function g() { return 23; }; \n\n alert( typeof g() );",
+    "code_text": "let f = function g() { return 23; }; \n\nalert( typeof g() );",
     "answers": {
       "a": "number",
       "b": "undefined",
@@ -1110,7 +1110,7 @@
     "difficulty": 2,
     "category": 3,
     "code_pic": null,
-    "code_text": "sayHi(); \n\n function sayHi() { \n alert(\"Hello\"); \n}",
+    "code_text": "sayHi(); \n\nfunction sayHi() { \n   alert(\"Hello\"); \n}",
     "answers": {
       "a": "Yes",
       "b": "No, the call must be placed after the announcement."
@@ -1135,7 +1135,7 @@
     "difficulty": 2,
     "category": 3,
     "code_pic": null,
-    "code_text": "\"use strict\"; \n\n a = null + undefined; \n alert(a);",
+    "code_text": "\"use strict\"; \n\na = null + undefined; \nalert(a);",
     "answers": {
       "a": "null",
       "b": "undefined",
@@ -1163,7 +1163,7 @@
     "difficulty": 3,
     "category": 3,
     "code_pic": null,
-    "code_text": "let arr = [1, 2, 3]; \n arr.something = 5; \n\n alert(arr.something); // ?",
+    "code_text": "let arr = [1, 2, 3]; \narr.something = 5; \n\nalert(arr.something); // ?",
     "answers": { "a": "5", "b": "Code contains error", "c": "undefined" },
     "correct_answer": "a",
     "question_text": "What does \"alert\" output?"
