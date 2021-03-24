@@ -31,6 +31,14 @@ class MainFragment : Fragment() {
             }
         }
 
+        rootView.statsBtn.setOnClickListener {
+            with(requireActivity().supportFragmentManager.beginTransaction()) {
+                replace(R.id.container, StatisticsFragment.newInstance(), StatisticsFragment.TAG)
+                addToBackStack(StatisticsFragment.TAG)
+                commit()
+            }
+        }
+
         return rootView
     }
 
