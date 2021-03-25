@@ -39,7 +39,7 @@ class QuizSetupFragment : Fragment() {
         levelsArray = QuizRepository.levelsList.toTypedArray()
         checkedLevelPosition = levelsArray.size / 2
 
-        rootView.selectLevel.setText(levelsArray[checkedLevelPosition].difficulty)
+        rootView.selectLevel.setText(levelsArray[checkedLevelPosition].levelName)
         rootView.selectQAmount.setText(questionsAmount.toString())
 
         rootView.selectCategories.setOnClickListener {
@@ -59,7 +59,7 @@ class QuizSetupFragment : Fragment() {
         return rootView
     }
 
-    private fun createCategoriesDialog(): androidx.appcompat.app.AlertDialog {
+    private fun createCategoriesDialog(): AlertDialog {
         var newCheckedCategories = checkedCategories.clone()
 
         return MaterialAlertDialogBuilder(requireContext())
@@ -83,7 +83,7 @@ class QuizSetupFragment : Fragment() {
                 .create()
     }
 
-    private fun createLevelsDialog(): androidx.appcompat.app.AlertDialog {
+    private fun createLevelsDialog(): AlertDialog {
         var newCheckedLevelPosition = 0
         return MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Select level")
@@ -92,10 +92,10 @@ class QuizSetupFragment : Fragment() {
                 }
                 .setPositiveButton("OK") { _, _ ->
                     checkedLevelPosition = newCheckedLevelPosition
-                    selectLevel.setText(levelsArray[checkedLevelPosition].difficulty)
+                    selectLevel.setText(levelsArray[checkedLevelPosition].levelName)
                 }
                 .setSingleChoiceItems(
-                        levelsArray.map { it.difficulty }.toTypedArray(),
+                        levelsArray.map { it.levelName }.toTypedArray(),
                         checkedLevelPosition // 2 - medium
                 ) { _, which ->
                     newCheckedLevelPosition = which
@@ -122,7 +122,7 @@ class QuizSetupFragment : Fragment() {
 
         val randomQuiz = Quiz(
             11497110100111109, // word "random" to int number
-            chosenCategories.joinToString(separator = ",") { it.name },
+            "Misc",
             chosenCategories,
             level,
             QuizRepository.pickQuestions(level, chosenCategories, quizAmount)

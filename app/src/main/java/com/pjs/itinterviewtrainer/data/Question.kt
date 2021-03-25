@@ -15,8 +15,8 @@ data class QuizResults(
 
 @Serializable
 data class Question(
-        val difficulty: String,
-        val category: String,
+        val level_id: Int,
+        val category_id: Int,
         val code_pic: String?,
         val code_text: String?,
         val answers: Map<String, String>,

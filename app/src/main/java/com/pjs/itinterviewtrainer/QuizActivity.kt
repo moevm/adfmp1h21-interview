@@ -87,7 +87,7 @@ class QuizActivity : AppCompatActivity() {
         questionNumber.text = "Question ${currentQuestionNumber}/${quiz.quiestions.size}"
         questionText.text = currentQuestion.question_text
         answers.clearCheck()
-        if (currentQuestion.code_pic != "null") {
+        if (currentQuestion.code_pic != null) {
             question_pic.visibility = View.VISIBLE
         } else {
             question_pic.visibility = View.GONE

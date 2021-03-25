@@ -38,17 +38,17 @@ class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
         rootView.categoryName.text = QuizRepository.categoriesList.find { c -> c.id == categoryId }?.name
                 ?: ""
 
-        quizOfSelectedCategory = QuizRepository.quizList.filter { q -> q.categories.size == 1 && q.categories[0].id == categoryId }
+        quizOfSelectedCategory = QuizRepository.quizList.filter { q -> q.categories.size == 1 && q.categories.first().id == categoryId }
 
         // first selected tab - easy
-        adapter = QuizListAdapter(quizOfSelectedCategory.filter { q -> q.level.id == 0 }, this)
+        adapter = QuizListAdapter(quizOfSelectedCategory.filter { q -> q.level.id == 1 }, this)
         rootView.quizListView.adapter = adapter
         rootView.quizListView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         rootView.difficultyTabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tab?.let {
-                    adapter.dataSet = quizOfSelectedCategory.filter { q -> q.level.id == it.position }
+                    adapter.dataSet = quizOfSelectedCategory.filter { q -> q.level.id == it.position + 1 }
                     adapter.notifyDataSetChanged()
                 }
             }

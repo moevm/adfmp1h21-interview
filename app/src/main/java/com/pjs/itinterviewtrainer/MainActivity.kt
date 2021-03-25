@@ -15,9 +15,9 @@ class MainActivity : AppCompatActivity() {
         QuizRepository.questionsList =
             QuizRepository.loadQuestions(assets.open("questions_data.json"))
         QuizRepository.quizList = listOf(
-            QuizRepository.createBasicsQuiz(0),
             QuizRepository.createBasicsQuiz(1),
             QuizRepository.createBasicsQuiz(2),
+            QuizRepository.createBasicsQuiz(3),
         )
 
         with(supportFragmentManager.beginTransaction()) {
