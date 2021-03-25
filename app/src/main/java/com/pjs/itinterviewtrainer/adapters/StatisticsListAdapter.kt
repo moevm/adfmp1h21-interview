@@ -15,7 +15,6 @@ class StatisticsListAdapter(var dataSet: List<QuizResults>, private val onItemCl
         val titleView: TextView = view.findViewById(R.id.titleView)
         val questionsAmountView: TextView = view.findViewById(R.id.questionsAmountView)
         val passedTimeView: TextView = view.findViewById(R.id.passedTimeView)
-        val resultsView: TextView = view.findViewById(R.id.resultsView)
 
         init {
             titleView.setOnClickListener(this)
@@ -39,8 +38,7 @@ class StatisticsListAdapter(var dataSet: List<QuizResults>, private val onItemCl
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val data = dataSet[position]
         viewHolder.titleView.text = data.title
-        viewHolder.resultsView.text = "${data.correct}/${data.correct + data.wrong}" // TODO data.questions.size
-        viewHolder.questionsAmountView.text = "${data.correct + data.wrong} questions" // TODO data.questions.size
+        viewHolder.questionsAmountView.text = "${data.correct}/${data.correct + data.wrong} questions" // TODO data.questions.size
         viewHolder.passedTimeView.text = "${String.format("%.1f", data.passedTimeInSeconds.toFloat()/60)} min"
     }
 
