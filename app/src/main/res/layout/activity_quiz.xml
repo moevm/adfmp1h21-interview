@@ -8,7 +8,7 @@
 
 
     <LinearLayout
-        android:id="@+id/quizContainer"
+        android:id="@+id/quizInfoContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintVertical_bias="0"
@@ -16,6 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/imageContainer"
         android:orientation="vertical"
         android:layout_marginTop="10dp">
 
@@ -62,27 +63,41 @@
             app:layout_constraintWidth_percent="0.9"
             android:layout_marginTop="5dp"/>
 
-        <com.google.android.material.imageview.ShapeableImageView
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/imageContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizInfoContainer"
+        app:layout_constraintBottom_toTopOf="@id/answerContainer"
+        android:scrollbars="none">
+
+        <com.android.volley.toolbox.NetworkImageView
             android:id="@+id/question_pic"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:visibility="visible"
-            android:src="@drawable/logo" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/answerContainer"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/quizContainer"
-            app:layout_constraintVertical_bias="1"
-            app:layout_constraintWidth_percent="0.9"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:orientation="vertical"
-            android:layout_marginVertical="20dp">
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart"
+            android:src="@drawable/logo" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/answerContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageContainer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:layout_marginVertical="20dp">
 
         <RadioGroup
             android:id="@+id/answers"

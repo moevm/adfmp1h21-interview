@@ -20,21 +20,25 @@ enum class SubmitState {
 }
 
 class QuizActivity : AppCompatActivity() {
-    private lateinit var quiz: Quiz
+    private var isRandomQuiz = false
+    private var isCompleted = false
     private var quizTimer = 60
     private var currentQuestionNumber = 0
-    private lateinit var currentQuestion: Question
     private val btnAnswersMap = mapOf(R.id.answer_a to "a", R.id.answer_b to "b", R.id.answer_c to "c", R.id.answer_d to "d")
     private var submitState: SubmitState = SubmitState.SUBMIT
     private var quizResults: QuizResults = QuizResults()
+    private lateinit var quiz: Quiz
+    private lateinit var currentQuestion: Question
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_quiz)
 
         with(intent) {
             quiz = Json.decodeFromString(getStringExtra("quiz")!!)
             quizTimer = getStringExtra("quizTimer")?.toInt() ?: 60
+            isRandomQuiz = getBooleanExtra("isRandom", false)
         }
 
         quizTitle.text = "${quiz.categories.joinToString { it.name }}: ${quiz.name}"
@@ -71,11 +75,13 @@ class QuizActivity : AppCompatActivity() {
 
     private fun setupNextQuestion() {
         if (currentQuestionNumber >= quiz.quiestions.size) {
+            isCompleted = true
             AlertDialog.Builder(this)
                     .setTitle("Quiz completed")
                     .setMessage("Result: ${quizResults.correct}/${quiz.quiestions.size} correct answers")
                     .setPositiveButton("Ok") { _, _ ->
                         saveResults()
+                        onBackPressed()
                     }
                     .create()
                     .show()
@@ -88,9 +94,10 @@ class QuizActivity : AppCompatActivity() {
         questionText.text = currentQuestion.question_text
         answers.clearCheck()
         if (currentQuestion.code_pic != null) {
-            question_pic.visibility = View.VISIBLE
+            imageContainer.visibility = View.VISIBLE
+            question_pic.setImageUrl(currentQuestion.code_pic, VolleyWebService.imageLoader)
         } else {
-            question_pic.visibility = View.GONE
+            imageContainer.visibility = View.GONE
         }
 
         setAnswer(answer_a, "a")
@@ -146,11 +153,15 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun saveResults() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+//        TODO: save results
     }
 
     override fun onBackPressed() {
-        saveResults()
+        if(isRandomQuiz && isCompleted){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        } else {
+            super.onBackPressed()
+        }
     }
 }

@@ -14,10 +14,10 @@ class StatisticsListAdapter(var dataSet: List<QuizResults>, private val onItemCl
     class ViewHolder(view: View, private val itemClickListener: OnItemClickListener) : RecyclerView.ViewHolder(view), View.OnClickListener {
         val titleView: TextView = view.findViewById(R.id.titleView)
         val questionsAmountView: TextView = view.findViewById(R.id.questionsAmountView)
-        val passedTimeView: TextView = view.findViewById(R.id.passedTimeView)
+        val passedTimeView: TextView = view.findViewById(R.id.timeView)
 
         init {
-            titleView.setOnClickListener(this)
+            view.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
@@ -29,7 +29,7 @@ class StatisticsListAdapter(var dataSet: List<QuizResults>, private val onItemCl
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.quiz_results_item, viewGroup, false)
+                .inflate(R.layout.quiz_item, viewGroup, false)
 
         return ViewHolder(view, onItemClickListener)
     }

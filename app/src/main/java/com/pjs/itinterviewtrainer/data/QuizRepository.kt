@@ -45,8 +45,8 @@ object QuizRepository {
             levelsList.first(),
             questionsList
                 .filter { q ->
-                    categories.map { it.id }
-                        .contains(q.category_id) && q.level_id == levelsList.first().id
+                    categories.map { it.id }.contains(q.category_id) && q.code_pic != null
+//                        .contains(q.category_id) && q.level_id == levelsList.first().id
                 }
                 .take(10)
         )

@@ -131,7 +131,7 @@ class QuizSetupFragment : Fragment() {
         val timer = 60
 
         intent.putExtra("quiz", Json.encodeToString(randomQuiz))
-        intent.putExtra("quizTimer", timer.toString())
+        intent.putExtra("isRandom", true)
         startActivity(intent)
     }
 }

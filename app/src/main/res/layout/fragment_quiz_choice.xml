@@ -55,6 +55,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/quizListView"
             android:layout_marginTop="5dp"
+            tools:listitem="@layout/quiz_item"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 

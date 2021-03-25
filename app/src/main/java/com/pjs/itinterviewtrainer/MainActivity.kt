@@ -3,6 +3,7 @@ package com.pjs.itinterviewtrainer
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.toolbox.Volley
 import com.pjs.itinterviewtrainer.data.QuizRepository
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +12,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        VolleyWebService.setupRequestQueue(baseContext)
 
         QuizRepository.questionsList =
             QuizRepository.loadQuestions(assets.open("questions_data.json"))
