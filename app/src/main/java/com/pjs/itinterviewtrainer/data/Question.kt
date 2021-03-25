@@ -7,7 +7,9 @@ data class QuizResults(
         val id: Int = 0,
         var correct: Int = 0,
         var wrong: Int = 0,
-        var questions: MutableList<Question> = mutableListOf()
+        var questions: MutableList<Question> = mutableListOf(),
+        var passedTimeInSeconds: Int = 0,
+        var title: String = ""
 )
 
 
