@@ -1,18 +1,21 @@
 [
   {
-    "difficulty": "easy",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "True", "b": "False" },
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "True",
+      "b": "False"
+    },
     "correct_answer": "a",
     "question_text": "In Python, 'Hello', is the same as \"Hello\""
   },
   {
-    "difficulty": "easy",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "execute python test.py",
       "b": "run python test.py",
@@ -23,19 +26,24 @@
     "question_text": "To run python script file named test.py, use the command ________."
   },
   {
-    "difficulty": "easy",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": ".pyth", "b": ".pt", "c": ".pyt", "d": ".py" },
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": ".pyth",
+      "b": ".pt",
+      "c": ".pyt",
+      "d": ".py"
+    },
     "correct_answer": "d",
     "question_text": "What is the correct file extension for Python files?"
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "Repeats string1 string2 times (string2 must be in numeric format).",
       "b": "Concatenates string1 and string2.",
@@ -46,10 +54,10 @@
     "question_text": "What does the expression string1 + string2 do?"
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "compiler/at compile time",
       "b": "interpreter/at runtime",
@@ -60,10 +68,10 @@
     "question_text": "In Python, a syntax error is detected by the ________ at _________. *"
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "Python is an interpreted language.",
       "b": "Python is a high level programming language.",
@@ -74,10 +82,10 @@
     "question_text": "Which of the following statements is true?"
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "from sys import getarg",
       "b": "from system import argv",
@@ -88,10 +96,10 @@
     "question_text": "Which of these should you include in order to pass variables to a script?"
   },
   {
-    "difficulty": "easy",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "// comments //",
       "b": "/* comments */",
@@ -102,10 +110,10 @@
     "question_text": "A Python paragraph comment uses the style ________."
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "Python Interpreter ignores comment.",
       "b": "Comments are for programmers for better understanding of the program.",
@@ -116,10 +124,10 @@
     "question_text": "Which of the following is correct?"
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "#This is a comment",
       "b": "/*This is a comment*/",
@@ -130,19 +138,22 @@
     "question_text": "How do you insert comments in Python code?"
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "True", "b": "False" },
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "True",
+      "b": "False"
+    },
     "correct_answer": "a",
     "question_text": "Python syntax is case-sensitive."
   },
   {
-    "difficulty": "hard",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 3,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "Yes; the C code can be in a form of a dynamically or a statically linked library.",
       "b": "No, it is impossible.",
@@ -153,19 +164,23 @@
     "question_text": "Is it possible to link a Python program to code written in C?"
   },
   {
-    "difficulty": "hard",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "syntax", "b": "runtime", "c": "logical" },
+    "level_id": 3,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "syntax",
+      "b": "runtime",
+      "c": "logical"
+    },
     "correct_answer": "c",
     "question_text": "A ___________ error does not cause the program to abort, but produces incorrect results."
   },
   {
-    "difficulty": "hard",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 3,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "Robustly Executed Python Language",
       "b": "Read, Execute, Python, Loop",
@@ -176,19 +191,24 @@
     "question_text": "What does REPL mean in Python?"
   },
   {
-    "difficulty": "hard",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "C/C++", "b": "Java", "c": "C#", "d": "Javascript" },
+    "level_id": 3,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "C/C++",
+      "b": "Java",
+      "c": "C#",
+      "d": "Javascript"
+    },
     "correct_answer": "a",
     "question_text": "Standard Python implementation can import libraries written in which of the following languages? Select all that apply"
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "Yes, PyErrs.",
       "b": "Yes, PyChecker and Pylint.",
@@ -199,10 +219,10 @@
     "question_text": "Are there tools available to help find bugs, or perform static analysis?"
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "print(\"Hello World\")",
       "b": "echo(\"Hello World\");",
@@ -213,19 +233,24 @@
     "question_text": "What is a correct syntax to output \"Hello World\" in Python?"
   },
   {
-    "difficulty": "easy",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "Java", "b": "C++", "c": "Python", "d": "All the above" },
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "Java",
+      "b": "C++",
+      "c": "Python",
+      "d": "All the above"
+    },
     "correct_answer": "d",
     "question_text": "________ is an object-oriented programming language."
   },
   {
-    "difficulty": "easy",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "Comments are for programmers for better understanding of the program.",
       "b": "Python Interpreter ignores comment.",
@@ -236,10 +261,10 @@
     "question_text": "Which of the following is correct?"
   },
   {
-    "difficulty": "easy",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "execute python",
       "b": "run python",
@@ -250,28 +275,38 @@
     "question_text": "To start Python from the command prompt, use the command ________."
   },
   {
-    "difficulty": "easy",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "Python", "b": "C++", "c": "Ada", "d": "Pascal" },
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "Python",
+      "b": "C++",
+      "c": "Ada",
+      "d": "Pascal"
+    },
     "correct_answer": "a",
     "question_text": "________ is interpreted."
   },
   {
-    "difficulty": "easy",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "//", "b": "/*", "c": "#", "d": "$$" },
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "//",
+      "b": "/*",
+      "c": "#",
+      "d": "$$"
+    },
     "correct_answer": "c",
     "question_text": "A Python line comment begins with ________."
   },
   {
-    "difficulty": "easy",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "James Gosling",
       "b": "Steve Jobs",
@@ -282,10 +317,10 @@
     "question_text": "Python was created by ____________."
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "Yes, if the exception types are enclosed in parentheses.",
       "b": "No, it is not possible.",
@@ -296,10 +331,10 @@
     "question_text": "Is it possible to check for more than one error in one except line?"
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "Curly braces",
       "b": "Parenthesis",
@@ -310,28 +345,36 @@
     "question_text": "What is used to define a block of code (body of loop, function etc.) in Python?"
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "skip", "b": "continue", "c": "next", "d": "pass" },
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "skip",
+      "b": "continue",
+      "c": "next",
+      "d": "pass"
+    },
     "correct_answer": "d",
     "question_text": "Which keyword can be used in any place in Python code to tell interpreter to do nothing and move to next instruction"
   },
   {
-    "difficulty": "easy",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "True", "b": "False" },
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "True",
+      "b": "False"
+    },
     "correct_answer": "b",
     "question_text": "Python is compiled language. True or False?"
   },
   {
-    "difficulty": "hard",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 3,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "Python 3 is a newer version, but it is backward compatible with Python 2.",
       "b": "Python 3 is a newer version, but it is not backward compatible with Python 2.",
@@ -342,10 +385,10 @@
     "question_text": "Which of the following statements is true?"
   },
   {
-    "difficulty": "hard",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "dog = cat",
+    "level_id": 3,
+    "category_id": 1,
+    "code_pic": "https://i.ibb.co/F5Y08ZB/carbon.png",
+    "code_text": "dog = 1\ndog = cat",
     "answers": {
       "a": "SyntaxError",
       "b": "NameError",
@@ -356,10 +399,10 @@
     "question_text": "What error occurs when you execute the following Python code snippet?"
   },
   {
-    "difficulty": "hard",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "def x(): pass \n print(type(x()))",
+    "level_id": 3,
+    "category_id": 1,
+    "code_pic": "https://i.ibb.co/3CT32sK/python2.png",
+    "code_text": "def x(): pass \n  print(type(x()))",
     "answers": {
       "a": "<class 'function'>",
       "b": "<class 'NoneType'>",
@@ -370,55 +413,78 @@
     "question_text": "What gets printed?"
   },
   {
-    "difficulty": "hard",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "int", "b": "float", "c": "bool", "d": "dict" },
+    "level_id": 3,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "int",
+      "b": "float",
+      "c": "bool",
+      "d": "dict"
+    },
     "correct_answer": "a",
     "question_text": "What is the return type of function id?"
   },
   {
-    "difficulty": "hard",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "int", "b": "bool", "c": "void", "d": "None" },
+    "level_id": 3,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "int",
+      "b": "bool",
+      "c": "void",
+      "d": "None"
+    },
     "correct_answer": "d",
     "question_text": "Given a function that does not return any value, What value is thrown by default when executed in shell."
   },
   {
-    "difficulty": "medium",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "Boolean", "b": "Integer", "c": "Float", "d": "Complex" },
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "Boolean",
+      "b": "Integer",
+      "c": "Float",
+      "d": "Complex"
+    },
     "correct_answer": "c",
     "question_text": "What is the type of inf?"
   },
   {
-    "difficulty": "easy",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "True", "b": "False" },
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "True",
+      "b": "False"
+    },
     "correct_answer": "b",
     "question_text": "List in Python can hold elements of same type only. True or False?"
   },
   {
-    "difficulty": "hard",
-    "category": "Python",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "-5", "b": "-7", "c": "-6", "d": "- 5" },
+    "level_id": 3,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "-5",
+      "b": "-7",
+      "c": "-6",
+      "d": "- 5"
+    },
     "correct_answer": "c",
     "question_text": "What does ~5 evaluate to?"
   },
   {
-    "difficulty": "hard",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "#include <functional> \n #include <iostream> \n template <typename T> \n void call_with(std::function<void(T)> f, T val) \n { \n f(val); \n } \n \n int main() \n { \n auto print = [] (int x) { std::cout << x; }; \n call_with(print, 42); \n}",
+    "level_id": 3,
+    "category_id": 2,
+    "code_pic": "https://i.ibb.co/QjT6kv2/cpp1.png",
+    "code_text": "#include <functional> \n#include <iostream> \n\ntemplate <typename T> \nvoid call_with(std::function<void(T)> f, T val) \n{ \n    f(val); \n} \n \nint main() \n{ \n    auto print = [] (int x) { std::cout << x; }; \n    call_with(print, 42); \n}",
     "answers": {
       "a": "The program is guaranteed to output 42",
       "b": "The program has a compilation error",
@@ -429,19 +495,24 @@
     "question_text": "According to the C++17 standard, what is the output of this program?"
   },
   {
-    "difficulty": "medium",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "#include <iostream> \n int main() { \n std::cout << 1[\"ABC\"]; \n }",
-    "answers": { "a": "A", "b": "B", "c": "1", "d": "Program has SyntaxError" },
+    "level_id": 2,
+    "category_id": 2,
+    "code_pic": "https://i.ibb.co/0QwyxJD/cpp2.png",
+    "code_text": "#include <iostream> \nint main() { \n    std::cout << 1[\"ABC\"]; \n}",
+    "answers": {
+      "a": "A",
+      "b": "B",
+      "c": "1",
+      "d": "Program has SyntaxError"
+    },
     "correct_answer": "b",
     "question_text": "According to the C++17 standard, what is the output of this program?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "print(\"Hello World\");",
       "b": "cout << \"Hello World\";",
@@ -452,19 +523,22 @@
     "question_text": "What is a correct syntax to output \"Hello World\" in C++"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "False", "b": "True" },
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "False",
+      "b": "True"
+    },
     "correct_answer": "a",
     "question_text": "C++ is an alias of C#"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "/* This is a comment",
       "b": "# This is a comment",
@@ -474,19 +548,24 @@
     "question_text": "How do you insert COMMENTS in C++ code?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "string", "b": "String", "c": "myString", "d": "Txt" },
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "string",
+      "b": "String",
+      "c": "myString",
+      "d": "Txt"
+    },
     "correct_answer": "a",
     "question_text": "Which data type is used to create a variable that should store text?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "int x = 5",
       "b": "num x = 5",
@@ -497,10 +576,10 @@
     "question_text": "How do you create a variable with the numeric value 5?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "double x = 2.8;",
       "b": "x = 2.8;",
@@ -511,10 +590,10 @@
     "question_text": "How do you create a variable with the floating number 2.8?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "getLength()",
       "b": "getLength()",
@@ -525,10 +604,10 @@
     "question_text": "Which method can be used to find the length of a string?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "The * sign",
       "b": "The + sign",
@@ -539,19 +618,22 @@
     "question_text": "Which operator is used to add together two values?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "True", "b": "False" },
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "True",
+      "b": "False"
+    },
     "correct_answer": "b",
     "question_text": "The value of a string variable can be surrounded by single quotes."
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "#include <inputstr>",
       "b": "#include <stream>",
@@ -562,28 +644,37 @@
     "question_text": "Which header file lets us work with input and output objects?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "=", "b": "==", "c": "><", "d": "<>" },
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "=",
+      "b": "==",
+      "c": "><",
+      "d": "<>"
+    },
     "correct_answer": "b",
     "question_text": "Which operator can be used to compare two values?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "{}", "b": "()", "c": "[]" },
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "{}",
+      "b": "()",
+      "c": "[]"
+    },
     "correct_answer": "c",
     "question_text": "To declare an array in C++, define the variable type with:"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "functionName[]",
       "b": "functionName.",
@@ -594,10 +685,10 @@
     "question_text": "How do you call a function in C++?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "MyClass",
       "b": "class",
@@ -608,10 +699,10 @@
     "question_text": "Which keyword is used to create a class in C++?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "MyClass myObj;",
       "b": "class MyClass = new myObj();",
@@ -622,19 +713,22 @@
     "question_text": "What is the correct way to create an object called myObj of MyClass?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "True", "b": "False" },
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "True",
+      "b": "False"
+    },
     "correct_answer": "a",
     "question_text": "In C++, it is possible to inherit attributes and methods from one class to another."
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "largest(x,y)",
       "b": "maximum(x,y)",
@@ -645,19 +739,24 @@
     "question_text": "Which method can be used to find the highest value of x and y?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "%", "b": "*", "c": "x", "d": "#" },
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "%",
+      "b": "*",
+      "c": "x",
+      "d": "#"
+    },
     "correct_answer": "b",
     "question_text": "Which operator is used to multiply numbers?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "With the * operator",
       "b": "With the REF word",
@@ -668,10 +767,10 @@
     "question_text": "How do you create a reference variable of an existing variable?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "if (x > y)",
       "b": "if x > y then:",
@@ -682,10 +781,10 @@
     "question_text": "How do you start writing an if statement in C++?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "while (x > y)",
       "b": "while x > y:",
@@ -696,46 +795,66 @@
     "question_text": "How do you start writing a while loop in C++?"
   },
   {
-    "difficulty": "easy",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "break", "b": "exit", "c": "stop", "d": "return" },
+    "level_id": 1,
+    "category_id": 2,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "break",
+      "b": "exit",
+      "c": "stop",
+      "d": "return"
+    },
     "correct_answer": "a",
     "question_text": "Which keyword is used to return a value inside a method?"
   },
   {
-    "difficulty": "medium",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "#include <initializer_list> \n #include <iostream> \n\n class C { \n public: \n C() = default; \n C(const C&) { std::cout << 1; } \n }; \n \n void f(std::initializer_list<C> i) {} \n \n int main() { \n C c; \n std::initializer_list<C> i{c}; \n f(i); \n f(i); \n }",
-    "answers": { "a": "1", "b": "11", "c": "111", "d": "1111" },
+    "level_id": 2,
+    "category_id": 2,
+    "code_pic": "https://i.ibb.co/gPwtgBb/cpp3.png",
+    "code_text": "#include <initializer_list> \n#include <iostream> \n\nclass C \n{\npublic: \n    C() = default;\n    C(const C&) { std::cout << 1; }\n}; \n \nvoid f(std::initializer_list<C> i) {} \n \n int main()\n{ \n    C c; \n    std::initializer_list<C> i{c}; \n    f(i); \n    f(i); \n}",
+    "answers": {
+      "a": "1",
+      "b": "11",
+      "c": "111",
+      "d": "1111"
+    },
     "correct_answer": "a",
     "question_text": "According to the C++17 standard, what is the output of this program?"
   },
   {
-    "difficulty": "hard",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "#include <iostream> \n\n struct A { \n virtual void foo (int a = 1) { \n std::cout << \"A\" << a; \n } \n }; \n\n struct B : A { \n virtual void foo (int a = 2) { \n std::cout << \"B\" << a; \n } \n }; \n\n int main () { \n A *b = new B; \n b->foo(); \n }",
-    "answers": { "a": "A1", "b": "B2", "c": "A2", "d": "B1" },
+    "level_id": 3,
+    "category_id": 2,
+    "code_pic": "https://i.ibb.co/y4pZFd3/cpp4.png",
+    "code_text": "#include <iostream> \n\nstruct A { \n    virtual void foo (int a = 1)\n    { \n         std::cout << \"A\" << a; \n    }\n}; \n\nstruct B : A\n{ \n    virtual void foo (int a = 2)\n    { \n        std::cout << \"B\" << a; \n     } \n}; \n\nint main ()\n{ \n    A *b = new B; \n    b->foo(); \n}",
+    "answers": {
+      "a": "A1",
+      "b": "B2",
+      "c": "A2",
+      "d": "B1"
+    },
     "correct_answer": "d",
     "question_text": "According to the C++17 standard, what is the output of this program?"
   },
   {
-    "difficulty": "medium",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "#include <iostream> \n\n int main(int argc, char* argv[]) { \n std::cout << (argv[argc] == nullptr); \n }",
-    "answers": { "a": "1", "b": "0", "c": "true", "d": "false" },
+    "level_id": 2,
+    "category_id": 2,
+    "code_pic": "https://i.ibb.co/jyhDB4F/cpp5.png",
+    "code_text": "#include <iostream> \n\nint main(int argc, char* argv[]) { \n    std::cout << (argv[argc] == nullptr); \n}",
+    "answers": {
+      "a": "1",
+      "b": "0",
+      "c": "true",
+      "d": "false"
+    },
     "correct_answer": "a",
     "question_text": "According to the C++17 standard, what is the output of this program?"
   },
   {
-    "difficulty": "medium",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "int main() { \n int a[] = <%1%>; \n std::cout << a<:0:>; \n}",
+    "level_id": 2,
+    "category_id": 2,
+    "code_pic": "https://i.ibb.co/5v7SDjH/cpp6.png",
+    "code_text": "int main() { \n    int a[] = <%1%>; \n    std::cout << a<:0:>; \n}",
     "answers": {
       "a": "The program is guaranteed to output 1",
       "b": "The program has a compilation error",
@@ -746,10 +865,10 @@
     "question_text": "According to the C++17 standard, what is the output of this program?"
   },
   {
-    "difficulty": "medium",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "#include<iostream> \n \n int main() \n { \n unsigned short x=0xFFFF; \n unsigned short y=0xFFFF; \n auto z=x*y; \n std::cout << (z > 0); \n }",
+    "level_id": 2,
+    "category_id": 2,
+    "code_pic": "https://i.ibb.co/Z85wgFT/cpp7.png",
+    "code_text": "#include<iostream> \n \nint main() \n{ \n    unsigned short x=0xFFFF; \n    unsigned short y=0xFFFF; \n    auto z=x*y; \n    std::cout << (z > 0); \n}",
     "answers": {
       "a": "The program is guaranteed to output 1",
       "b": "The program has a compilation error",
@@ -760,10 +879,10 @@
     "question_text": "According to the C++17 standard, what is the output of this program?"
   },
   {
-    "difficulty": "medium",
-    "category": "C++",
-    "code_pic": "null",
-    "code_text": "#include <iostream> \n\n int main() { \n void * p = &p; \n std::cout << bool(p); \n}",
+    "level_id": 2,
+    "category_id": 2,
+    "code_pic": "https://i.ibb.co/znm3PXJ/cpp8.png",
+    "code_text": "#include <iostream> \n\nint main() { \n    void * p = &p; \n    std::cout << bool(p); \n}",
     "answers": {
       "a": "The program is guaranteed to output 1",
       "b": "The program has a compilation error",
@@ -774,10 +893,10 @@
     "question_text": "According to the C++17 standard, what is the output of this program?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "<js>",
       "b": "<script>",
@@ -788,10 +907,10 @@
     "question_text": "Inside which HTML element do we put the JavaScript?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "document.getElement(\"p\").innerHTML = \"Hello World!\"",
       "b": "#demo.innerHTML = \"Hello World!\";",
@@ -802,10 +921,10 @@
     "question_text": "What is the correct JavaScript syntax to change the content of the HTML element below?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "The <head> section",
       "b": "Both the <head> section and the <body> section are correct",
@@ -815,10 +934,10 @@
     "question_text": "Where is the correct place to insert a JavaScript?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "<script src=\"xxx.js\">",
       "b": "<script name=\"xxx.js\">",
@@ -828,19 +947,22 @@
     "question_text": "What is the correct syntax for referring to an external script called \"xxx.js\"?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "False", "b": "True" },
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "False",
+      "b": "True"
+    },
     "correct_answer": "a",
     "question_text": "The external JavaScript file must contain the <script> tag."
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "msg(\"Hello World\");",
       "b": "alert(\"Hello World\");",
@@ -851,10 +973,10 @@
     "question_text": "How do you write \"Hello World\" in an alert box?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "function:myFunction()",
       "b": "function myFunction()",
@@ -865,10 +987,10 @@
     "question_text": "How do you create a function in JavaScript?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "call myFunction()",
       "b": "call function myFunction()",
@@ -879,10 +1001,10 @@
     "question_text": "How do you call a function named \"myFunction\"?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "if i == 5 then",
       "b": "if i = 5",
@@ -893,10 +1015,10 @@
     "question_text": "How to write an IF statement in JavaScript?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "if i =! 5 then",
       "b": "if (i <> 5)",
@@ -907,10 +1029,10 @@
     "question_text": "How to write an IF statement for executing some code if \"i\" is NOT equal to 5?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "while (i <= 10; i++)",
       "b": "while i = 1 to 10",
@@ -921,10 +1043,10 @@
     "question_text": "How does a WHILE loop start?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "for (i <= 5; i++)",
       "b": "for (i = 0; i <= 5)",
@@ -935,10 +1057,10 @@
     "question_text": "How does a FOR loop start?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "'This is a comment",
       "b": "//This is a comment ",
@@ -949,10 +1071,10 @@
     "question_text": "How can you add a comment in a JavaScript?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "var colors = [\"red\", \"green\", \"blue\"]",
       "b": "var colors = (1:\"red\", 2:\"green\", 3:\"blue\")",
@@ -963,10 +1085,10 @@
     "question_text": "What is the correct way to write a JavaScript array?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "rnd(7.25)",
       "b": "round(7.25)",
@@ -977,10 +1099,10 @@
     "question_text": "How do you round the number 7.25, to the nearest integer?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "ceil(x, y)",
       "b": "Math.max(x, y)",
@@ -991,10 +1113,10 @@
     "question_text": "How do you find the number with the highest value of x and y?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "w2 = window.new(\"http://www.w3schools.com\");",
       "b": "w2 = window.open(\"http://www.w3schools.com\");"
@@ -1003,19 +1125,22 @@
     "question_text": "What is the correct JavaScript syntax for opening a new window called \"w2\" ?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "False", "b": "True" },
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "False",
+      "b": "True"
+    },
     "correct_answer": "a",
     "question_text": "JavaScript is the same as Java."
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "client.navName",
       "b": "browser.name",
@@ -1025,10 +1150,10 @@
     "question_text": "How can you detect the client's browser name?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "onmouseclick",
       "b": "onclick",
@@ -1039,41 +1164,48 @@
     "question_text": "Which event occurs when the user clicks on an HTML element?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
-      "a": "variable carName;",
-      "b": "variable carName;",
-      "c": "v carName;"
+      "a": "var carName;",
+      "b": "let carName;",
+      "c": "carName;",
+      "d": "all of the above"
     },
-    "correct_answer": "a",
+    "correct_answer": "d",
     "question_text": "How do you declare a JavaScript variable?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "return: Boolean(10 > 9)",
-    "answers": { "a": "true", "b": "NaN", "c": "false" },
+    "level_id": 2,
+    "category_id": 3,
+    "code_pic": "https://i.ibb.co/nrW8RXQ/js1.png",
+    "code_text": "false === !\"false\"",
+    "answers": {
+      "a": "true",
+      "b": "false"
+    },
     "correct_answer": "a",
     "question_text": "What will return the following code?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "return: Boolean(10 > 9)",
-    "answers": { "a": "Yes", "b": "No" },
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "Yes",
+      "b": "No"
+    },
     "correct_answer": "a",
     "question_text": "Is JavaScript case-sensitive?"
   },
   {
-    "difficulty": "medium",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "for(var i=0; i<10; i++) { \n setTimeout(function() { \n alert(i); \n }, 100); \n}",
+    "level_id": 2,
+    "category_id": 3,
+    "code_pic": "https://i.ibb.co/cYk2Nqg/js2.png",
+    "code_text": "for(var i = 0; i < 10; i++) { \n    setTimeout(function() { alert(i); }, 100); \n}",
     "answers": {
       "a": "Numbers from 0 to 9",
       "b": "Numbers from 0 to 10",
@@ -1084,33 +1216,38 @@
     "question_text": "What will this code output?"
   },
   {
-    "difficulty": "easy",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
-    "answers": { "a": "\"truefalse\"", "b": "0", "c": "1", "d": "NaN" },
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "\"truefalse\"",
+      "b": "0",
+      "c": "1",
+      "d": "NaN"
+    },
     "correct_answer": "c",
     "question_text": "What happens if you add true + false"
   },
   {
-    "difficulty": "medium",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "let f = function g() { return 23; }; \n\n alert( typeof g() );",
+    "level_id": 2,
+    "category_id": 3,
+    "code_pic": "https://i.ibb.co/ScVXgtY/js3.png",
+    "code_text": "let f = function g() { return 23; }; \n\nalert( typeof g() );",
     "answers": {
       "a": "number",
       "b": "undefined",
       "c": "function",
-      "d": "nothing, error will occured"
+      "d": "Nothing, code contains an error"
     },
     "correct_answer": "d",
     "question_text": "What does this code output?"
   },
   {
-    "difficulty": "medium",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "sayHi(); \n\n function sayHi() { \n alert(\"Hello\"); \n}",
+    "level_id": 2,
+    "category_id": 3,
+    "code_pic": "https://i.ibb.co/HdQTPCW/js4.png",
+    "code_text": "sayHi(); \n\nfunction sayHi() { \n   alert(\"Hello\"); \n}",
     "answers": {
       "a": "Yes",
       "b": "No, the call must be placed after the announcement."
@@ -1119,10 +1256,10 @@
     "question_text": "Will the function call work before the declaration in this code?"
   },
   {
-    "difficulty": "medium",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 2,
+    "category_id": 3,
+    "code_pic": null,
+    "code_text": null,
     "answers": {
       "a": "A new programming language.",
       "b": "Redesigned Javascript implementation.",
@@ -1132,10 +1269,10 @@
     "question_text": "What is ECMAScript?"
   },
   {
-    "difficulty": "medium",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "\"use strict\"; \n\n a = null + undefined; \n alert(a);",
+    "level_id": 2,
+    "category_id": 3,
+    "code_pic": "https://i.ibb.co/Xt22fB9/js5.png",
+    "code_text": "\"use strict\"; \n\na = null + undefined; \nalert(a);",
     "answers": {
       "a": "null",
       "b": "undefined",
@@ -1146,26 +1283,86 @@
     "question_text": "What does this code output?"
   },
   {
-    "difficulty": "hard",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "null",
+    "level_id": 3,
+    "category_id": 3,
+    "code_pic": "https://i.ibb.co/hy3wbWt/js8.png",
+    "code_text": "0 || \"\" || 2 || undefined || true || false",
     "answers": {
       "a": "0",
-      "b": "true",
-      "c": "false",
-      "d": "undefined"
+      "b": "2",
+      "c": "true",
+      "d": "false"
     },
-    "correct_answer": "c",
-    "question_text": "What is equal to \"0 || \"\" || 2 || undefined || true || fals\u0435\" ?"
+    "correct_answer": "b",
+    "question_text": "What is the result of following expression ?"
   },
   {
-    "difficulty": "hard",
-    "category": "JavaScript",
-    "code_pic": "null",
-    "code_text": "let arr = [1, 2, 3]; \n arr.something = 5; \n\n alert(arr.something); // ?",
-    "answers": { "a": "5", "b": "Code contains error", "c": "undefined" },
+    "level_id": 3,
+    "category_id": 3,
+    "code_pic": "https://i.ibb.co/nRvqfJ8/js6.png",
+    "code_text": "let arr = [1, 2, 3]; \narr.something = 5; \n\nalert(arr.something); // ?",
+    "answers": {
+      "a": "5",
+      "b": "Code contains error",
+      "c": "undefined"
+    },
     "correct_answer": "a",
     "question_text": "What does \"alert\" output?"
+  },
+  {
+    "level_id": 1,
+    "category_id": 3,
+    "code_pic": "https://i.ibb.co/zGTHWZB/js7.png",
+    "code_text": "a = 5 + \"5\";\nconsole.log(a);",
+    "answers": {
+      "a": "\"55\"",
+      "b": "10",
+      "c": "run time error",
+      "d": "undefined"
+    },
+    "correct_answer": "a",
+    "question_text": "What does the following code output?"
+  },
+  {
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": "https://i.ibb.co/nnYRzVw/python4.png",
+    "code_text": "my_string=\"foo ba\"\nk=[(i.upper(), len(i)) for i in my_string]",
+    "answers": {
+      "a": "[('FOO', 3), ('BA', 2)]",
+      "b": "[('F', 1), ('O', 1), ('O', 1), (' ', 1), ('B', 1), ('A', 1)]",
+      "c": "[('FOO BA', 6)]",
+      "d": "none of the above"
+    },
+    "correct_answer": "b",
+    "question_text": "What does the following code output?"
+  },
+  {
+    "level_id": 1,
+    "category_id": 1,
+    "code_pic": null,
+    "code_text": null,
+    "answers": {
+      "a": "list",
+      "b": "set",
+      "c": "dict",
+      "d": "tuple"
+    },
+    "correct_answer": "d",
+    "question_text": "Which one of the following Python types is immutable"
+  },
+  {
+    "level_id": 2,
+    "category_id": 1,
+    "code_pic": "https://i.ibb.co/wLb2RY4/python3.png",
+    "code_text": "tuple = {}\ntuple[(1, 2, 4)]=8\ntuple[(4, 2, 1)]=10\ntuple[(1, 2)]=10\n_sum=0\nfor k in tuple:\n    _sum += tuple[k]\n\nprint(len(tuple)+_sum)",
+    "answers": {
+      "a": "32",
+      "b": "34",
+      "c": "31",
+      "d": "Error, because tuples can't be keys for dict"
+    },
+    "correct_answer": "c",
+    "question_text": "Which one of the following Python types is immutable"
   }
 ]

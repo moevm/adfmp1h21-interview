@@ -6,132 +6,155 @@
     android:layout_height="match_parent"
     tools:context=".QuizActivity">
 
+
     <LinearLayout
-        android:id="@+id/question_header"
-        android:orientation="horizontal"
+        android:id="@+id/quizInfoContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintVertical_bias="0"
         app:layout_constraintWidth_percent="0.9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/questionText"
-        android:layout_marginTop="10dp"
-        >
+        app:layout_constraintBottom_toTopOf="@id/imageContainer"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/questionNumber"
+            android:id="@+id/quizTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Question 1/X"
+            android:text="Auto-generated quiz"
             android:textSize="25sp"
             android:gravity="left" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/timer"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/question_header"
+            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:text="60:00"
-            android:gravity="right"
-            android:layout_weight="1" />
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            >
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/questionNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Question 1/X"
+                android:textSize="20sp"
+                android:gravity="left" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="60:00"
+                android:gravity="right"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/questionText"
+            android:textSize="20sp"
+            android:text="Solve equation 2 + 2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.9"
+            android:layout_marginTop="5dp"/>
+
     </LinearLayout>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/questionText"
-        android:textSize="20sp"
-        android:text="Solve equation 2 + 2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintWidth_percent="0.9"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question_header"
-        app:layout_constraintBottom_toTopOf="@+id/question_pic"
-        android:layout_marginTop="5dp"/>
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/question_pic"
+    <ScrollView
+        android:id="@+id/imageContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintWidth_percent="0.9"
-        app:layout_constraintWidth_default="spread"
-        app:layout_constraintHeight_percent="0.3"
-        app:layout_constraintHeight_default="wrap"
-        app:layout_constraintTop_toBottomOf="@+id/questionText"
-        app:layout_constraintBottom_toTopOf="@id/answers"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:src="@drawable/logo" />
+        app:layout_constraintTop_toBottomOf="@+id/quizInfoContainer"
+        app:layout_constraintBottom_toTopOf="@id/answerContainer"
+        android:scrollbars="none">
 
-    <RadioGroup
-        android:id="@+id/answers"
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/question_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart"
+            android:src="@drawable/logo" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/answerContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintVertical_bias="1"
         app:layout_constraintWidth_percent="0.9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question_pic"
-        app:layout_constraintBottom_toTopOf="@+id/submit">
-
-        <RadioButton
-            android:id="@+id/answer_a"
-            android:layoutDirection="rtl"
-            android:gravity="start"
-            android:textAlignment="textStart"
-            style="@style/QuizDefaultRadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="answer A"
-            />
-
-        <RadioButton
-            android:id="@+id/answer_b"
-            android:layoutDirection="rtl"
-            android:textAlignment="textStart"
-            android:layout_gravity="start"
-            style="@style/QuizDefaultRadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="answer B"/>
-
-        <RadioButton
-            android:id="@+id/answer_c"
-            android:layoutDirection="rtl"
-            android:textAlignment="textStart"
-            android:layout_gravity="start"
-            style="@style/QuizDefaultRadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="answer C"
-            />
-
-        <RadioButton
-            android:id="@+id/answer_d"
-            android:layoutDirection="rtl"
-            android:textAlignment="textStart"
-            android:layout_gravity="start"
-            style="@style/QuizDefaultRadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="answer D"
-            />
-
-    </RadioGroup>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/submit"
-        android:textSize="25sp"
-        android:text="Submit"
-        android:layout_marginVertical="10dp"
-        android:padding="10dp"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.9"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageContainer"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        android:orientation="vertical"
+        android:layout_marginVertical="20dp">
 
+        <RadioGroup
+            android:id="@+id/answers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <RadioButton
+                android:id="@+id/answer_a"
+                android:layoutDirection="rtl"
+                android:gravity="center_vertical|left"
+                android:textAlignment="gravity"
+                style="@style/QuizDefaultRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="answer A"
+                tools:ignore="RtlHardcoded" />
+
+            <RadioButton
+                android:id="@+id/answer_b"
+                android:layoutDirection="rtl"
+                android:gravity="center_vertical|left"
+                android:textAlignment="gravity"
+                style="@style/QuizDefaultRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="answer B"/>
+
+            <RadioButton
+                android:id="@+id/answer_c"
+                android:layoutDirection="rtl"
+                android:gravity="center_vertical|left"
+                android:textAlignment="gravity"
+                style="@style/QuizDefaultRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="answer C"
+                />
+
+            <RadioButton
+                android:id="@+id/answer_d"
+                android:layoutDirection="rtl"
+                android:gravity="center_vertical|left"
+                android:textAlignment="gravity"
+                style="@style/QuizDefaultRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="answer D"
+                />
+
+        </RadioGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit"
+            android:textSize="25sp"
+            android:text="Submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,56 +4,60 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.pjs.itinterviewtrainer.models.Question
-import com.pjs.itinterviewtrainer.models.QuizResults
+import com.pjs.itinterviewtrainer.data.Question
+import com.pjs.itinterviewtrainer.data.Quiz
+import com.pjs.itinterviewtrainer.data.QuizResults
 import kotlinx.android.synthetic.main.activity_quiz.*
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 
+enum class SubmitState {
+    SUBMIT,
+    NEXT
+}
 
 class QuizActivity : AppCompatActivity() {
-    private var quizAmount = 10
-    private lateinit var quizCategories: List<String>
-    private var quizLevel = "medium"
+    private var isRandomQuiz = false
+    private var isCompleted = false
     private var quizTimer = 60
-    private lateinit var questions: List<Question>
     private var currentQuestionNumber = 0
-    private lateinit var currentQuestion: Question
     private val btnAnswersMap = mapOf(R.id.answer_a to "a", R.id.answer_b to "b", R.id.answer_c to "c", R.id.answer_d to "d")
-    private var submitCnt = 0
+    private var submitState: SubmitState = SubmitState.SUBMIT
     private var quizResults: QuizResults = QuizResults()
+    private lateinit var quiz: Quiz
+    private lateinit var currentQuestion: Question
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_quiz)
 
         with(intent) {
-            quizLevel = getStringExtra("quizLevel") ?: "medium"
-            quizCategories = getStringArrayListExtra("quizCategories")?.toList() ?: listOf()
-            quizAmount = getStringExtra("quizAmount")?.toInt() ?: 10
+            quiz = Json.decodeFromString(getStringExtra("quiz")!!)
             quizTimer = getStringExtra("quizTimer")?.toInt() ?: 60
+            isRandomQuiz = getBooleanExtra("isRandom", false)
         }
 
-        questions = Question.loadQuestions(assets.open("questions_data.json")).shuffled().take(quizAmount)
+        quizTitle.text = "${quiz.categories.joinToString { it.name }}: ${quiz.name}"
+
         setupNextQuestion()
 
         submit.setOnClickListener {
-            when (handleResult()) {
-                true -> {
-                    when (submitCnt) {
-                        0 -> {
-                            submit.text = "Next"
-                        }
-                        1 -> {
-                            setupNextQuestion()
-                            submit.text = "Submit"
-                        }
+            when (submitState) {
+                SubmitState.SUBMIT -> {
+                    if (handleResult()) {
+                        submit.text = "Next"
+                        submitState = SubmitState.NEXT
                     }
-                    submitCnt = (submitCnt + 1) % 2
                 }
-                false -> { }
+                SubmitState.NEXT -> {
+                    setupNextQuestion()
+                    submitState = SubmitState.SUBMIT
+                    submit.text = "Submit"
+                }
             }
         }
     }
@@ -70,12 +74,14 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun setupNextQuestion() {
-        if (currentQuestionNumber >= questions.size) {
+        if (currentQuestionNumber >= quiz.quiestions.size) {
+            isCompleted = true
             AlertDialog.Builder(this)
                     .setTitle("Quiz completed")
-                    .setMessage("Result: ${quizResults.correct}/${questions.size} correct answers")
+                    .setMessage("Result: ${quizResults.correct}/${quiz.quiestions.size} correct answers")
                     .setPositiveButton("Ok") { _, _ ->
-                        sendResults()
+                        saveResults()
+                        onBackPressed()
                     }
                     .create()
                     .show()
@@ -83,17 +89,24 @@ class QuizActivity : AppCompatActivity() {
         }
         resetViewColors()
         currentQuestionNumber += 1
-        currentQuestion = questions[currentQuestionNumber - 1]
-        questionNumber.text = "${currentQuestionNumber}/${quizAmount}"
+        currentQuestion = quiz.quiestions[currentQuestionNumber - 1]
+        questionNumber.text = "Question ${currentQuestionNumber}/${quiz.quiestions.size}"
         questionText.text = currentQuestion.question_text
         answers.clearCheck()
+        if (currentQuestion.code_pic != null) {
+            imageContainer.visibility = View.VISIBLE
+            question_pic.setImageUrl(currentQuestion.code_pic, VolleyWebService.imageLoader)
+        } else {
+            imageContainer.visibility = View.GONE
+        }
+
         setAnswer(answer_a, "a")
         setAnswer(answer_b, "b")
         setAnswer(answer_c, "c")
         setAnswer(answer_d, "d")
     }
 
-    private fun setAnswer(b: RadioButton, answerId: String){
+    private fun setAnswer(b: RadioButton, answerId: String) {
         if (currentQuestion.answers[answerId] != null) {
             b.visibility = View.VISIBLE
             b.text = currentQuestion.answers[answerId]
@@ -139,10 +152,16 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
-    private fun sendResults() {
-        val intent = Intent()
-        intent.putExtra("test", "${quizResults.correct}/${questions.size}")
-        setResult(RESULT_OK, intent)
-        finish()
+    private fun saveResults() {
+//        TODO: save results
+    }
+
+    override fun onBackPressed() {
+        if(isRandomQuiz && isCompleted){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        } else {
+            super.onBackPressed()
+        }
     }
 }
