@@ -37,7 +37,7 @@ class QuizActivity : AppCompatActivity() {
             quizTimer = getStringExtra("quizTimer")?.toInt() ?: 60
         }
 
-        quizTitle.text = quiz.name
+        quizTitle.text = "${quiz.categories.joinToString { it.name }}: ${quiz.name}"
 
         setupNextQuestion()
 
