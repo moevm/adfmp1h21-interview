@@ -12,15 +12,16 @@ object QuizRepository {
         listOf("Easy", "Medium", "Hard").mapIndexed { i, d -> QuestionLevel(i + 1, d) }
     var statisticsList: MutableList<QuizResults> = mutableListOf()
 
-    lateinit var questionsList: List<Question>
-    lateinit var quizList: List<Quiz>
+    var questionsList: List<Question> = listOf()
+    var quizList: List<Quiz> = listOf()
 
     fun loadQuestions(stream: InputStream): List<Question> {
         val jsonFileString = stream.bufferedReader().readText()
         val listQuestionType = object : TypeToken<List<Question>>() {}.type
         var questions: List<Question> =  Gson().fromJson(jsonFileString, listQuestionType)
         questions.forEachIndexed { idx, person -> person.id = idx + 1 }
-        return questions
+        this.questionsList = questions
+        return this.questionsList
     }
 
     fun createBasicsQuiz(categoryId: Int): Quiz {
@@ -53,5 +54,4 @@ object QuizRepository {
         val questions = questionsList.shuffled().toList().filter { q -> categoriesList.map { it.id }.contains(q.category_id) && q.level_id <= level.id}
         return questions.take(min(amount, questions.size))
     }
-
 }
