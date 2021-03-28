@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.pjs.itinterviewtrainer.data.Question
 import com.pjs.itinterviewtrainer.data.Quiz
+import com.pjs.itinterviewtrainer.data.QuizRepository
 import com.pjs.itinterviewtrainer.data.QuizResults
 import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.serialization.decodeFromString
@@ -26,7 +27,7 @@ class QuizActivity : AppCompatActivity() {
     private var currentQuestionNumber = 0
     private val btnAnswersMap = mapOf(R.id.answer_a to "a", R.id.answer_b to "b", R.id.answer_c to "c", R.id.answer_d to "d")
     private var submitState: SubmitState = SubmitState.SUBMIT
-    private var quizResults: QuizResults = QuizResults()
+    private var quizResults: QuizResults = QuizResults(id=QuizRepository.statisticsList.size.toLong())
     private lateinit var quiz: Quiz
     private lateinit var currentQuestion: Question
 
@@ -41,7 +42,11 @@ class QuizActivity : AppCompatActivity() {
             isRandomQuiz = getBooleanExtra("isRandom", false)
         }
 
-        quizTitle.text = "${quiz.categories.joinToString { it.name }}: ${quiz.name}"
+        quizResults.quiz_id = quiz.id
+        val title = "${quiz.categories.joinToString { it.name }}: ${quiz.name}"
+
+        quizResults.quizTitle = title
+        quizTitle.text = title
 
         setupNextQuestion()
 
@@ -127,7 +132,6 @@ class QuizActivity : AppCompatActivity() {
                 false
             }
             else -> {
-                quizResults.questions.add(currentQuestion)
                 val answer = btnAnswersMap[btnId]
                 val checkedBtn = findViewById<RadioButton>(btnId)
                 if (answer == currentQuestion.correct_answer) {
@@ -153,7 +157,8 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun saveResults() {
-//        TODO: save results
+        quizResults.passedTimeInSeconds = 60 * 60 // 60 minutes
+        QuizRepository.statisticsList.add(quizResults)
     }
 
     override fun onBackPressed() {

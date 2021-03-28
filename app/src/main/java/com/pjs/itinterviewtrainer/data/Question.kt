@@ -4,12 +4,12 @@ import kotlinx.serialization.Serializable
 
 
 data class QuizResults(
-        val id: Int = 0,
+        val id: Long = 0,
+        var quiz_id: Long = -1,
+        var quizTitle: String = "",
         var correct: Int = 0,
         var wrong: Int = 0,
-        var questions: MutableList<Question> = mutableListOf(),
         var passedTimeInSeconds: Int = 0,
-        var title: String = ""
 )
 
 

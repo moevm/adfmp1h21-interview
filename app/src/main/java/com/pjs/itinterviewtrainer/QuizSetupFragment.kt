@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.pjs.itinterviewtrainer.data.QuestionLevel
@@ -40,6 +41,7 @@ class QuizSetupFragment : Fragment() {
         checkedLevelPosition = levelsArray.size / 2
 
         rootView.selectLevel.setText(levelsArray[checkedLevelPosition].levelName)
+
         rootView.selectQAmount.setText(questionsAmount.toString())
 
         rootView.selectCategories.setOnClickListener {

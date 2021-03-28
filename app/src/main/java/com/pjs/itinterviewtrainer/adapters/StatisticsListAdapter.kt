@@ -37,8 +37,8 @@ class StatisticsListAdapter(var dataSet: List<QuizResults>, private val onItemCl
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val data = dataSet[position]
-        viewHolder.titleView.text = data.title
-        viewHolder.questionsAmountView.text = "${data.correct}/${data.correct + data.wrong} questions" // TODO data.questions.size
+        viewHolder.titleView.text = data.quizTitle
+        viewHolder.questionsAmountView.text = "${data.correct}/${data.correct + data.wrong} questions"
         viewHolder.passedTimeView.text = "${String.format("%.1f", data.passedTimeInSeconds.toFloat()/60)} min"
     }
 
