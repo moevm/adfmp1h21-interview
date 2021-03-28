@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/quizInfoContainer"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintVertical_bias="0"
         app:layout_constraintWidth_percent="0.9"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintWidth_percent="0.9"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="25dp"/>
 
     </LinearLayout>
 
@@ -70,6 +70,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
+        android:visibility="visible"
         app:layout_constraintWidth_percent="0.9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
