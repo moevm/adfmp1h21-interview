@@ -2,6 +2,8 @@ package com.pjs.itinterviewtrainer
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.text.format.DateUtils
 import android.view.View
 import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
@@ -23,11 +25,12 @@ enum class SubmitState {
 class QuizActivity : AppCompatActivity() {
     private var isRandomQuiz = false
     private var isCompleted = false
-    private var quizTimer = 60
+    private var quizTime = 60
     private var currentQuestionNumber = 0
     private val btnAnswersMap = mapOf(R.id.answer_a to "a", R.id.answer_b to "b", R.id.answer_c to "c", R.id.answer_d to "d")
     private var submitState: SubmitState = SubmitState.SUBMIT
     private var quizResults: QuizResults = QuizResults(id=QuizRepository.statisticsList.size.toLong())
+    private var passedTime: Long = 0
     private lateinit var quiz: Quiz
     private lateinit var currentQuestion: Question
 
@@ -38,7 +41,7 @@ class QuizActivity : AppCompatActivity() {
 
         with(intent) {
             quiz = Json.decodeFromString(getStringExtra("quiz")!!)
-            quizTimer = getStringExtra("quizTimer")?.toInt() ?: 60
+            quizTime = getStringExtra("quizTimer")?.toInt() ?: quizTime
             isRandomQuiz = getBooleanExtra("isRandom", false)
         }
 
@@ -47,6 +50,30 @@ class QuizActivity : AppCompatActivity() {
 
         quizResults.quizTitle = title
         quizTitle.text = title
+
+        val context = this
+        object : CountDownTimer((quizTime * 60 * 1000).toLong(), 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                runOnUiThread {
+                    passedTime = millisUntilFinished / 1000
+                    timer.text = DateUtils.formatElapsedTime(passedTime);
+                }
+            }
+
+            override fun onFinish() {
+                isCompleted = true
+                AlertDialog.Builder(context)
+                        .setTitle("Times up | Quiz completed")
+                        .setMessage("Result: ${quizResults.correct}/${quiz.quiestions.size} correct answers")
+                        .setPositiveButton("Ok") { _, _ ->
+                            saveResults()
+                            onBackPressed()
+                        }
+                        .create()
+                        .show()
+                return
+            }
+        }.start()
 
         setupNextQuestion()
 
@@ -157,7 +184,7 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun saveResults() {
-        quizResults.passedTimeInSeconds = 60 * 60 // 60 minutes
+        quizResults.passedTimeInSeconds = passedTime.toInt()
         QuizRepository.statisticsList.add(quizResults)
     }
 
