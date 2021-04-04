@@ -145,8 +145,10 @@ class QuizSetupFragment : Fragment() {
             "Misc",
             chosenCategories,
             chosenLevel,
-            QuizRepository.pickQuestions(chosenLevel, chosenCategories, quizAmount)
+            QuizRepository.pickQuestions(chosenLevel, chosenCategories, quizAmount),
+            (quizAmount * 1.5).toInt()
         )
+
         intent.putExtra("quiz", Json.encodeToString(randomQuiz))
         intent.putExtra("isRandom", true)
         startActivity(intent)
