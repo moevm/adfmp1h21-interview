@@ -127,10 +127,9 @@ class QuizSetupFragment : Fragment() {
             "Misc",
             chosenCategories,
             level,
-            QuizRepository.pickQuestions(level, chosenCategories, quizAmount)
+            QuizRepository.pickQuestions(level, chosenCategories, quizAmount),
+            (quizAmount * 1.5).toInt()
         )
-
-        val timer = 60
 
         intent.putExtra("quiz", Json.encodeToString(randomQuiz))
         intent.putExtra("isRandom", true)

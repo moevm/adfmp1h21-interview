@@ -42,7 +42,8 @@ object QuizRepository {
             "Basics",
             categories,
             levelsList.first(),
-            questions.shuffled()
+            questions.shuffled(),
+            (questions.size * 1.5).toInt()
         )
     }
 

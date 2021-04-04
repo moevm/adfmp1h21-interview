@@ -41,10 +41,9 @@ class QuizActivity : AppCompatActivity() {
 
         with(intent) {
             quiz = Json.decodeFromString(getStringExtra("quiz")!!)
-            quizTime = getStringExtra("quizTimer")?.toInt() ?: quizTime
             isRandomQuiz = getBooleanExtra("isRandom", false)
         }
-
+        quizTime = quiz.minutes
         quizResults.quiz_id = quiz.id
         val title = "${quiz.categories.joinToString { it.name }}: ${quiz.name}"
 
@@ -52,11 +51,14 @@ class QuizActivity : AppCompatActivity() {
         quizTitle.text = title
 
         val context = this
-        object : CountDownTimer((quizTime * 60 * 1000).toLong(), 1000) {
+
+        val time = quizTime * 60 * 1000
+
+        object : CountDownTimer((time).toLong(), 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 runOnUiThread {
-                    passedTime = millisUntilFinished / 1000
-                    timer.text = DateUtils.formatElapsedTime(passedTime);
+                    passedTime = (time - millisUntilFinished) / 1000
+                    timer.text = DateUtils.formatElapsedTime(millisUntilFinished / 1000);
                 }
             }
 
