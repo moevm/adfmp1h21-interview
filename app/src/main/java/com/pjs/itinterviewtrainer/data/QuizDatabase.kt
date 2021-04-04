@@ -29,19 +29,24 @@ abstract class QuizDatabase : RoomDatabase() {
         private const val NAME = "quiz_db"
         private var instance: QuizDatabase? = null
 
-        fun getInstance(context: Context, inMemory: Boolean = false, recreate: Boolean = false): QuizDatabase? {
+        fun getInstance(
+            context: Context,
+            inMemory: Boolean = false,
+            recreate: Boolean = false
+        ): QuizDatabase? {
             if (instance == null || recreate) {
-                instance = if(inMemory)
+                instance = if (!inMemory) {
                     Room.databaseBuilder(
                         context,
                         QuizDatabase::class.java,
                         NAME
                     ).allowMainThreadQueries().build()
-                else
+                } else {
                     Room.inMemoryDatabaseBuilder(
                         context,
                         QuizDatabase::class.java,
                     ).allowMainThreadQueries().build()
+                }
             }
             return instance
         }

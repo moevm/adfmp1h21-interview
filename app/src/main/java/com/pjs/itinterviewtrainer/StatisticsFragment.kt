@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pjs.itinterviewtrainer.adapters.StatisticsListAdapter
 import com.pjs.itinterviewtrainer.data.QuizRepository
-import com.pjs.itinterviewtrainer.data.entities.Quiz
 import kotlinx.android.synthetic.main.fragment_statistics.view.*
 
 class StatisticsFragment : Fragment(), StatisticsListAdapter.OnItemClickListener {
@@ -24,14 +23,17 @@ class StatisticsFragment : Fragment(), StatisticsListAdapter.OnItemClickListener
     private lateinit var repository: QuizRepository
     private lateinit var listAdapter: StatisticsListAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         val rootView = inflater.inflate(R.layout.fragment_statistics, container, false)
         repository = QuizRepository(requireContext().applicationContext)
         listAdapter = StatisticsListAdapter(repository.getResults(), this)
         rootView.quizResultsListView.adapter = listAdapter
-        rootView.quizResultsListView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        rootView.quizResultsListView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         return rootView
     }
 

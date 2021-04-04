@@ -3,14 +3,14 @@ package com.pjs.itinterviewtrainer
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.theme.overlay.MaterialThemeOverlay
 import com.pjs.itinterviewtrainer.data.QuizRepository
 import com.pjs.itinterviewtrainer.data.entities.QuestionCategory
 import com.pjs.itinterviewtrainer.data.entities.QuestionLevel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var repository: QuizRepository
-    companion object{
+
+    companion object {
         const val FIRST_TIME_TAG = "firstTime"
     }
 
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         val sharedPref = this.getPreferences(Context.MODE_PRIVATE) ?: return
 
         val isFirstStart = sharedPref.getBoolean(FIRST_TIME_TAG, true)
-        if(isFirstStart) {
+        if (isFirstStart) {
 
             repository = QuizRepository(applicationContext)
             val categories = listOf(
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             repository.createBasicsQuiz(2)
             repository.createBasicsQuiz(3)
 
-            with(sharedPref.edit()){
+            with(sharedPref.edit()) {
                 putBoolean(FIRST_TIME_TAG, false)
                 commit()
             }

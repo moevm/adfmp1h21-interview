@@ -8,10 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pjs.itinterviewtrainer.R
 import com.pjs.itinterviewtrainer.data.entities.QuestionCategory
 
-class CategoryListAdapter(var dataSet: List<QuestionCategory>, private val onItemClickListener: OnItemClickListener) :
-        RecyclerView.Adapter<CategoryListAdapter.ViewHolder>() {
+class CategoryListAdapter(
+    var dataSet: List<QuestionCategory>,
+    private val onItemClickListener: OnItemClickListener
+) :
+    RecyclerView.Adapter<CategoryListAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View, private val itemClickListener: OnItemClickListener) : RecyclerView.ViewHolder(view), View.OnClickListener {
+    class ViewHolder(view: View, private val itemClickListener: OnItemClickListener) :
+        RecyclerView.ViewHolder(view), View.OnClickListener {
         val textView: TextView = view.findViewById(R.id.textView)
 
         init {
@@ -27,7 +31,7 @@ class CategoryListAdapter(var dataSet: List<QuestionCategory>, private val onIte
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.text_row_item, viewGroup, false)
+            .inflate(R.layout.text_row_item, viewGroup, false)
 
         return ViewHolder(view, onItemClickListener)
     }

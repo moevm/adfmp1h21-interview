@@ -29,8 +29,10 @@ class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         val rootView = inflater.inflate(R.layout.fragment_quiz_choice, container, false)
         repository = QuizRepository(requireContext().applicationContext)
@@ -38,17 +40,23 @@ class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
 
         rootView.categoryName.text = category.categoryName
 
-        quizesOfSelectedCategory = repository.getQuizes().filter { it.questions.all { q -> q.categoryId == category.categoryId } }
+        quizesOfSelectedCategory = repository.getQuizes()
+            .filter { it.questions.all { q -> q.categoryId == category.categoryId } }
 
         // first selected tab - easy
-        adapter = QuizListAdapter(quizesOfSelectedCategory.filter { it.questions.all { q -> q.levelId == 1.toLong() } }, this)
+        adapter = QuizListAdapter(
+            quizesOfSelectedCategory.filter { it.questions.all { q -> q.levelId == 1.toLong() } },
+            this
+        )
         rootView.quizListView.adapter = adapter
-        rootView.quizListView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        rootView.quizListView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         rootView.difficultyTabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tab?.let {
-                    adapter.dataSet = quizesOfSelectedCategory.filter { items -> items.questions.all { q -> q.levelId == it.position.toLong() + 1 } }
+                    adapter.dataSet =
+                        quizesOfSelectedCategory.filter { items -> items.questions.all { q -> q.levelId == it.position.toLong() + 1 } }
                     adapter.notifyDataSetChanged()
                 }
             }
@@ -74,11 +82,11 @@ class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
 
         @JvmStatic
         fun newInstance(categoryId: Long) =
-                QuizChoiceFragment().apply {
-                    arguments = Bundle().apply {
-                        putLong(ARG_CATEGORY_ID, categoryId)
-                    }
+            QuizChoiceFragment().apply {
+                arguments = Bundle().apply {
+                    putLong(ARG_CATEGORY_ID, categoryId)
                 }
+            }
     }
 
 }

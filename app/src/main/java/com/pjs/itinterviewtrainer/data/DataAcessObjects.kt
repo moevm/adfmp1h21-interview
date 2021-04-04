@@ -24,7 +24,7 @@ interface QuizDao {
     fun insertAllQuizQuestionRef(vararg questionRefs: QuizQuestionCrossRef)
 
     @Query("SELECT * FROM quiz WHERE quizId = :id")
-    fun getById(id: Long) : QuizWithQuestions
+    fun getById(id: Long): QuizWithQuestions
 
     @Transaction
     @Query("SELECT * FROM quiz")
@@ -62,9 +62,9 @@ interface LevelDao {
 }
 
 @Dao
-interface QuizResultsDao{
+interface QuizResultsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg levels: QuizResults)
+    fun insertAll(vararg results: QuizResults)
 
     @Query("SELECT * FROM quiz_results")
     fun getAll(): List<QuizResults>

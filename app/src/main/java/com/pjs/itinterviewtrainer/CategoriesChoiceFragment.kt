@@ -25,17 +25,25 @@ class CategoriesChoiceFragment : Fragment(), CategoryListAdapter.OnItemClickList
     private lateinit var listAdapter: CategoryListAdapter
     private lateinit var categoriesList: List<QuestionCategory>
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         val rootView = inflater.inflate(R.layout.fragment_categories_choice, container, false)
         categoriesList = QuizRepository(requireActivity().applicationContext).getCategories()
         listAdapter = CategoryListAdapter(categoriesList, this)
         rootView.categoriesListView.adapter = listAdapter
-        rootView.categoriesListView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        rootView.categoriesListView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         rootView.searchCategory.addTextChangedListener {
-            listAdapter.dataSet = categoriesList.filter { c -> c.categoryName.contains(it.toString(), ignoreCase = true) }
+            listAdapter.dataSet = categoriesList.filter { c ->
+                c.categoryName.contains(
+                    it.toString(),
+                    ignoreCase = true
+                )
+            }
             listAdapter.notifyDataSetChanged()
         }
         return rootView
@@ -43,7 +51,11 @@ class CategoriesChoiceFragment : Fragment(), CategoryListAdapter.OnItemClickList
 
     override fun onItemClick(position: Int) {
         with(requireActivity().supportFragmentManager.beginTransaction()) {
-            replace(R.id.container, QuizChoiceFragment.newInstance(listAdapter.dataSet[position].categoryId), QuizChoiceFragment.TAG)
+            replace(
+                R.id.container,
+                QuizChoiceFragment.newInstance(listAdapter.dataSet[position].categoryId),
+                QuizChoiceFragment.TAG
+            )
             addToBackStack(QuizChoiceFragment.TAG)
             commit()
         }

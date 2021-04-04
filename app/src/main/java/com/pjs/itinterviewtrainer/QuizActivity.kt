@@ -9,9 +9,8 @@ import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.lifecycleScope
-import com.pjs.itinterviewtrainer.data.entities.Question
 import com.pjs.itinterviewtrainer.data.QuizRepository
+import com.pjs.itinterviewtrainer.data.entities.Question
 import com.pjs.itinterviewtrainer.data.entities.QuizResults
 import com.pjs.itinterviewtrainer.data.entities.QuizWithQuestions
 import kotlinx.android.synthetic.main.activity_quiz.*
@@ -27,7 +26,12 @@ class QuizActivity : AppCompatActivity() {
     private var isCompleted = false
     private var quizTime = 60
     private var currentQuestionNumber = 0
-    private val btnAnswersMap = mapOf(R.id.answer_a to "a", R.id.answer_b to "b", R.id.answer_c to "c", R.id.answer_d to "d")
+    private val btnAnswersMap = mapOf(
+        R.id.answer_a to "a",
+        R.id.answer_b to "b",
+        R.id.answer_c to "c",
+        R.id.answer_d to "d"
+    )
     private var submitState: SubmitState = SubmitState.SUBMIT
     private lateinit var quizResults: QuizResults
     private var passedTime: Long = 0
@@ -41,19 +45,24 @@ class QuizActivity : AppCompatActivity() {
 
         repository = QuizRepository(applicationContext)
         with(intent) {
-            quiz = Json.decodeFromString(getStringExtra("quiz")!!)
             val quizId = getLongExtra("quizId", -1)
-            if(quizId == (-1).toLong()){
+            if (quizId == (-1).toLong()) {
                 onBackPressed()
             }
             currentQuiz = repository.getQuizById(quizId)
-            quizTimer = currentQuiz.quiz.quizTime
             isRandomQuiz = getBooleanExtra("isRandom", false)
         }
 
-        quizTime = quiz.minutes
-        quizResults = QuizResults(repository.getResults().size.toLong() + 1, currentQuiz.quiz.quizId, currentQuiz.quiz.quizName)
-        val title = "${currentQuiz.questions.map {it.categoryId}.toSet().map{ repository.getCategoryById(it) }.joinToString { it.categoryName }}: ${currentQuiz.quiz.quizName}"
+        quizTime = currentQuiz.quiz.quizTime
+        quizResults = QuizResults(
+            repository.getResults().size.toLong() + 1,
+            currentQuiz.quiz.quizId,
+            currentQuiz.quiz.quizName
+        )
+        val title = "${
+            currentQuiz.questions.map { it.categoryId }.toSet()
+                .map { repository.getCategoryById(it) }.joinToString { it.categoryName }
+        }: ${currentQuiz.quiz.quizName}"
 
         quizResults.quizTitle = title
         quizTitle.text = title
@@ -66,21 +75,21 @@ class QuizActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 runOnUiThread {
                     passedTime = (time - millisUntilFinished) / 1000
-                    timer.text = DateUtils.formatElapsedTime(millisUntilFinished / 1000);
+                    timer.text = DateUtils.formatElapsedTime(millisUntilFinished / 1000)
                 }
             }
 
             override fun onFinish() {
                 isCompleted = true
                 AlertDialog.Builder(context)
-                        .setTitle("Times up | Quiz completed")
-                        .setMessage("Result: ${quizResults.correct}/${quiz.quiestions.size} correct answers")
-                        .setPositiveButton("Ok") { _, _ ->
-                            saveResults()
-                            onBackPressed()
-                        }
-                        .create()
-                        .show()
+                    .setTitle("Times up | Quiz completed")
+                    .setMessage("Result: ${quizResults.correct}/${currentQuiz.questions.size} correct answers")
+                    .setPositiveButton("Ok") { _, _ ->
+                        saveResults()
+                        onBackPressed()
+                    }
+                    .create()
+                    .show()
                 return
             }
         }.start()
@@ -106,27 +115,31 @@ class QuizActivity : AppCompatActivity() {
 
     private fun resetViewColors() {
         answer_a.setTextColor(resources.getColor(R.color.quiz_btn_default_color, theme))
-        answer_a.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_default_color)
+        answer_a.buttonTintList =
+            ContextCompat.getColorStateList(this, R.color.quiz_btn_default_color)
         answer_b.setTextColor(resources.getColor(R.color.quiz_btn_default_color, theme))
-        answer_b.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_default_color)
+        answer_b.buttonTintList =
+            ContextCompat.getColorStateList(this, R.color.quiz_btn_default_color)
         answer_c.setTextColor(resources.getColor(R.color.quiz_btn_default_color, theme))
-        answer_c.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_default_color)
+        answer_c.buttonTintList =
+            ContextCompat.getColorStateList(this, R.color.quiz_btn_default_color)
         answer_d.setTextColor(resources.getColor(R.color.quiz_btn_default_color, theme))
-        answer_d.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_default_color)
+        answer_d.buttonTintList =
+            ContextCompat.getColorStateList(this, R.color.quiz_btn_default_color)
     }
 
     private fun setupNextQuestion() {
         if (currentQuestionNumber >= currentQuiz.questions.size) {
             isCompleted = true
             AlertDialog.Builder(this)
-                    .setTitle("Quiz completed")
-                    .setMessage("Result: ${quizResults.correct}/${currentQuiz.questions.size} correct answers")
-                    .setPositiveButton("Ok") { _, _ ->
-                        saveResults()
-                        onBackPressed()
-                    }
-                    .create()
-                    .show()
+                .setTitle("Quiz completed")
+                .setMessage("Result: ${quizResults.correct}/${currentQuiz.questions.size} correct answers")
+                .setPositiveButton("Ok") { _, _ ->
+                    saveResults()
+                    onBackPressed()
+                }
+                .create()
+                .show()
             return
         }
         resetViewColors()
@@ -161,11 +174,11 @@ class QuizActivity : AppCompatActivity() {
         return when (val btnId = answers.checkedRadioButtonId) {
             -1 -> {
                 AlertDialog.Builder(this)
-                        .setTitle("No answer")
-                        .setMessage("Select answer to submit")
-                        .setPositiveButton("Ok") { _, _ -> }
-                        .create()
-                        .show()
+                    .setTitle("No answer")
+                    .setMessage("Select answer to submit")
+                    .setPositiveButton("Ok") { _, _ -> }
+                    .create()
+                    .show()
                 false
             }
             else -> {
@@ -173,19 +186,28 @@ class QuizActivity : AppCompatActivity() {
                 val checkedBtn = findViewById<RadioButton>(btnId)
                 if (answer == currentQuestion.correctAnswer) {
                     quizResults.correct += 1
-                    checkedBtn.setTextColor(resources.getColor(R.color.quiz_btn_correct_color, theme))
-                    checkedBtn.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_correct_color)
+                    checkedBtn.setTextColor(
+                        resources.getColor(
+                            R.color.quiz_btn_correct_color,
+                            theme
+                        )
+                    )
+                    checkedBtn.buttonTintList =
+                        ContextCompat.getColorStateList(this, R.color.quiz_btn_correct_color)
                 } else {
                     quizResults.wrong += 1
 
                     checkedBtn.setTextColor(resources.getColor(R.color.quiz_btn_wrong_color, theme))
-                    checkedBtn.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_wrong_color)
+                    checkedBtn.buttonTintList =
+                        ContextCompat.getColorStateList(this, R.color.quiz_btn_wrong_color)
 
-                    val correctBtnId = btnAnswersMap.entries.associate { (k, v) -> v to k }[currentQuestion.correctAnswer]
+                    val correctBtnId =
+                        btnAnswersMap.entries.associate { (k, v) -> v to k }[currentQuestion.correctAnswer]
                             ?: -1
                     findViewById<RadioButton>(correctBtnId)?.also {
                         it.setTextColor(resources.getColor(R.color.quiz_btn_correct_color, theme))
-                        it.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_correct_color)
+                        it.buttonTintList =
+                            ContextCompat.getColorStateList(this, R.color.quiz_btn_correct_color)
                     }
                 }
                 true
@@ -199,7 +221,7 @@ class QuizActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if(isRandomQuiz && isCompleted){
+        if (isRandomQuiz && isCompleted) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         } else {
