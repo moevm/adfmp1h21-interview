@@ -40,7 +40,7 @@ class QuizListAdapter(var dataSet: List<Quiz>, private val onItemClickListener: 
         val data = dataSet[position]
         viewHolder.titleView.text = data.name
         viewHolder.questionsAmountView.text = "${data.quiestions.size} questions"
-        viewHolder.passedTimeView.text = "60 min" // add real test time
+        viewHolder.passedTimeView.text = "${data.minutes} min" // add real test time
     }
 
     // Return the size of your dataset (invoked by the layout manager)
