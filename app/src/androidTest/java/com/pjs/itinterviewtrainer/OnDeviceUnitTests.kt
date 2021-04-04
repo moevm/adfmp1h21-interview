@@ -1,93 +1,120 @@
 package com.pjs.itinterviewtrainer
 
-import androidx.test.platform.app.InstrumentationRegistry
+import android.content.Context
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.pjs.itinterviewtrainer.data.Quiz
 import com.pjs.itinterviewtrainer.data.QuizRepository
+import com.pjs.itinterviewtrainer.data.entities.Question
+import com.pjs.itinterviewtrainer.data.entities.QuestionCategory
+import com.pjs.itinterviewtrainer.data.entities.QuestionLevel
+import org.junit.After
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
+import org.junit.Before
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
+
+val fakeQuestionsForDevice = listOf(
+    Question(0, 1, 1, null, null, mapOf(), "a", "?"),
+    Question(1, 1, 1, null, null, mapOf(), "a", "?"),
+    Question(2, 1, 2, null, null, mapOf(), "a", "?"),
+    Question(3, 1, 2, null, null, mapOf(), "a", "?"),
+    Question(4, 1, 3, null, null, mapOf(), "a", "?"),
+    Question(5, 1, 3, null, null, mapOf(), "a", "?"),
+    Question(6, 2, 1, null, null, mapOf(), "a", "?"),
+    Question(7, 2, 1, null, null, mapOf(), "a", "?"),
+    Question(8, 2, 2, null, null, mapOf(), "a", "?"),
+    Question(9, 2, 2, null, null, mapOf(), "a", "?"),
+    Question(10, 2, 3, null, null, mapOf(), "a", "?"),
+    Question(11, 2, 3, null, null, mapOf(), "a", "?"),
+    Question(12, 3, 1, null, null, mapOf(), "a", "?"),
+    Question(13, 3, 1, null, null, mapOf(), "a", "?"),
+    Question(14, 3, 2, null, null, mapOf(), "a", "?"),
+    Question(15, 3, 3, null, null, mapOf(), "a", "?"),
+    Question(16, 3, 3, null, null, mapOf(), "a", "?"),
+)
+
 @RunWith(AndroidJUnit4::class)
 class OnDeviceUnitTests {
-    @Test
-    fun testAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.pjs.itinterviewtrainer", appContext.packageName)
+    private lateinit var quizRepository: QuizRepository
+
+    @Before
+    fun onStartup(){
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        quizRepository = QuizRepository(context, inMemory=true, recreate=true)
+        quizRepository.getDb().clearAllTables()
+        quizRepository.getDb().questionDao().insertAll(*fakeQuestionsForDevice.toTypedArray())
+    }
+
+    @After
+    fun onShutdown(){
+        quizRepository.getDb().close()
     }
 
     @Test
     fun testQuestionsLoaded() {
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        QuizRepository.loadQuestions(appContext.assets.open("questions_data.json"))
-        assert(QuizRepository.questionsList.isNotEmpty())
+        assertEquals(fakeQuestionsForDevice.size, quizRepository.getQuestions().size)
     }
 
     @Test
-    fun testCreateBasicsPythonQuiz() {
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        QuizRepository.loadQuestions(appContext.assets.open("questions_data.json"))
+    fun testCreateBasicsQuiz1() {
+        quizRepository.createBasicsQuiz(
+            1)
 
-        val pythonQuiz = QuizRepository.createBasicsQuiz(1) // 1 is python category id
-
-        assert(pythonQuiz.quiestions.all { it.level_id == 1 && it.category_id == 1 }) // 1 is easy level id
+        assert(quizRepository.getQuizes().isNotEmpty())
+        assert(quizRepository.getQuizById(1).questions.all { it.categoryId == 1.toLong() })
     }
 
     @Test
-    fun testCreateBasicsCppQuiz() {
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        QuizRepository.loadQuestions(appContext.assets.open("questions_data.json"))
+    fun testCreateTwoBasicsQuizes() {
+        quizRepository.createBasicsQuiz(
+            1)
+        quizRepository.createBasicsQuiz(
+            2)
 
-        val cppQuiz = QuizRepository.createBasicsQuiz(2) // 1 is python category id
-
-        assert(cppQuiz.quiestions.all { it.level_id == 1 && it.category_id == 2 }) // 1 is easy level id
+        assertEquals(2, quizRepository.getQuizes().size)
+        assert(quizRepository.getQuizById(1).questions.all { it.categoryId == 1.toLong() })
+        assert(quizRepository.getQuizById(2).questions.all { it.categoryId == 2.toLong() })
     }
 
     @Test
-    fun testCreateBasicsJavaScriptQuiz() {
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        QuizRepository.loadQuestions(appContext.assets.open("questions_data.json"))
-
-        val javascriptQuiz = QuizRepository.createBasicsQuiz(3) // 1 is python category id
-
-        assert(javascriptQuiz.quiestions.all { it.level_id == 1 && it.category_id == 3 }) // 1 is easy level id
+    fun testCreateRandomQuiz1() {
+        val quizId = quizRepository.createRandomQuiz(
+            QuestionLevel(1, "fake"),
+            listOf(QuestionCategory(1, "a")),
+            6,
+            60
+        )
+        assert(quizRepository.getQuizes().isNotEmpty())
+        assertEquals(2, quizRepository.getQuizById(quizId).questions.size)
+        assert(quizRepository.getQuizById(quizId).questions.all { it.categoryId == 1.toLong()  && it.levelId == 1.toLong()})
     }
 
     @Test
-    fun testCreateRandomQuestions1() {
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        QuizRepository.loadQuestions(appContext.assets.open("questions_data.json"))
-
-        val randomEasyQuestions = QuizRepository.pickQuestions(QuizRepository.levelsList[0], QuizRepository.categoriesList.subList(0, 1), 10)
-        assertEquals(10, randomEasyQuestions.size)
-        assert(randomEasyQuestions.all { it.level_id == 1 && it.category_id == 1})
+    fun testCreateRandomQuiz2() {
+        val quizId = quizRepository.createRandomQuiz(
+            QuestionLevel(2, "fake"),
+            listOf(QuestionCategory(1, "a"), QuestionCategory(2, "a")),
+            8,
+            60
+        )
+        assert(quizRepository.getQuizes().isNotEmpty())
+        assertEquals(8, quizRepository.getQuizById(quizId).questions.size)
+        assert(quizRepository.getQuizById(quizId).questions.all { listOf(1.toLong(), 2.toLong()).contains(it.categoryId) && it.levelId <= 2.toLong()})
     }
 
     @Test
-    fun testCreateRandomQuestions2() {
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        QuizRepository.loadQuestions(appContext.assets.open("questions_data.json"))
-
-        val randomEasyQuestions = QuizRepository.pickQuestions(QuizRepository.levelsList[1], QuizRepository.categoriesList.subList(0, 2), 30)
-        assertEquals(30, randomEasyQuestions.size)
-        assert(randomEasyQuestions.all { it.level_id <= 2 && it.category_id <= 2})
-    }
-
-    @Test
-    fun testCreateRandomQuestions3() {
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        QuizRepository.loadQuestions(appContext.assets.open("questions_data.json"))
-
-        val randomEasyQuestions = QuizRepository.pickQuestions(QuizRepository.levelsList[2], QuizRepository.categoriesList.subList(0, 3), 50)
-        assertEquals(50, randomEasyQuestions.size)
-        assert(randomEasyQuestions.all { it.level_id <= 3 && it.category_id <= 3})
+    fun testCreateRandomQuiz3() {
+        val quizId = quizRepository.createRandomQuiz(
+            QuestionLevel(3, "fake"),
+            listOf(QuestionCategory(1, "a"), QuestionCategory(2, "a"), QuestionCategory(3, "a")),
+            16,
+            60
+        )
+        assert(quizRepository.getQuizes().isNotEmpty())
+        assertEquals(16, quizRepository.getQuizById(quizId).questions.size)
+        assert(quizRepository.getQuizById(quizId).questions.all { listOf(1.toLong(), 2.toLong(), 3.toLong()).contains(it.categoryId) && it.levelId <= 3.toLong()})
     }
 }

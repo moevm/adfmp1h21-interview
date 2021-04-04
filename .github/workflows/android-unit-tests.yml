@@ -1,10 +1,10 @@
 name: Android Unit Tests
 
-on: [ push, pull_request, workflow_dispatch]
+on: [ push, workflow_dispatch]
 
 jobs:
   run-tests:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest # to take advantage of hardware accleration support
 
     steps:
     - uses: actions/checkout@v2
@@ -17,4 +17,10 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Run unit tests
-      run: ./gradlew test
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 28
+        target: default
+        arch: x86_64
+        profile: pixel
+        script: ./gradlew connectedAndroidTest

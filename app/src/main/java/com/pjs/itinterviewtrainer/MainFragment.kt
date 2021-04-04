@@ -10,8 +10,8 @@ import kotlinx.android.synthetic.main.fragment_main.view.*
 
 class MainFragment : Fragment() {
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_main, container, false)
 
@@ -25,7 +25,11 @@ class MainFragment : Fragment() {
 
         rootView.categoriesBtn.setOnClickListener {
             with(requireActivity().supportFragmentManager.beginTransaction()) {
-                replace(R.id.container, CategoriesChoiceFragment.newInstance(), CategoriesChoiceFragment.TAG)
+                replace(
+                    R.id.container,
+                    CategoriesChoiceFragment.newInstance(),
+                    CategoriesChoiceFragment.TAG
+                )
                 addToBackStack(CategoriesChoiceFragment.TAG)
                 commit()
             }

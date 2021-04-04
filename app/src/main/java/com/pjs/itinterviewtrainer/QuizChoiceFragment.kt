@@ -9,46 +9,54 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.pjs.itinterviewtrainer.adapters.QuizListAdapter
-import com.pjs.itinterviewtrainer.data.Quiz
 import com.pjs.itinterviewtrainer.data.QuizRepository
+import com.pjs.itinterviewtrainer.data.entities.QuizWithQuestions
 import kotlinx.android.synthetic.main.fragment_quiz_choice.view.*
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 private const val ARG_CATEGORY_ID = "categoryId"
 
 class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
-    // TODO: Rename and change types of parameters
-    private var categoryId: Int? = null
+    private var categoryId: Long? = null
     private lateinit var adapter: QuizListAdapter
-    private lateinit var quizOfSelectedCategory: List<Quiz>
+    private lateinit var quizesOfSelectedCategory: List<QuizWithQuestions>
+
+    private lateinit var repository: QuizRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            categoryId = it.getInt(ARG_CATEGORY_ID)
+            categoryId = it.getLong(ARG_CATEGORY_ID)
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         val rootView = inflater.inflate(R.layout.fragment_quiz_choice, container, false)
+        repository = QuizRepository(requireContext().applicationContext)
+        val category = repository.getCategoryById(categoryId!!)
 
-        rootView.categoryName.text = QuizRepository.categoriesList.find { c -> c.id == categoryId }?.name
-                ?: ""
+        rootView.categoryName.text = category.categoryName
 
-        quizOfSelectedCategory = QuizRepository.quizList.filter { q -> q.categories.size == 1 && q.categories.first().id == categoryId }
+        quizesOfSelectedCategory = repository.getQuizes()
+            .filter { it.questions.all { q -> q.categoryId == category.categoryId } }
 
         // first selected tab - easy
-        adapter = QuizListAdapter(quizOfSelectedCategory.filter { q -> q.level.id == 1 }, this)
+        adapter = QuizListAdapter(
+            quizesOfSelectedCategory.filter { it.questions.all { q -> q.levelId == 1.toLong() } },
+            this
+        )
         rootView.quizListView.adapter = adapter
-        rootView.quizListView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        rootView.quizListView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         rootView.difficultyTabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tab?.let {
-                    adapter.dataSet = quizOfSelectedCategory.filter { q -> q.level.id == it.position + 1 }
+                    adapter.dataSet =
+                        quizesOfSelectedCategory.filter { items -> items.questions.all { q -> q.levelId == it.position.toLong() + 1 } }
                     adapter.notifyDataSetChanged()
                 }
             }
@@ -65,7 +73,7 @@ class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
 
     override fun onItemClick(position: Int) {
         val intent = Intent(activity, QuizActivity::class.java)
-        intent.putExtra("quiz", Json.encodeToString(quizOfSelectedCategory[position]))
+        intent.putExtra("quizId", quizesOfSelectedCategory[position].quiz.quizId)
         startActivity(intent)
     }
 
@@ -73,12 +81,12 @@ class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
         const val TAG = "quizChoiceFragment"
 
         @JvmStatic
-        fun newInstance(categoryId: Int) =
-                QuizChoiceFragment().apply {
-                    arguments = Bundle().apply {
-                        putInt(ARG_CATEGORY_ID, categoryId)
-                    }
+        fun newInstance(categoryId: Long) =
+            QuizChoiceFragment().apply {
+                arguments = Bundle().apply {
+                    putLong(ARG_CATEGORY_ID, categoryId)
                 }
+            }
     }
 
 }

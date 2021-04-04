@@ -20,15 +20,20 @@ class StatisticsFragment : Fragment(), StatisticsListAdapter.OnItemClickListener
         }
     }
 
+    private lateinit var repository: QuizRepository
     private lateinit var listAdapter: StatisticsListAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         val rootView = inflater.inflate(R.layout.fragment_statistics, container, false)
-        listAdapter = StatisticsListAdapter(QuizRepository.statisticsList, this)
+        repository = QuizRepository(requireContext().applicationContext)
+        listAdapter = StatisticsListAdapter(repository.getResults(), this)
         rootView.quizResultsListView.adapter = listAdapter
-        rootView.quizResultsListView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        rootView.quizResultsListView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         return rootView
     }
 

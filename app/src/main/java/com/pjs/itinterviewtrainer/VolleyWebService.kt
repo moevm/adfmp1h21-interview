@@ -12,7 +12,7 @@ object VolleyWebService {
     lateinit var requestQueue: RequestQueue
     lateinit var imageLoader: ImageLoader
 
-    fun setupRequestQueue(context: Context){
+    fun setupRequestQueue(context: Context) {
         requestQueue = Volley.newRequestQueue(context)
         imageLoader = ImageLoader(requestQueue, object : ImageLoader.ImageCache {
             private val mCache: LruCache<String, Bitmap> = LruCache<String, Bitmap>(10)

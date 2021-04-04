@@ -8,14 +8,11 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.pjs.itinterviewtrainer.data.QuestionCategory
-import com.pjs.itinterviewtrainer.data.Quiz
 import com.pjs.itinterviewtrainer.data.QuizRepository
+import com.pjs.itinterviewtrainer.data.entities.QuestionCategory
+import com.pjs.itinterviewtrainer.data.entities.QuestionLevel
 import kotlinx.android.synthetic.main.fragment_setup_quiz.*
 import kotlinx.android.synthetic.main.fragment_setup_quiz.view.*
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
-import kotlin.properties.Delegates
 
 class QuizSetupFragment : Fragment() {
     companion object {
@@ -30,25 +27,29 @@ class QuizSetupFragment : Fragment() {
     private var questionsLimit = 0
     private var chosenCategories: List<QuestionCategory> = listOf()
     private var questionsAmount = -1
-    private var chosenLevel = QuizRepository.levelsList[1]
+    private lateinit var chosenLevel: QuestionLevel
     private var checkedLevelPosition: Int = 0
+    private lateinit var repository: QuizRepository
 
-    private var checkedCategories: BooleanArray by Delegates.observable(BooleanArray(QuizRepository.categoriesList.size) { false })
-    { _, _, newValue ->
-        chosenCategories =
-            QuizRepository.categoriesList.zip(checkedCategories.toList()).filter { it.second }
-                .map { it.first }
-        selectCategories.setText(chosenCategories.joinToString(separator = ",") { it.name })
-        updateAmountSpinner()
-    }
+    private lateinit var levelsArray: Array<QuestionLevel>
+    private lateinit var categoriesArray: Array<QuestionCategory>
+
+    private var checkedCategories: BooleanArray = booleanArrayOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_setup_quiz, container, false)
-        checkedLevelPosition = QuizRepository.levelsList.toTypedArray().size / 2
+        repository = QuizRepository(requireContext())
 
+        checkedLevelPosition = repository.getLevels().toTypedArray().size / 2
+        chosenLevel = repository.getLevelById(1)
+        levelsArray = repository.getLevels().toTypedArray()
+        categoriesArray = repository.getCategories().toTypedArray()
+
+        checkedCategories = BooleanArray(repository.getCategories().size) { false }
+        checkedLevelPosition = levelsArray.size / 2
         rootView.selectLevel.setText(chosenLevel.levelName)
 
         rootView.selectQAmount.setLabelFormatter { value: Float ->
@@ -82,7 +83,7 @@ class QuizSetupFragment : Fragment() {
     }
 
     private fun createCategoriesDialog(): AlertDialog {
-        var newCheckedCategories = checkedCategories.clone()
+        val newCheckedCategories = checkedCategories.clone()
 
         return MaterialAlertDialogBuilder(requireContext())
             .setTitle("Select categories")
@@ -93,9 +94,14 @@ class QuizSetupFragment : Fragment() {
 
             .setPositiveButton("OK") { _, _ ->
                 checkedCategories = newCheckedCategories
+                chosenCategories =
+                    repository.getCategories().zip(checkedCategories.toList()).filter { it.second }
+                        .map { it.first }
+                selectCategories.setText(chosenCategories.joinToString(separator = ",") { it.categoryName })
+                updateAmountSpinner()
             }
             .setMultiChoiceItems(
-                QuizRepository.categoriesList.map { it.name }.toTypedArray(),
+                repository.getCategories().map { it.categoryName }.toTypedArray(),
                 newCheckedCategories
             ) { _, which, checked ->
                 newCheckedCategories[which] = checked
@@ -112,12 +118,12 @@ class QuizSetupFragment : Fragment() {
             }
             .setPositiveButton("OK") { _, _ ->
                 checkedLevelPosition = newCheckedLevelPosition
-                chosenLevel = QuizRepository.levelsList[checkedLevelPosition]
+                chosenLevel = repository.getLevels()[checkedLevelPosition]
                 selectLevel.setText(chosenLevel.levelName)
                 updateAmountSpinner()
             }
             .setSingleChoiceItems(
-                QuizRepository.levelsList.map { it.levelName }.toTypedArray(),
+                repository.getLevels().map { it.levelName }.toTypedArray(),
                 checkedLevelPosition
             ) { _, which ->
                 newCheckedLevelPosition = which
@@ -127,6 +133,8 @@ class QuizSetupFragment : Fragment() {
 
     private fun startTest() {
         val intent = Intent(activity, QuizActivity::class.java)
+        val chosenCategories =
+            categoriesArray.zip(checkedCategories.toList()).filter { it.second }.map { it.first }
 
         if (chosenCategories.isEmpty()) {
             AlertDialog.Builder(requireContext())
@@ -141,23 +149,18 @@ class QuizSetupFragment : Fragment() {
         val quizAmount = selectQAmount.value.toString().toFloatOrNull()?.toInt() ?: 10
         val quizTimer = selectTimer.value.toString().toFloatOrNull()?.toInt() ?: 60
 
-        val randomQuiz = Quiz(
-            11497110100111109, // word "random" to int number
-            "Misc",
-            chosenCategories,
-            chosenLevel,
-            QuizRepository.pickQuestions(chosenLevel, chosenCategories, quizAmount),
-            quizTimer
-        )
+        val randomQuizId =
+            repository.createRandomQuiz(chosenLevel, chosenCategories, quizAmount, quizTimer)
 
-        intent.putExtra("quiz", Json.encodeToString(randomQuiz))
+        intent.putExtra("quizId", randomQuizId)
         intent.putExtra("isRandom", true)
         startActivity(intent)
     }
 
     private fun updateAmountSpinner() {
-        questionsLimit = QuizRepository.questionsList.filter { q ->
-            q.level_id <= chosenLevel.id && chosenCategories.map { it.id }.contains(q.category_id)
+        questionsLimit = repository.getQuestions().filter { q ->
+            q.levelId <= chosenLevel.levelId && chosenCategories.map { it.categoryId }
+                .contains(q.categoryId)
         }.size
 
         if (questionsLimit > 0) {

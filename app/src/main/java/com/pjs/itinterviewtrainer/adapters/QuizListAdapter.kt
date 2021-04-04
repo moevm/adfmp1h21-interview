@@ -6,13 +6,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pjs.itinterviewtrainer.R
-import com.pjs.itinterviewtrainer.data.Quiz
-import kotlinx.android.synthetic.main.quiz_item.view.*
+import com.pjs.itinterviewtrainer.data.entities.QuizWithQuestions
 
-class QuizListAdapter(var dataSet: List<Quiz>, private val onItemClickListener: OnQuizClickListener) :
-        RecyclerView.Adapter<QuizListAdapter.ViewHolder>() {
+class QuizListAdapter(
+    var dataSet: List<QuizWithQuestions>,
+    private val onItemClickListener: OnQuizClickListener
+) :
+    RecyclerView.Adapter<QuizListAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View, private val itemClickListener: OnQuizClickListener) : RecyclerView.ViewHolder(view), View.OnClickListener {
+    class ViewHolder(view: View, private val itemClickListener: OnQuizClickListener) :
+        RecyclerView.ViewHolder(view), View.OnClickListener {
         val titleView: TextView = view.findViewById(R.id.titleView)
         val questionsAmountView: TextView = view.findViewById(R.id.questionsAmountView)
         val passedTimeView: TextView = view.findViewById(R.id.timeView)
@@ -30,7 +33,7 @@ class QuizListAdapter(var dataSet: List<Quiz>, private val onItemClickListener: 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.quiz_item, viewGroup, false)
+            .inflate(R.layout.quiz_item, viewGroup, false)
 
         return ViewHolder(view, onItemClickListener)
     }
@@ -38,9 +41,9 @@ class QuizListAdapter(var dataSet: List<Quiz>, private val onItemClickListener: 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val data = dataSet[position]
-        viewHolder.titleView.text = data.name
-        viewHolder.questionsAmountView.text = "${data.quiestions.size} questions"
-        viewHolder.passedTimeView.text = "${data.minutes} min" // add real test time
+        viewHolder.titleView.text = data.quiz.quizName
+        viewHolder.questionsAmountView.text = "${data.questions.size} questions"
+        viewHolder.passedTimeView.text = "${data.quiz.quizTime} min" // add real test time
     }
 
     // Return the size of your dataset (invoked by the layout manager)
