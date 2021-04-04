@@ -1,6 +1,6 @@
 name: Android Unit Tests
 
-on: [ push, pull_request, workflow_dispatch]
+on: [ push, workflow_dispatch]
 
 jobs:
   run-tests:
@@ -17,9 +17,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Run unit tests
-      uses: reactivecircus/android-emulator-runner@v2
+      uses: malinskiy/action-android/emulator-run-cmd@release/0.1.1
       with:
-          api-level: 28
-          target: default
-          arch: x86_64
-          script: ./gradlew test connectedAndroidTest
+          api: 28
+          tag: default
+          abi: x86_64
+          cmd: ./gradlew test connectedAndroidTest
