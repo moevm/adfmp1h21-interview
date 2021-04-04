@@ -7,13 +7,12 @@ import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.pjs.itinterviewtrainer.data.Question
-import com.pjs.itinterviewtrainer.data.Quiz
+import androidx.lifecycle.lifecycleScope
+import com.pjs.itinterviewtrainer.data.entities.Question
 import com.pjs.itinterviewtrainer.data.QuizRepository
-import com.pjs.itinterviewtrainer.data.QuizResults
+import com.pjs.itinterviewtrainer.data.entities.QuizResults
+import com.pjs.itinterviewtrainer.data.entities.QuizWithQuestions
 import kotlinx.android.synthetic.main.activity_quiz.*
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
 
 enum class SubmitState {
     SUBMIT,
@@ -21,14 +20,15 @@ enum class SubmitState {
 }
 
 class QuizActivity : AppCompatActivity() {
+    private lateinit var repository: QuizRepository
     private var isRandomQuiz = false
     private var isCompleted = false
     private var quizTimer = 60
     private var currentQuestionNumber = 0
     private val btnAnswersMap = mapOf(R.id.answer_a to "a", R.id.answer_b to "b", R.id.answer_c to "c", R.id.answer_d to "d")
     private var submitState: SubmitState = SubmitState.SUBMIT
-    private var quizResults: QuizResults = QuizResults(id=QuizRepository.statisticsList.size.toLong())
-    private lateinit var quiz: Quiz
+    private lateinit var quizResults: QuizResults
+    private lateinit var currentQuiz: QuizWithQuestions
     private lateinit var currentQuestion: Question
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,14 +36,19 @@ class QuizActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_quiz)
 
+        repository = QuizRepository(applicationContext)
         with(intent) {
-            quiz = Json.decodeFromString(getStringExtra("quiz")!!)
-            quizTimer = getStringExtra("quizTimer")?.toInt() ?: 60
+            val quizId = getLongExtra("quizId", -1)
+            if(quizId == (-1).toLong()){
+                onBackPressed()
+            }
+            currentQuiz = repository.getQuizById(quizId)
+            quizTimer = currentQuiz.quiz.quizTime
             isRandomQuiz = getBooleanExtra("isRandom", false)
         }
 
-        quizResults.quiz_id = quiz.id
-        val title = "${quiz.categories.joinToString { it.name }}: ${quiz.name}"
+        quizResults = QuizResults(repository.getResults().size.toLong() + 1, currentQuiz.quiz.quizId, currentQuiz.quiz.quizName)
+        val title = "${currentQuiz.questions.map {it.categoryId}.toSet().map{ repository.getCategoryById(it) }.joinToString { it.categoryName }}: ${currentQuiz.quiz.quizName}"
 
         quizResults.quizTitle = title
         quizTitle.text = title
@@ -79,11 +84,11 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun setupNextQuestion() {
-        if (currentQuestionNumber >= quiz.quiestions.size) {
+        if (currentQuestionNumber >= currentQuiz.questions.size) {
             isCompleted = true
             AlertDialog.Builder(this)
                     .setTitle("Quiz completed")
-                    .setMessage("Result: ${quizResults.correct}/${quiz.quiestions.size} correct answers")
+                    .setMessage("Result: ${quizResults.correct}/${currentQuiz.questions.size} correct answers")
                     .setPositiveButton("Ok") { _, _ ->
                         saveResults()
                         onBackPressed()
@@ -94,13 +99,13 @@ class QuizActivity : AppCompatActivity() {
         }
         resetViewColors()
         currentQuestionNumber += 1
-        currentQuestion = quiz.quiestions[currentQuestionNumber - 1]
-        questionNumber.text = "Question ${currentQuestionNumber}/${quiz.quiestions.size}"
-        questionText.text = currentQuestion.question_text
+        currentQuestion = currentQuiz.questions[currentQuestionNumber - 1]
+        questionNumber.text = "Question ${currentQuestionNumber}/${currentQuiz.questions.size}"
+        questionText.text = currentQuestion.questionText
         answers.clearCheck()
-        if (currentQuestion.code_pic != null) {
+        if (currentQuestion.codePic != null) {
             imageContainer.visibility = View.VISIBLE
-            question_pic.setImageUrl(currentQuestion.code_pic, VolleyWebService.imageLoader)
+            question_pic.setImageUrl(currentQuestion.codePic, VolleyWebService.imageLoader)
         } else {
             imageContainer.visibility = View.GONE
         }
@@ -134,7 +139,7 @@ class QuizActivity : AppCompatActivity() {
             else -> {
                 val answer = btnAnswersMap[btnId]
                 val checkedBtn = findViewById<RadioButton>(btnId)
-                if (answer == currentQuestion.correct_answer) {
+                if (answer == currentQuestion.correctAnswer) {
                     quizResults.correct += 1
                     checkedBtn.setTextColor(resources.getColor(R.color.quiz_btn_correct_color, theme))
                     checkedBtn.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_correct_color)
@@ -144,7 +149,7 @@ class QuizActivity : AppCompatActivity() {
                     checkedBtn.setTextColor(resources.getColor(R.color.quiz_btn_wrong_color, theme))
                     checkedBtn.buttonTintList = ContextCompat.getColorStateList(this, R.color.quiz_btn_wrong_color)
 
-                    val correctBtnId = btnAnswersMap.entries.associate { (k, v) -> v to k }[currentQuestion.correct_answer]
+                    val correctBtnId = btnAnswersMap.entries.associate { (k, v) -> v to k }[currentQuestion.correctAnswer]
                             ?: -1
                     findViewById<RadioButton>(correctBtnId)?.also {
                         it.setTextColor(resources.getColor(R.color.quiz_btn_correct_color, theme))
@@ -158,7 +163,7 @@ class QuizActivity : AppCompatActivity() {
 
     private fun saveResults() {
         quizResults.passedTimeInSeconds = 60 * 60 // 60 minutes
-        QuizRepository.statisticsList.add(quizResults)
+        repository.getDb().resultsDao().insertAll(quizResults)
     }
 
     override fun onBackPressed() {

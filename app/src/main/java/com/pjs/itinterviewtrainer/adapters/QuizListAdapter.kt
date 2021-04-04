@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pjs.itinterviewtrainer.R
-import com.pjs.itinterviewtrainer.data.Quiz
+import com.pjs.itinterviewtrainer.data.entities.Quiz
+import com.pjs.itinterviewtrainer.data.entities.QuizWithQuestions
 import kotlinx.android.synthetic.main.quiz_item.view.*
 
-class QuizListAdapter(var dataSet: List<Quiz>, private val onItemClickListener: OnQuizClickListener) :
+class QuizListAdapter(var dataSet: List<QuizWithQuestions>, private val onItemClickListener: OnQuizClickListener) :
         RecyclerView.Adapter<QuizListAdapter.ViewHolder>() {
 
     class ViewHolder(view: View, private val itemClickListener: OnQuizClickListener) : RecyclerView.ViewHolder(view), View.OnClickListener {
@@ -38,8 +39,8 @@ class QuizListAdapter(var dataSet: List<Quiz>, private val onItemClickListener: 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val data = dataSet[position]
-        viewHolder.titleView.text = data.name
-        viewHolder.questionsAmountView.text = "${data.quiestions.size} questions"
+        viewHolder.titleView.text = data.quiz.quizName
+        viewHolder.questionsAmountView.text = "${data.questions.size} questions"
         viewHolder.passedTimeView.text = "60 min" // add real test time
     }
 

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pjs.itinterviewtrainer.R
-import com.pjs.itinterviewtrainer.data.QuizResults
+import com.pjs.itinterviewtrainer.data.entities.QuizResults
 
 class StatisticsListAdapter(var dataSet: List<QuizResults>, private val onItemClickListener: OnItemClickListener) :
         RecyclerView.Adapter<StatisticsListAdapter.ViewHolder>() {

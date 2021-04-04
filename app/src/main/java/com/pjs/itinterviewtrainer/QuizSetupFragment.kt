@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.pjs.itinterviewtrainer.data.QuestionLevel
-import com.pjs.itinterviewtrainer.data.Quiz
+import com.pjs.itinterviewtrainer.data.entities.QuestionLevel
+import com.pjs.itinterviewtrainer.data.entities.Quiz
 import com.pjs.itinterviewtrainer.data.QuizRepository
+import com.pjs.itinterviewtrainer.data.entities.QuestionCategory
 import kotlinx.android.synthetic.main.fragment_setup_quiz.*
 import kotlinx.android.synthetic.main.fragment_setup_quiz.view.*
 import kotlinx.serialization.encodeToString
@@ -28,16 +28,22 @@ class QuizSetupFragment : Fragment() {
     }
 
     private lateinit var checkedCategories: BooleanArray
-    private lateinit var levelsArray: Array<QuestionLevel>
     private var checkedLevelPosition: Int = 1
     private var questionsAmount = 10
+    private lateinit var repository: QuizRepository
+
+    private lateinit var levelsArray: Array<QuestionLevel>
+    private lateinit var categoriesArray: Array<QuestionCategory>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_setup_quiz, container, false)
 
-        checkedCategories = BooleanArray(QuizRepository.categoriesList.size) { false }
-        levelsArray = QuizRepository.levelsList.toTypedArray()
+        repository = QuizRepository(requireContext())
+        levelsArray = repository.getLevels().toTypedArray()
+        categoriesArray = repository.getCategories().toTypedArray()
+
+        checkedCategories = BooleanArray(repository.getCategories().size) { false }
         checkedLevelPosition = levelsArray.size / 2
 
         rootView.selectLevel.setText(levelsArray[checkedLevelPosition].levelName)
@@ -73,11 +79,11 @@ class QuizSetupFragment : Fragment() {
 
                 .setPositiveButton("OK") { _, _ ->
                     checkedCategories = newCheckedCategories
-                    val chosenCategories = QuizRepository.categoriesList.zip(checkedCategories.toList()).filter { it.second }.map { it.first.name }
+                    val chosenCategories = categoriesArray.zip(checkedCategories.toList()).filter { it.second }.map { it.first.categoryName }
                     selectCategories.setText(chosenCategories.joinToString(separator = ","))
                 }
                 .setMultiChoiceItems(
-                        QuizRepository.categoriesList.map { it.name }.toTypedArray(),
+                        categoriesArray.map { it.categoryName }.toTypedArray(),
                         newCheckedCategories
                 ) { _, which, checked ->
                     newCheckedCategories[which] = checked
@@ -107,7 +113,7 @@ class QuizSetupFragment : Fragment() {
 
     private fun startTest() {
         val intent = Intent(activity, QuizActivity::class.java)
-        val chosenCategories = QuizRepository.categoriesList.zip(checkedCategories.toList()).filter { it.second }.map { it.first }
+        val chosenCategories = categoriesArray.zip(checkedCategories.toList()).filter { it.second }.map { it.first }
 
         if(chosenCategories.isEmpty()){
             AlertDialog.Builder(requireContext())
@@ -122,17 +128,9 @@ class QuizSetupFragment : Fragment() {
         val quizAmount = selectQAmount.text.toString().toIntOrNull() ?: 10
         val level = levelsArray[checkedLevelPosition]
 
-        val randomQuiz = Quiz(
-            11497110100111109, // word "random" to int number
-            "Misc",
-            chosenCategories,
-            level,
-            QuizRepository.pickQuestions(level, chosenCategories, quizAmount)
-        )
+        val randomQuizId = repository.createRandomQuiz(level, chosenCategories, quizAmount)
 
-        val timer = 60
-
-        intent.putExtra("quiz", Json.encodeToString(randomQuiz))
+        intent.putExtra("quizId", randomQuizId)
         intent.putExtra("isRandom", true)
         startActivity(intent)
     }

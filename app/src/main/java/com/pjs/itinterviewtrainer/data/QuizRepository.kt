@@ -1,57 +1,84 @@
 package com.pjs.itinterviewtrainer.data
 
+import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.pjs.itinterviewtrainer.data.entities.*
 import java.io.InputStream
-import kotlin.math.min
 
-object QuizRepository {
-    var categoriesList: List<QuestionCategory> =
-        listOf("Python", "C++", "JavaScript").mapIndexed { i, c -> QuestionCategory(i + 1, c) }
-    var levelsList: List<QuestionLevel> =
-        listOf("Easy", "Medium", "Hard").mapIndexed { i, d -> QuestionLevel(i + 1, d) }
-    var statisticsList: MutableList<QuizResults> = mutableListOf()
+class QuizRepository(context: Context, inMemory: Boolean = false) {
+    private val db = QuizDatabase.getInstance(context, inMemory)!!
 
-    var questionsList: List<Question> = listOf()
-    var quizList: List<Quiz> = listOf()
+    fun getDb() = db
 
-    fun loadQuestions(stream: InputStream): List<Question> {
+    fun getResults() = db.resultsDao().getAll()
+
+    fun getCategories() = db.categoryDao().getAll()
+
+    fun getLevels() = db.levelDao().getAll()
+
+    fun getQuestions() = db.questionDao().getAll()
+
+    fun getCategoryLevelQuestions(levelId: Long, categoryId: Long) = db.questionDao()
+        .getQuestionByCategoryAndLevel(levels = listOf(levelId), categories = listOf(categoryId))
+
+    fun getQuizes() = db.quizDao().getAll()
+
+    fun getQuizById(id: Long) = db.quizDao().getById(id)
+
+    fun getCategoryById(id: Long) = db.categoryDao().getById(id)
+
+    fun getLevelById(id: Long) = db.levelDao().getById(id)
+
+    fun getLevelByName(name: String): QuestionLevel = db.levelDao().getByName(name)
+
+    fun getCategoryByName(name: String) = db.categoryDao().getByName(name)
+
+    fun loadQuestions(stream: InputStream) {
         val jsonFileString = stream.bufferedReader().readText()
-        val listQuestionType = object : TypeToken<List<Question>>() {}.type
-        var questions: List<Question> =  Gson().fromJson(jsonFileString, listQuestionType)
-        questions.forEachIndexed { idx, person -> person.id = idx + 1 }
-        this.questionsList = questions
-        return this.questionsList
+        val listQuestionType = object : TypeToken<List<GsonQuestion>>() {}.type
+        val loadedQuestions: List<GsonQuestion> = Gson().fromJson(jsonFileString, listQuestionType)
+        val questions = loadedQuestions.mapIndexed { idx, q ->
+            Question(
+                idx.toLong() + 1,
+                q.level_id,
+                q.category_id,
+                q.code_pic,
+                q.code_text,
+                q.answers,
+                q.correct_answer,
+                q.question_text
+            )
+        }
+        db.questionDao().insertAll(*questions.toTypedArray())
     }
 
-    fun createBasicsQuiz(categoryId: Int): Quiz {
-        val categories =
-            listOf(categoriesList.find { c -> c.id == categoryId } ?: categoriesList.first())
+    fun createBasicsQuiz(categoryId: Long) {
+        val basicQuestions = getCategoryLevelQuestions(1, categoryId)
 
-        val basicQuestions = questionsList.filter { q ->
-                categories.map { it.id }.contains(q.category_id) && q.level_id == levelsList.first().id
-            }
-
-        val (picQuestions, noPicQuestions) = basicQuestions.partition { it.code_pic != null }
+        val (picQuestions, noPicQuestions) = basicQuestions.partition { it.codePic != null }
 
         val questions = picQuestions.take(5).toMutableList()
         questions.addAll(noPicQuestions.take(10 - questions.size))
 
-        return Quiz(
-            0,
-            "Basics",
-            categories,
-            levelsList.first(),
-            questions.shuffled()
-        )
+        val quiz = Quiz(getQuizes().size.toLong() + 1, "Basics", 60)
+        db.quizDao().insertAll(quiz)
+        db.quizDao().insertAllQuizQuestionRef(*questions.map { QuizQuestionCrossRef(quiz.quizId, it.questionId) }.toTypedArray())
     }
 
-    fun pickQuestions(
+    fun createRandomQuiz(
         level: QuestionLevel,
         categoriesList: Collection<QuestionCategory>,
         amount: Int
-    ): List<Question> {
-        val questions = questionsList.shuffled().toList().filter { q -> categoriesList.map { it.id }.contains(q.category_id) && q.level_id <= level.id}
-        return questions.take(min(amount, questions.size))
+    ): Long {
+        val questions = getQuestions().shuffled().toList().filter { q ->
+            categoriesList.map { it.categoryId }
+                .contains(q.categoryId) && q.levelId <= level.levelId
+        }.take(amount)
+
+        val quiz = Quiz(getQuizes().size.toLong() + 1, "Basics", 60)
+        db.quizDao().insertAll(quiz)
+        db.quizDao().insertAllQuizQuestionRef(*questions.map { QuizQuestionCrossRef(quiz.quizId, it.questionId) }.toTypedArray())
+        return quiz.quizId
     }
 }

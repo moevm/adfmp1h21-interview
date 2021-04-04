@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pjs.itinterviewtrainer.R
-import com.pjs.itinterviewtrainer.data.QuestionCategory
+import com.pjs.itinterviewtrainer.data.entities.QuestionCategory
 
 class CategoryListAdapter(var dataSet: List<QuestionCategory>, private val onItemClickListener: OnItemClickListener) :
         RecyclerView.Adapter<CategoryListAdapter.ViewHolder>() {
@@ -34,7 +34,7 @@ class CategoryListAdapter(var dataSet: List<QuestionCategory>, private val onIte
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.textView.text = dataSet[position].name
+        viewHolder.textView.text = dataSet[position].categoryName
     }
 
     // Return the size of your dataset (invoked by the layout manager)
