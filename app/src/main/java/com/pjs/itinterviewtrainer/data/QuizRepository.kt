@@ -6,8 +6,8 @@ import com.google.gson.reflect.TypeToken
 import com.pjs.itinterviewtrainer.data.entities.*
 import java.io.InputStream
 
-class QuizRepository(context: Context, inMemory: Boolean = false) {
-    private val db = QuizDatabase.getInstance(context, inMemory)!!
+class QuizRepository(context: Context, inMemory: Boolean = false, recreate: Boolean = false) {
+    private val db = QuizDatabase.getInstance(context, inMemory, recreate)!!
 
     fun getDb() = db
 

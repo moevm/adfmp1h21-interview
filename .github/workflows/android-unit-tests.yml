@@ -17,4 +17,10 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Run unit tests
-      run: ./gradlew test
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+          api-level: 28
+          target: default
+          arch: x86
+          profile: Pixel XL
+          script: ./gradlew test connectedAndroidTest
