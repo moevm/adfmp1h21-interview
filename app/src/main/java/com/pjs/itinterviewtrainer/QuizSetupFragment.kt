@@ -139,6 +139,7 @@ class QuizSetupFragment : Fragment() {
         }
 
         val quizAmount = selectQAmount.value.toString().toFloatOrNull()?.toInt() ?: 10
+        val quizTimer = selectTimer.value.toString().toFloatOrNull()?.toInt() ?: 60
 
         val randomQuiz = Quiz(
             11497110100111109, // word "random" to int number
@@ -146,7 +147,7 @@ class QuizSetupFragment : Fragment() {
             chosenCategories,
             chosenLevel,
             QuizRepository.pickQuestions(chosenLevel, chosenCategories, quizAmount),
-            (quizAmount * 1.5).toInt()
+            quizTimer
         )
 
         intent.putExtra("quiz", Json.encodeToString(randomQuiz))

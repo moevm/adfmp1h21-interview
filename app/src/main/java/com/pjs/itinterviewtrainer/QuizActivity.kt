@@ -43,6 +43,7 @@ class QuizActivity : AppCompatActivity() {
             quiz = Json.decodeFromString(getStringExtra("quiz")!!)
             isRandomQuiz = getBooleanExtra("isRandom", false)
         }
+
         quizTime = quiz.minutes
         quizResults.quiz_id = quiz.id
         val title = "${quiz.categories.joinToString { it.name }}: ${quiz.name}"
