@@ -17,9 +17,10 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Run unit tests
-      uses: malinskiy/action-android/emulator-run-cmd@release/0.1.1
+      uses: reactivecircus/android-emulator-runner@v2
       with:
-          api: 28
-          tag: default
-          abi: x86_64
-          cmd: ./gradlew test connectedAndroidTest
+        api-level: 28
+        target: default
+        arch: x86_64
+        profile: pixel
+        script: ./gradlew connectedCheck --stacktrace
