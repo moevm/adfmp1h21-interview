@@ -85,6 +85,7 @@ class OnDeviceUnitTests {
             QuestionLevel(1, "fake"),
             listOf(QuestionCategory(1, "a")),
             6,
+            60
         )
         assert(quizRepository.getQuizes().isNotEmpty())
         assertEquals(2, quizRepository.getQuizById(quizId).questions.size)
@@ -97,6 +98,7 @@ class OnDeviceUnitTests {
             QuestionLevel(2, "fake"),
             listOf(QuestionCategory(1, "a"), QuestionCategory(2, "a")),
             8,
+            60
         )
         assert(quizRepository.getQuizes().isNotEmpty())
         assertEquals(8, quizRepository.getQuizById(quizId).questions.size)
@@ -109,6 +111,7 @@ class OnDeviceUnitTests {
             QuestionLevel(3, "fake"),
             listOf(QuestionCategory(1, "a"), QuestionCategory(2, "a"), QuestionCategory(3, "a")),
             16,
+            60
         )
         assert(quizRepository.getQuizes().isNotEmpty())
         assertEquals(16, quizRepository.getQuizById(quizId).questions.size)
