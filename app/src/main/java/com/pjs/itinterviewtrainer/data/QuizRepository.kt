@@ -53,22 +53,29 @@ class QuizRepository(context: Context, inMemory: Boolean = false, recreate: Bool
         db.questionDao().insertAll(*questions.toTypedArray())
     }
 
-    fun createBasicsQuiz(categoryId: Long) {
-        val basicQuestions = getCategoryLevelQuestions(1, categoryId)
+    fun createQuiz(levelId: Long, categoryId: Long, amount: Int, title: String): Long {
+        var pickedLevelId = levelId
+        var size = 0
+        val questions = mutableListOf<Question>()
+        while (size <= amount && pickedLevelId > 0){
+            val basicQuestions = getCategoryLevelQuestions(pickedLevelId, categoryId)
+            val (picQuestions, noPicQuestions) = basicQuestions.partition { it.codePic != null }
+            questions.addAll(picQuestions.take(amount).toMutableList())
+            questions.addAll(noPicQuestions.take(amount - questions.size))
+            pickedLevelId -= 1
+            size += questions.size
+        }
 
-        val (picQuestions, noPicQuestions) = basicQuestions.partition { it.codePic != null }
 
-        val questions = picQuestions.take(5).toMutableList()
-        questions.addAll(noPicQuestions.take(10 - questions.size))
-
-        val quiz = Quiz(getQuizes().size.toLong() + 1, "Basics", 60)
+        val quiz = Quiz(getQuizes().size.toLong() + 1, title, 60)
         db.quizDao().insertAll(quiz)
-        db.quizDao().insertAllQuizQuestionRef(*questions.map {
+        db.quizDao().insertAllQuizQuestionRef(*questions.shuffled().map {
             QuizQuestionCrossRef(
                 quiz.quizId,
                 it.questionId
             )
         }.toTypedArray())
+        return quiz.quizId
     }
 
     fun createRandomQuiz(

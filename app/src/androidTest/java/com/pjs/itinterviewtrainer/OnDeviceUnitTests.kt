@@ -59,20 +59,41 @@ class OnDeviceUnitTests {
     }
 
     @Test
-    fun testCreateBasicsQuiz1() {
-        quizRepository.createBasicsQuiz(
-            1)
+    fun testCreateQuiz1() {
+        val quizId = quizRepository.createQuiz(
+            1, 1, 2, "test title")
 
         assert(quizRepository.getQuizes().isNotEmpty())
-        assert(quizRepository.getQuizById(1).questions.all { it.categoryId == 1.toLong() })
+        assert(quizRepository.getQuizById(quizId).questions.all { it.categoryId == 1.toLong() })
+        assertEquals(2, quizRepository.getQuizById(quizId).questions.size)
+    }
+
+    @Test
+    fun testCreateQuiz2() {
+        val quizId = quizRepository.createQuiz(
+            2, 2, 4, "test title")
+
+        assert(quizRepository.getQuizes().isNotEmpty())
+        assert(quizRepository.getQuizById(quizId).questions.all { it.categoryId == 2.toLong() && it.levelId <= 2.toLong()})
+        assertEquals(4, quizRepository.getQuizById(quizId).questions.size)
+    }
+
+    @Test
+    fun testCreateQuiz3() {
+        val quizId = quizRepository.createQuiz(
+            3, 3, 6, "test title")
+
+        assert(quizRepository.getQuizes().isNotEmpty())
+        assert(quizRepository.getQuizById(quizId).questions.all { it.categoryId == 3.toLong() && it.levelId <= 3.toLong()})
+        assertEquals(6, quizRepository.getQuizById(quizId).questions.size)
     }
 
     @Test
     fun testCreateTwoBasicsQuizes() {
-        quizRepository.createBasicsQuiz(
-            1)
-        quizRepository.createBasicsQuiz(
-            2)
+        quizRepository.createQuiz(
+            1, 1, 10, "")
+        quizRepository.createQuiz(
+            1, 2, 10, "")
 
         assertEquals(2, quizRepository.getQuizes().size)
         assert(quizRepository.getQuizById(1).questions.all { it.categoryId == 1.toLong() })

@@ -21,6 +21,7 @@ class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
     private lateinit var quizesOfSelectedCategory: List<QuizWithQuestions>
 
     private lateinit var repository: QuizRepository
+    private lateinit var quizesOfSelectedLevel: List<QuizWithQuestions>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,9 +44,10 @@ class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
         quizesOfSelectedCategory = repository.getQuizes()
             .filter { it.questions.all { q -> q.categoryId == category.categoryId } }
 
+        quizesOfSelectedLevel = quizesOfSelectedCategory.filter { quiz -> quiz.questions.map { it.levelId }.maxOrNull() ?: 0 == 1.toLong()}
         // first selected tab - easy
         adapter = QuizListAdapter(
-            quizesOfSelectedCategory.filter { it.questions.all { q -> q.levelId == 1.toLong() } },
+            quizesOfSelectedLevel,
             this
         )
         rootView.quizListView.adapter = adapter
@@ -55,8 +57,8 @@ class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
         rootView.difficultyTabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tab?.let {
-                    adapter.dataSet =
-                        quizesOfSelectedCategory.filter { items -> items.questions.all { q -> q.levelId == it.position.toLong() + 1 } }
+                    quizesOfSelectedLevel = quizesOfSelectedCategory.filter { quiz -> quiz.questions.map { it.levelId }.maxOrNull() ?: 0 == tab.position.toLong() + 1}
+                    adapter.dataSet = quizesOfSelectedLevel
                     adapter.notifyDataSetChanged()
                 }
             }
@@ -73,7 +75,7 @@ class QuizChoiceFragment : Fragment(), QuizListAdapter.OnQuizClickListener {
 
     override fun onItemClick(position: Int) {
         val intent = Intent(activity, QuizActivity::class.java)
-        intent.putExtra("quizId", quizesOfSelectedCategory[position].quiz.quizId)
+        intent.putExtra("quizId", quizesOfSelectedLevel[position].quiz.quizId)
         startActivity(intent)
     }
 

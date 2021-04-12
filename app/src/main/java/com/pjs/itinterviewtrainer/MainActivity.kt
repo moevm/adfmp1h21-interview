@@ -43,9 +43,15 @@ class MainActivity : AppCompatActivity() {
             repository.getDb().levelDao().insertAll(*levels.toTypedArray())
             repository.getDb().categoryDao().insertAll(*categories.toTypedArray())
 
-            repository.createBasicsQuiz(1)
-            repository.createBasicsQuiz(2)
-            repository.createBasicsQuiz(3)
+            repository.createQuiz(1, 1, 10, "Basics")
+            repository.createQuiz(2, 1, 15, "Basics 2")
+            repository.createQuiz(3, 1, 20, "Basics 3")
+            repository.createQuiz(1, 2, 10, "Basics")
+            repository.createQuiz(2, 2, 15, "Basics 2")
+            repository.createQuiz(3, 2, 20, "Basics 3")
+            repository.createQuiz(1, 3, 10, "Basics")
+            repository.createQuiz(2, 3, 15, "Basics 2")
+            repository.createQuiz(3, 3, 20, "Basics 3")
 
             with(sharedPref.edit()) {
                 putBoolean(FIRST_TIME_TAG, false)
